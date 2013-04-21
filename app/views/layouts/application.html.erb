@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>Alex Rock | Freelance Developer</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	  <script type="text/javascript" src="//use.typekit.net/ycx4epw.js"></script>
+	  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= javascript_include_tag :modernizr %>
+	  
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
+
+	<%= yield %>
+	<%= javascript_include_tag "application" %>
+	</body>
+</html>
