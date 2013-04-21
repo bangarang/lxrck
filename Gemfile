@@ -21,7 +21,6 @@ group :assets do
   gem 'neat'
 
   gem 'batch-rails'
-  gem 'font-awesome-rails'
 end
 
 gem 'jquery-rails'
