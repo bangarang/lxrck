@@ -19,8 +19,6 @@ group :assets do
 
   gem 'bourbon'
   gem 'neat'
-
-  gem 'batch-rails'
 end
 
 gem 'jquery-rails'
