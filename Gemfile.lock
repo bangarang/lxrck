@@ -88,7 +88,7 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     sass (3.2.7)
-    sass-rails (3.2.6)
+    sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
@@ -113,12 +113,12 @@ PLATFORMS
 
 DEPENDENCIES
   bourbon
-  coffee-rails (~> 3.2.1)
+  coffee-rails (= 3.2.2)
   jquery-rails
   modernizr-rails
   neat
   pg (= 0.12.2)
   rails (= 3.2.11)
-  sass-rails (~> 3.2.3)
+  sass-rails (= 3.2.5)
   sqlite3 (= 1.3.5)
   uglifier (>= 1.0.3)
