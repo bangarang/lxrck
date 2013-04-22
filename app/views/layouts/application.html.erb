@@ -15,6 +15,26 @@
 	<body>
 
 	<%= yield %>
+	
+	<script>
+		(function() {
+		  jQuery(function() {
+		    $(".top, .bottom").hover(function() {
+		      return $($(this).data("coupling")).toggle();
+		    });
+		    $(".lxrck").click(function() {
+		      $(".lxrck-box").toggle();
+		      return $(".dots-box").hide();
+		    });
+		    return $(".dots").click(function() {
+		      $(".dots-box").toggle();
+		      return $(".lxrck-box").hide();
+		    });
+		  });
+
+		}).call(this);
+
+	</script>
 	<%= javascript_include_tag "application" %>
 	</body>
 </html>
