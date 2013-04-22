@@ -5,16 +5,16 @@
 @import "grid-settings";
 @import "neat";
 
-@font-face{
-	font-family:Batch;
-	src:url('assets/batch.eot');
-	src:url('assets/batch.eot?#iefix') format('embedded-opentype'),
-		url('assets/batch.woff') format('woff'),
-		url('assets/batch.ttf') format('truetype'),
-		url('assets/batch.svg#batchregular') format('svg');
-	font-weight:normal;
-	font-style:normal;
-}
+@font-face {
+  font-family: "Batch";
+  src: url('/assets/batch-icons-webfont.eot');
+  src: url('/assets/batch-icons-webfont.eot?#iefix') format('eot'), 
+  	   url('/assets/batch-icons-webfont.woff') format('woff'), 
+  	   url('/assets/batch-icons-webfont.ttf') format('truetype'), 
+  	   url('/assets/batch-icons-webfont.svg') format('svg');
+ font-weight: normal;
+ font-style: normal;
+ }
 
 
 html, body {
@@ -105,8 +105,13 @@ div.mainwrapper {
 	}
 }
 
-.batch { font-style: normal; }
-
+.batch { 
+	font-family: "Batch";
+	font-style: normal; 
+}
+.batch:before {
+    content:attr(data-icon);
+}
 
 
 
