@@ -13,10 +13,10 @@ batch_webfont_reference.pdf: batch_webfont_reference-31a23b9015a11f5868afebb69d5
 batch_webfont_reference/index.pdf: batch_webfont_reference-31a23b9015a11f5868afebb69d51ca8a.pdf
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
-application.js: application-bdee88e935bb5bc637a85937ed0c551d.js
-application/index.js: application-bdee88e935bb5bc637a85937ed0c551d.js
-application.css: application-a12253917c063af0965d0813692017b9.css
-application/index.css: application-a12253917c063af0965d0813692017b9.css
+application.js: application-60888f0ddaf0cddc821c9840ca258389.js
+application/index.js: application-60888f0ddaf0cddc821c9840ca258389.js
+application.css: application-e34bf3fc15b6158cf317122e6ac07155.css
+application/index.css: application-e34bf3fc15b6158cf317122e6ac07155.css
 modernizr.js: modernizr-4824d970857ca715b1ede914f929c4b2.js
 modernizr/index.js: modernizr-4824d970857ca715b1ede914f929c4b2.js
 jquery.min.map: jquery.min-6c267bfd2b3f36e6edccb2e584934c1c.map
