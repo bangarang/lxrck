@@ -10,7 +10,7 @@ jQuery ->
 		$(".dots-box").toggle()
 		$(".lxrck-box").hide()
 
-	$(".title").hover (->
+	$(".title a").hover (->
 	  	$("body").addClass "hover"
 	), ->
 	  	$("body").removeClass "hover"
