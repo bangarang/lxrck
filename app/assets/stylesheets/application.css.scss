@@ -90,7 +90,9 @@ div.mainwrapper {
 	margin:0 15px;
 }
 
-
+.dots-box {
+	text-align: right;
+}
 .bottom { 
 	padding: 0 5px;
 	display:none; 
@@ -117,5 +119,5 @@ div.mainwrapper {
 
 
 /* Don't show shadows when selecting text */
-::-moz-selection { background: #5af; color: #fff; text-shadow: none; }
-::selection { background: #5af; color: #fff; text-shadow: none; }
+::-moz-selection { background: #f27490; color: #fff; text-shadow: none; }
+::selection { background: #f27490; color: #fff; text-shadow: none; }
