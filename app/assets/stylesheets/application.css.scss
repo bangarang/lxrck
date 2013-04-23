@@ -47,11 +47,13 @@ a:hover {
 }
 
 header {
-	padding:0 30px;
-	font-weight: bold;
+	padding:0 15px;
 	width: 100%;
 	position: absolute;
 	z-index: 2;
+	.top {
+		padding: 0 15px;
+	}
 	.lxrck, .dots {
 		cursor:pointer;
 		@include transition (all 0.2s ease-in-out);
@@ -76,6 +78,7 @@ header {
 	.dots { 
 		text-align:right;
 		font-size: 25px;
+		font-weight: bold;
 		line-height: 50px;
 		float: right;
 		padding-left:50px;
@@ -112,27 +115,21 @@ div.mainwrapper {
 	margin:0 15px;
 }
 
-.dots-box {
-	text-align: right;
-}
 .bottom { 
-	padding: 0 15px;
-	display:none; 
-	position: absolute;
-	top: 50px;
-	width:100%;
-	z-index: 1;
 	a {
 		border-color: white;
 	}
-	div.inside {
-		background:#22262E;
+	.dots-box, .lxrck-box {
+		display: none;
 		padding: 15px;
+		background:#22262E;
 		color:white;
-		overflow:hidden;
 	}
-
+	.dots-box {
+		text-align: right;
+	}
 }
+
 
 a#twitter:hover {
   	color: #1DADEA;
@@ -151,6 +148,7 @@ a#rails:hover {
   	color: #981A21;
 }
 
+
 .batch { 
 	font-family: "Batch";
 	font-style: normal; 
@@ -159,9 +157,21 @@ a#rails:hover {
     content:attr(data-icon);
 }
 
+.bottom:before,{
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
 
+.bottom:before {
+    clear: both;
+}
 
 
 /* Don't show shadows when selecting text */
 ::-moz-selection { background: #f27490; color: #fff; text-shadow: none; }
 ::selection { background: #f27490; color: #fff; text-shadow: none; }
+
+
+@media screen and (max-width: 320px) {
+  header { padding:0; }
+}
