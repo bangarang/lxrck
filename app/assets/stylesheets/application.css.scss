@@ -135,14 +135,20 @@ div.mainwrapper {
 }
 
 a#twitter:hover {
-  color: #1DADEA;
+  	color: #1DADEA;
 }
 
 a#strava:hover {
-  color: rgb(211,46,0);
+  	color: #FC4C02;
 }
 a#instagram:hover {
-	color: #3B5998
+	color: #3B5998;
+}
+a#heroku:hover {
+	color: #6762A6;
+}
+a#rails:hover {
+  	color: #981A21;
 }
 
 .batch { 
