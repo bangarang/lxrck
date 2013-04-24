@@ -1,6 +1,0 @@
-Message.create!(content: "Matz")
-Message.create!(content: "DHH")
-Message.create!(content: "Jose Valim")
-Message.create!(content: "Avdi Grimm")
-Message.create!(content: "Steve Klabnik")
-Message.create!(content: "Aaron Patterson")
