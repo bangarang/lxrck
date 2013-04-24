@@ -1,9 +1,5 @@
 app = angular.module("Sender", ["ngResource"])
 
-$(document).on('ready page:load', ->
-  angular.bootstrap(document, ['Sender'])
-)
-
 app.factory "Message", ["$resource", ($resource) ->
   $resource("/messages/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
