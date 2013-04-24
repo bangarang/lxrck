@@ -282,7 +282,10 @@ button:hover {
 
 @media screen and (max-width: 320px) {
   header { 
-  	.top, .bottom {
+  	.top {
+  		padding: 0 15px;
+  	}
+  	.bottom {
   		padding: 0;
   	}
   }
