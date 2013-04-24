@@ -47,12 +47,11 @@ a:hover {
 }
 
 header {
-	padding:0 15px;
 	width: 100%;
 	position: absolute;
 	z-index: 2;
 	.top {
-		padding: 0 15px;
+		padding: 0 30px;
 	}
 	.lxrck, .dots {
 		cursor:pointer;
@@ -82,6 +81,24 @@ header {
 		line-height: 50px;
 		float: right;
 		padding-left:50px;
+	}
+	.bottom { 
+		display: none;
+		padding: 0 15px;
+		position: absolute;
+		width: 100%;
+		a {
+			border-color: white;
+		}
+		.dots-box, .lxrck-box {
+			display: none;
+			background:#22262E;
+			color:white;
+			padding:15px;
+		}
+		.dots-box {
+			text-align: right;
+		}
 	}
 }
 
@@ -115,21 +132,6 @@ div.mainwrapper {
 	margin:0 15px;
 }
 
-.bottom { 
-	a {
-		border-color: white;
-	}
-	.dots-box, .lxrck-box {
-		display: none;
-		padding: 15px;
-		background:#22262E;
-		color:white;
-	}
-	.dots-box {
-		text-align: right;
-	}
-}
-
 
 a#twitter:hover {
   	color: #1DADEA;
@@ -157,21 +159,131 @@ a#rails:hover {
     content:attr(data-icon);
 }
 
-.bottom:before,{
+.top:after {
     content: " "; /* 1 */
     display: table; /* 2 */
 }
 
-.bottom:before {
+.top:after {
     clear: both;
 }
 
+.container {
+	position:relative;
+	top: 50px;
+	max-width:100%;
+	width: 1000px;
+	margin:auto;
+	padding:15px;
+	h2 {
+		text-align: center;
+		text-decoration: underline;
+	}
+}
 
 /* Don't show shadows when selecting text */
 ::-moz-selection { background: #f27490; color: #fff; text-shadow: none; }
 ::selection { background: #f27490; color: #fff; text-shadow: none; }
 
 
+form {
+	margin: auto;
+	text-align: left;
+}
+
+
+textarea {
+	outline: none;
+	resize: none;
+	width: 100%;
+	max-width: 100%;
+	border: none;
+	background: transparent;
+	color: #22262E;
+	font-size: 18px;
+}
+
+button {
+	border: none;
+	background: #2D323B;
+	color: white;
+	font-size: 30px;
+	width: 100%;
+	max-width: 100%;
+	cursor: pointer;
+	padding: 10px;
+}
+
+.flip {
+	width: 320px;
+}
+
+.flip button {
+	font-size:15px;
+}
+
+button:hover {
+	background: #f27490;
+	@include transition (all 0.2s ease-in-out);
+}
+
+::-webkit-input-placeholder {
+	color: #f27490;
+	font-size: 18px;
+	font-style: italic;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   	color: #f27490;
+   	font-size: 18px;
+   	font-style: italic;
+   
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   	color: #f27490;
+   	font-size: 18px;
+   	font-style: italic;
+   
+}
+
+:-ms-input-placeholder {  
+   	color: #f27490;
+   	font-size: 18px;
+   	font-style: italic;
+   
+}
+
+.box {
+	background: white;
+	padding: 10px 30px;
+	margin: 15px auto 60px auto;
+	overflow: hidden;
+	position: relative;
+	padding-bottom: 20px;
+	width: 320px;
+	color: #22262E;
+	@include transition (all 0.2s ease-in-out);
+
+}
+.box:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-width: 0 30px 30px 0;
+	border-style: solid;
+	border-color: rgb(29,173,234) rgb(29,173,234) #22262E #22262E;
+	background: #22262E;
+	display: block;
+	width: 0;
+}
+
+
 @media screen and (max-width: 320px) {
-  header { padding:0; }
+  header { 
+  	.top, .bottom {
+  		padding: 0;
+  	}
+  }
 }

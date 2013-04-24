@@ -1,5 +1,8 @@
 Lxrck::Application.routes.draw do
-  get "pages/home"
+  resources :messages
 
-  root :to => 'pages#home'
+
+	root :to => 'pages#home'
+	match 'tellme' => 'pages#tellme'
+
 end

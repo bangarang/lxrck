@@ -20,5 +20,7 @@ group :assets do
 
   gem 'bourbon'
   gem 'neat'
+
+  gem 'angularjs-rails'
 end
 

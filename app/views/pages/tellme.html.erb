@@ -1,0 +1,32 @@
+<style>
+	body {
+		background: #00ADE2;
+		color: white;
+	}
+
+	header .lxrck:hover {
+		color: #22262E;
+	}
+	header .dots:hover {
+		color: #22262E;
+	}
+</style>
+
+<div class="mainwrapper" ng-app="Sender">
+	<div class="main" ng-controller="SendCtrl">
+		<div class="box flip" ng-show="isVisible" style="display: none;">
+			<h2>Thanks!</h2><!-- 
+			<p><i ng-repeat="message in messages | orderBy:'id':true | limitTo:1">
+		      	" {{message.content}} "
+		    </i></p> -->
+		    <form ng-submit="flipMessage()">
+		    	<button type="submit">What else?</button>
+		    </form>
+		</div>
+		<form ng-submit="addMessage()" class="box" ng-show="isInvisible">
+			<h2>Hey Alex,</h2>
+			<textarea ng-model="newMessage.content" placeholder="Type Something Here"></textarea>
+			<button type="submit"><i class="batch" data-icon="&#xf150"></i></button>
+		</form>
+	</div>
+</div>
