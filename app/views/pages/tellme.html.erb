@@ -14,19 +14,30 @@
 
 <div class="mainwrapper" ng-app="Sender">
 	<div class="main" ng-controller="SendCtrl">
-		<div class="box flip" ng-show="isVisible" style="display: none;">
-			<h2>Thanks!</h2><!-- 
-			<p><i ng-repeat="message in messages | orderBy:'id':true | limitTo:1">
-		      	" {{message.content}} "
-		    </i></p> -->
-		    <form ng-submit="flipMessage()">
+		<div class="flip" ng-show="isVisible" style="display: none;">
+			
+			<div class="message" ng-repeat="message in messages | orderBy:'id':true | limitTo:1"> 
+		      	<p>{{message.content}}</p>
+		      	<i>- You</i>
+		    </div>
+
+		    <h2 id="thanks" ng-show="isVisible" style="display: none;">Got it, Thanks!</h2>
+
+		    <form ng-submit="flipMessage()" ng-show="isVisible" style="display: none;">
 		    	<button type="submit">What else?</button>
 		    </form>
+		
 		</div>
+
 		<form ng-submit="addMessage()" class="box" ng-show="isInvisible">
-			<h2>Hey Alex,</h2>
-			<textarea ng-model="newMessage.content" placeholder="Type Something Here"></textarea>
+
+			<div class="message">
+				<textarea ng-model="newMessage.content" placeholder="Type Something Here"></textarea>
+				<i>- You</i>
+			</div>
+
 			<button type="submit"><i class="batch" data-icon="&#xf150"></i></button>
+			
 		</form>
 	</div>
 </div>

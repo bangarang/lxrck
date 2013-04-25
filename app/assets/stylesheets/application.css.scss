@@ -203,29 +203,6 @@ textarea {
 	font-size: 18px;
 }
 
-button {
-	border: none;
-	background: #2D323B;
-	color: white;
-	font-size: 30px;
-	width: 100%;
-	max-width: 100%;
-	cursor: pointer;
-	padding: 10px;
-}
-
-.flip {
-	width: 320px;
-}
-
-.flip button {
-	font-size:15px;
-}
-
-button:hover {
-	background: #f27490;
-	@include transition (all 0.2s ease-in-out);
-}
 
 ::-webkit-input-placeholder {
 	color: #f27490;
@@ -256,7 +233,7 @@ button:hover {
 
 .box {
 	background: white;
-	padding: 10px 30px;
+	padding: 30px;
 	margin: 15px auto 60px auto;
 	overflow: hidden;
 	position: relative;
@@ -264,6 +241,33 @@ button:hover {
 	width: 320px;
 	color: #22262E;
 	@include transition (all 0.2s ease-in-out);
+
+	div.message {
+		i {
+			float: right;
+		}
+		padding-bottom: 20px;
+	}
+	div.message:after {
+	    content: " "; /* 1 */
+	    display: table; /* 2 */
+	    clear: both;
+	}
+
+	button {
+		border: none;
+		background: #2D323B;
+		color: white;
+		font-size: 30px;
+		width: 100%;
+		max-width: 100%;
+		cursor: pointer;
+		padding: 10px;
+	}
+	button:hover {
+		background: #f27490;
+		@include transition (all 0.2s ease-in-out);
+	}
 
 }
 .box:before {
@@ -274,6 +278,63 @@ button:hover {
 	border-width: 0 30px 30px 0;
 	border-style: solid;
 	border-color: rgb(29,173,234) rgb(29,173,234) #22262E #22262E;
+	background: #22262E;
+	display: block;
+	width: 0;
+}
+
+.flip {
+	width: 320px;
+	padding: 30px;
+	margin: 15px auto 60px auto;
+	overflow: hidden;
+	position: relative;
+	padding-bottom: 20px;
+	width: 320px;
+	background: #22262E;
+	color: white;
+	text-align: left;
+	@include transition (all 0.2s ease-in-out);
+
+	h2#thanks {
+		text-align: center;
+	}
+	div.message {
+		i {
+			float: right;
+		}
+		padding-bottom: 20px;
+	}
+	div.message:after {
+	    content: " "; /* 1 */
+	    display: table; /* 2 */
+	    clear: both;
+	}
+
+	button {
+		border: none;
+		background: #f27490;
+		color: white;
+		font-size: 15px;
+		width: 100%;
+		max-width: 100%;
+		cursor: pointer;
+		padding: 10px;
+	}
+	button:hover {
+		background: #2D323B;
+		@include transition (all 0.2s ease-in-out);
+	}
+}
+
+.flip:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-width: 0 30px 30px 0;
+	border-style: solid;
+	border-color: rgb(29,173,234) rgb(29,173,234) white white;
 	background: #22262E;
 	display: block;
 	width: 0;
