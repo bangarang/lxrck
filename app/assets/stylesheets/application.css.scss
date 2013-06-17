@@ -218,10 +218,12 @@ a.hire {
 	display: table;
 	margin: auto;
 }
+
 a.hire:hover {
 	color: white;
 	background: #333;
 }
+
 .name {
 	text-align: center;
 }
@@ -231,6 +233,19 @@ a.hire:hover {
 	padding: 10px;
 	font-size: 16px;
 	color: #999;
+}
+
+.touch {
+	body{
+		background: url(/assets/wakeboard.png) no-repeat center center fixed; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	video#background {
+		display:none !important;
+	}
 }
 
 @media screen and (max-width: 768px) {
