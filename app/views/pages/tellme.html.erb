@@ -1,17 +1,4 @@
-<style>
-	body {
-		background: #00ADE2;
-		color: white;
-	}
-
-	header .lxrck:hover, header .lxrck:hover a {
-		color: #22262E;
-	}
-	header .dots:hover {
-		color: #22262E;
-	}
-</style>
-
+<% provide(:body_class, "white tellme") %>
 <div class="mainwrapper" ng-app="Sender">
 	<div class="main" ng-controller="SendCtrl">
 		<div class="flip" ng-show="isVisible" style="display: none;">
@@ -29,14 +16,18 @@
 		
 		</div>
 
-		<form ng-submit="addMessage()" class="box" ng-show="isInvisible">
+		<form name="form" novalidate ng-submit="addMessage()" class="box" ng-show="isInvisible">
 
 			<div class="message">
-				<textarea ng-model="newMessage.content" placeholder="Type Something Here"></textarea>
+				<textarea class="typer" ng-model="newMessage.content" name="content" placeholder="Type Something Here" required></textarea>
 				<i>- You</i>
 			</div>
 
-			<button type="submit"><i class="batch" data-icon="&#xf150"></i></button>
+			<!-- <div ng-show="form.content.$dirty"> -->
+	          <p class="dirty" ng-show="form.content.$dirty && form.content.$error.required">Come on - Tell me something!</p>
+	        <!-- </div> -->
+
+			<button type="submit" ng-disabled="form.$invalid || isUnchanged(newMessage)"><i class="batch" data-icon="&#xf150"></i></button>
 
 		</form>
 	</div>

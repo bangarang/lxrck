@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'jquery-rails'
 gem 'unicorn'
+gem 'font-awesome-rails', "~> 3.1.1.3"
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

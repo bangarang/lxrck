@@ -6,7 +6,9 @@ app.factory "Message", ["$resource", ($resource) ->
 
 @SendCtrl = ["$scope", "Message", ($scope, Message) ->
   $scope.messages = Message.query()
-  
+
+  $scope.master= {}
+
   $scope.isVisible = false
 
   $scope.isInvisible = true
@@ -14,6 +16,9 @@ app.factory "Message", ["$resource", ($resource) ->
   $scope.flipMessage = ->
   	$scope.isVisible = false
   	$scope.isInvisible = true
+
+  $scope.isUnchanged = (user) ->
+  	angular.equals user, $scope.master
 
   $scope.addMessage = ->
     message = Message.save($scope.newMessage)

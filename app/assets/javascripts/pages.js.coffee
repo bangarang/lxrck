@@ -1,33 +1,16 @@
 jQuery ->
 
-	$(".no-touch .lxrck, .lxrck-box").on
-	  mouseenter: ->
-	    $(".bottom").show()
-	    $(".lxrck-box").show()
+	$(".lxrck").click ->
+		$(".lxrck-box").toggleClass("active")
+		$(".dots-box").removeClass("active")
 
-	  mouseleave: ->
-	    $(".bottom").hide()
-	    $(".lxrck-box").hide()
+	$(".dots").click ->
+		$(".dots-box").toggleClass("active")
+		$(".lxrck-box").removeClass("active")
 
-
-	$(".no-touch .dots, .dots-box").on
-	  mouseenter: ->
-	    $(".bottom").show()
-	    $(".dots-box").show()
-
-	  mouseleave: ->
-	    $(".bottom").hide()
-	    $(".dots-box").hide()
-
-	$(".touch .lxrck").click ->
-		$(".lxrck-box").toggle()
-		$(".bottom").show()
-		$(".dots-box").hide()
-
-	$(".touch .dots").click ->
-		$(".dots-box").toggle()
-		$(".bottom").show()
-		$(".lxrck-box").hide()
+	$(".close").click ->
+		$(".dots-box").removeClass("active")
+		$(".lxrck-box").removeClass("active")
 
 	$(".title a").hover (->
 	  	$("body").addClass "hover"
