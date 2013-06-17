@@ -1,34 +1,18 @@
 /*
-* jQuery Background video plugin for jQuery
-* ---
-* Copyright 2011, Victor Coulon (http://victorcoulon.fr)
-* Released under the MIT, BSD, and GPL Licenses.
-* based on jQuery Plugin Boilerplate 1.3
-*/
-/*
-* jQuery Background video plugin for jQuery
-* ---
-* Copyright 2011, Victor Coulon (http://victorcoulon.fr)
-* Released under the MIT, BSD, and GPL Licenses.
-* based on jQuery Plugin Boilerplate 1.3
+* Background Video
 */
 
 (function($) {
 
   $.backgroundVideo = function(el, options) {
     
-    var defaults = {
-
-    }
-    
-    var plugin = this;
-    
+    var defaults = {}
+    var plugin = this;    
     plugin.settings = {}
     
     var init = function() {
       plugin.settings = $.extend({}, defaults, options);
       plugin.el = el;
-      
       buildVideo();
     }
     
