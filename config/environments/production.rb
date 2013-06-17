@@ -66,7 +66,7 @@ Lxrck::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   config.assets.precompile += %w( modernizr.js )
-  config.assets.precompile += ['bgv.js']
-  config.assets.precompile += ['jquery.js']
+  config.assets.precompile += %w( bgv.js )
+  config.assets.precompile += %w( jquery.js )
 
 end
