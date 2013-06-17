@@ -235,19 +235,6 @@ a.hire:hover {
 	color: #999;
 }
 
-.touch {
-	body{
-		background: url(/assets/wakeboard.png) no-repeat center center fixed; 
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-	}
-	video#background {
-		display:none !important;
-	}
-}
-
 @media screen and (max-width: 768px) {
 	.picture, .picture img.me {
 	  width: 100px;
@@ -255,7 +242,20 @@ a.hire:hover {
 	}
 	.picture { position: absolute; top: 15px; left: 15px;}
 	.name { position: absolute; top: 15px; right: 15px; }
+
 	a.hire { padding: 10px 75px; }
+
+	
+		body{
+			background: url(/assets/wakeboard.png) no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+		video#background {
+			display:none !important;
+		}
 }
 
 @media screen and (max-width: 320px) {
