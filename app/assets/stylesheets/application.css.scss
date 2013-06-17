@@ -172,22 +172,22 @@ body, html {
 
 
 .picture {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   box-shadow:inset 0px 0px 19px black;
   -webkit-box-shadow:inset 0px 0px 19px black;
   -moz-box-shadow:inset 0px 0px 19px black;
   margin: auto;
-  border-radius: 3px;
+  border-radius: 50%;
   overflow: hidden;
 }
 
 .picture img.me {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   position: relative;
   z-index: -1;
-  border-radius: 3px;
+  border-radius: 50%;
 }
 
 video#background { 
