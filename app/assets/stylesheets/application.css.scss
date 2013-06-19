@@ -157,7 +157,7 @@ body, html {
   display: table;
   height: 100%;
   width: 100%;
-  @include linear-gradient(to top, rgba(0,0,0,0.9), rgba(00,00,00,0.4));
+  @include linear-gradient(rgba(13,13,13,0.4), rgba(13,13,13,0.6));
   background-color: transparent;
   position: relative;
   z-index: 1;
@@ -228,11 +228,10 @@ a.hire:hover {
 	text-align: center;
 }
 .findme {
-	position: absolute;
-	bottom: 0;
 	padding: 10px;
 	font-size: 16px;
 	color: #999;
+	text-align: center;
 }
 
 @media screen and (max-width: 768px) {
@@ -246,16 +245,24 @@ a.hire:hover {
 	a.hire { padding: 10px 75px; }
 
 	
-		body{
-			background: url(/assets/wakeboard.png) no-repeat center center fixed; 
-			-webkit-background-size: cover;
-			-moz-background-size: cover;
-			-o-background-size: cover;
-			background-size: cover;
-		}
-		video#background {
-			display:none !important;
-		}
+	body{
+		background: url(/assets/wakeboard.png) no-repeat center center fixed; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	video#background {
+		display:none !important;
+	}
+
+	.findme {
+		position: absolute;
+		bottom: 0;
+		margin: auto;
+		display: block;
+		width: 100%;
+	}
 }
 
 @media screen and (max-width: 320px) {
