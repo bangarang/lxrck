@@ -234,6 +234,77 @@ a.hire:hover {
 	text-align: center;
 }
 
+body.sign_in {
+  background: url(http://assets.lxrck.com/blur.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; 
+  display: table;
+  div.sign-in {
+  	display:table-cell;
+  	vertical-align:middle;
+  	
+  	div.innered {
+  		background: rgba(255,255,255,0.8);
+  		width: 300px;
+  		margin: auto;
+  		text-align: center;
+
+  		@include border-top-radius(1px);
+		@include border-bottom-radius(1px);
+
+		@include box-shadow(0 0 5px rgba(0, 0, 0, 0.25));
+
+		input {
+			text-align: center;
+			font-size: 16px;
+			font-family: "proxima-nova-extra-condensed",sans-serif;
+			width: 80%;
+			margin: 5px;
+		}
+
+		h2 {
+			padding: 50px 0 0;
+		}
+		form {
+			padding: 0 0 50px;
+		}
+		div.submit-field input {
+			background: #f27490;
+			padding: 10px;
+			border-bottom: none;
+			border-radius: 2px;
+			display: table;
+			margin: 10px auto 0;
+			border: none;
+			color: white;
+			font-size: 16px;
+			font-family: "proxima-nova-extra-condensed",sans-serif;
+			@include transition (all 0.1s ease-in-out);
+			cursor: pointer;
+		}
+
+		div.submit-field input:hover {
+			background: #333;
+		}
+  	}
+  }
+}
+
+div.info {
+	bottom: 0;
+	position: absolute;
+	right: 0;
+	padding: 5px;
+}
+
+body.in {
+	background: white;
+}
+
+
+
 @media screen and (max-width: 768px) {
 	.picture, .picture img.me {
 	  width: 100px;

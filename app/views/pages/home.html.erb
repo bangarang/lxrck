@@ -13,6 +13,13 @@
       <p class="textbox">I'm a web developer in Omaha, Nebraska.</p>
       <a class="hire" href="mailto:me@alexjrock.com">Available for Hire</a>
       <p class="findme">Find me on <a href="http://twitter.com/lxrck" id="twitter" alt="http://twitter.com/lxrck">Twitter</a>, <a id="strava" href="http://www.strava.com/athletes/1012932">Strava</a> and <a id="instagram" href="http://instagram.com/bangarang"> Instagram</a>.</p>
+      <div class="info">
+      <% if signed_in? %>
+        <%= link_to 'Logout', sign_out_path, :method => :delete %>
+      <% else %>
+        <%= link_to 'Login', sign_in_path %>
+      <% end %>
+      </div>
   </div>
 </div>
 

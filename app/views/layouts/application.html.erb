@@ -20,6 +20,7 @@
 	<body<% if content_for?(:body_class) %> class="<%= yield(:body_class) %>" <% end %>>
 		
 		<%= yield %> 
-	
+
+		<%= javascript_include_tag :application %>
 	</body>
 </html>

@@ -1,10 +1,9 @@
 class PagesController < ApplicationController
+
+  before_filter :authorize, :except => :home
   def home
   end
 
-  def tellme
-  end
-
-  def backgroundvideo
+  def in
   end
 end
