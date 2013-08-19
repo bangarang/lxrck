@@ -1,0 +1,30 @@
+<div class="goldtainer">
+  <p id="notice"><%= notice %></p>
+
+  <article class="post"> 
+    <header>
+      <h2><%= @post.title %> </h2>
+      <aside class="meta">
+        <% if signed_in? %>
+        <p class="meta">
+          <%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Back', posts_path %> | <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+        <% end %>
+        <% if @post.tags %>
+        <p class="tags">
+          	<% for tag in @post.tags %>
+                <%= link_to tag.name, tag %>
+          	<% end %>
+        </p>
+        <% end %>
+      </aside>
+    </header>
+
+    <div class="content">
+      <%= markdown @post.content %>
+    </div>
+  </article>
+
+  <%= javascript_include_tag "prettyprint_init" %>
+  <%= javascript_include_tag "prettify", :async => true %>
+</div>

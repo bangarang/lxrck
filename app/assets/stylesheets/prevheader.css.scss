@@ -1,0 +1,72 @@
+header {
+	width: 100%;
+	position: absolute;
+	z-index: 2;
+	padding: 0 15px;
+	.top {
+		padding: 0 15px;
+		font-size: 25px;
+	}
+	.lxrck, .dots {
+		cursor:pointer;
+		@include transition (all 0.1s ease-in-out);
+		margin: 10px 0;
+
+	}
+	.close {
+		cursor:pointer;
+		@include transition (all 0.1s ease-in-out);
+		color: white;
+		text-align: center;
+		background: #444;
+		max-width: 500px;
+
+		line-height: 50px;
+		border-radius: 2px;
+		margin: auto;
+	}
+	.close:hover{ 
+		background: #f27490;
+	}
+	
+
+	.lxrck:hover, .dots:hover {
+		color: #f27490;
+	}
+
+	.lxrck { 
+		float: left;
+		text-align:left;
+		font-weight: 300;
+		border: none;
+		span.dvlpr {
+			font-weight:900;
+		}
+	}
+
+	.dots { 
+		text-align:right;
+		font-weight: bold;
+		float: right;
+	}
+
+	.dots-box, .lxrck-box {
+		height: 0;
+		background:#22262E;
+		color:white;
+		position: absolute;
+		width:100%;
+		margin-left: -15px;
+		overflow: hidden;
+		padding: 0 15px;
+		text-align: center;
+		@include transition (all 0.1s ease-in-out);
+		a {
+			border-color: white;
+		}
+	}
+	.dots-box.active, .lxrck-box.active {
+		height: auto;
+		padding:15px;
+	}
+}

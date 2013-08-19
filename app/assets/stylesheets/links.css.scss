@@ -1,0 +1,37 @@
+a {
+	font-weight:bold;
+	text-decoration: none;
+	border-bottom: white dotted 1px; 
+}
+
+.home a {
+	color: white;
+}
+
+
+a:hover {
+	@include transition (all 0.1s ease-in-out);
+	color: #f27490;
+}
+
+a#tellme:hover {
+  	color: white;
+  	border-color: white;
+}
+
+a#twitter:hover {
+  	color: #1DADEA;
+}
+
+a#strava:hover {
+  	color: #FC4C02;
+}
+a#instagram:hover {
+	color: #3B5998;
+}
+a#heroku:hover {
+	color: #6762A6;
+}
+a#rails:hover {
+  	color: #981A21;
+}

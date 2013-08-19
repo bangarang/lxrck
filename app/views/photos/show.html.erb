@@ -1,0 +1,19 @@
+<div class="goldtainer">	
+	<p id="notice"><%= notice %></p>
+
+	<h2><%= @photo.name %></h2>
+		<%= image_tag @photo.image.url(:medium) %>
+	</p>
+
+	<p>
+	  <b>Tags:</b>
+	  <%for t in @photo.tags %>
+	  	<%= link_to t.name, t %>
+	  <% end %>
+	</p>
+
+	<% if signed_in? %>
+	<%= link_to 'Edit', edit_photo_path(@photo) %> |
+	<%= link_to 'Back', photos_path %>
+	<% end %>
+</div>

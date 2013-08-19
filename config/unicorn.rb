@@ -1,33 +1,26 @@
-worker_processes 3
-timeout 30
+# https://devcenter.heroku.com/articles/rails-unicorn
+
+worker_processes (ENV['WEB_CONCURRENCY'] || 3).to_i
+timeout (ENV['WEB_TIMEOUT'] || 5).to_i
 preload_app true
- 
+
 before_fork do |server, worker|
-  # Replace with MongoDB or whatever
-  if defined?(ActiveRecord::Base)
+  Signal.trap 'TERM' do
+    puts 'Unicorn master intercepting TERM and sending myself QUIT instead'
+    Process.kill 'QUIT', Process.pid
+  end
+
+  if defined? ActiveRecord::Base
     ActiveRecord::Base.connection.disconnect!
-    Rails.logger.info('Disconnected from ActiveRecord')
   end
- 
-  # If you are using Redis but not Resque, change this
-  if defined?(Resque)
-    Resque.redis.quit
-    Rails.logger.info('Disconnected from Redis')
-  end
- 
-  sleep 1
 end
- 
+
 after_fork do |server, worker|
-  # Replace with MongoDB or whatever
-  if defined?(ActiveRecord::Base)
-    ActiveRecord::Base.establish_connection
-    Rails.logger.info('Connected to ActiveRecord')
+  Signal.trap 'TERM' do
+    puts 'Unicorn worker intercepting TERM and doing nothing. Wait for master to sent QUIT'
   end
- 
-  # If you are using Redis but not Resque, change this
-  if defined?(Resque)
-    Resque.redis = ENV['REDIS_URI']
-    Rails.logger.info('Connected to Redis')
+
+  if defined? ActiveRecord::Base
+    ActiveRecord::Base.establish_connection
   end
 end

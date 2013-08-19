@@ -1,0 +1,23 @@
+<div class="video">
+  <video id="background" preload="auto" loop="loop" autoplay="autoplay" poster="http://assets.lxrck.com/blur.jpg">   
+    <source src="http://video.lxrck.com/reel.mp4" type="video/mp4" />        
+    <source src="http://video.lxrck.com/reel.webm" type="video/webm" />
+    <source src="http://video.lxrck.com/reel.ogv" type="video/ogg" />
+  </video>
+</div>
+
+	<%= javascript_include_tag "bgv" %>
+
+	<script>
+	  $(document).ready(function() {
+	    $.backgroundVideo($('.video'), {
+	      "align": "centerXY",
+	      "width": 1280,
+	      "height": 720
+	    });
+	    $('.navicon').click(function() {
+	      $('.info').toggle();
+	      $(this).toggleClass('icon-ellipsis-horizontal').toggleClass('icon-remove');
+	    });
+	  });
+	</script>

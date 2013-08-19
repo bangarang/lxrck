@@ -1,43 +1,8 @@
-<video id="background" preload="auto" loop="loop" autoplay="autoplay" poster="http://assets.lxrck.com/blur.jpg">   
-  <source src="http://video.lxrck.com/reel.mp4" type="video/mp4" />        
-  <source src="http://video.lxrck.com/reel.webm" type="video/webm" />
-  <source src="http://video.lxrck.com/reel.ogv" type="video/ogg" />
-</video>
 
-<div class="whiteness">
-  <div class="inner">
-      <div class="picture">
-        <%= image_tag avatar_url(), :class =>"me" %>
-      </div>
-      <div class="menubox">
-        <i class="icon-ellipsis-horizontal navicon"></i>
-        <div class="info">
-        <% if signed_in? %>
-          <%= link_to 'Logout', sign_out_path, :method => :delete %>
-        <% else %>
-          <%= link_to 'Login', sign_in_path %>
-        <% end %>
-        </div>
-      </div>
-      <p class="name">Hi, I'm <strong>Alex Rock</strong>.</p>
-      <p class="textbox">I'm a web developer in Omaha, Nebraska.</p>
-      <a class="hire" href="mailto:me@alexjrock.com">Available for Hire</a>
-      <p class="findme">Find me on <a href="http://twitter.com/lxrck" id="twitter" alt="http://twitter.com/lxrck">Twitter</a>, <a id="strava" href="http://www.strava.com/athletes/1012932">Strava</a> and <a id="instagram" href="http://instagram.com/bangarang"> Instagram</a>.</p>
+  <div class="video_container">
+	<video class="home_video" autoplay="true" loop="loop" >   
+		<source src="http://video.lxrck.com/reel.mp4" type="video/mp4" />        
+		<source src="http://video.lxrck.com/reel.webm" type="video/webm" />
+		<source src="http://video.lxrck.com/reel.ogv" type="video/ogg" />
+	</video>
   </div>
-</div>
-
-<%= javascript_include_tag "application" %>
-
-<script>
-  $(document).ready(function() {
-    $.backgroundVideo($('body'), {
-      "align": "centerXY",
-      "width": 1280,
-      "height": 720
-    });
-    $('.navicon').click(function() {
-      $('.info').toggle();
-      $(this).toggleClass('icon-ellipsis-horizontal').toggleClass('icon-remove');
-    });
-  });
-</script>

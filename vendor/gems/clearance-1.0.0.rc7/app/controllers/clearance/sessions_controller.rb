@@ -36,6 +36,6 @@ class Clearance::SessionsController < ApplicationController
   end
 
   def url_after_destroy
-    sign_in_url
+    tags_path
   end
 end

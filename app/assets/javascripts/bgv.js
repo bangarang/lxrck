@@ -36,6 +36,7 @@
     var getProportion = function () {
       var windowWidth = $(window).width();
       var windowHeight = $(window).height();
+      // var windowHeight = 400;
       var windowProportion = windowWidth / windowHeight;
       var origProportion = plugin.settings.width / plugin.settings.height;
       var proportion = windowHeight / plugin.settings.height;

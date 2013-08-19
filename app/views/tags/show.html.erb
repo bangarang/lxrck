@@ -1,0 +1,40 @@
+<div class="goldtainer">
+  <p id="notice"><%= notice %></p>
+  <section>
+      <h1 class="title"><%= @tag.name %></h1>
+    <% if @tag.description %>
+    <p><%= markdown truncate(@tag.description, length: 17) %></p>
+    <% end %>
+    <% if signed_in? %><%= link_to 'Edit', edit_tag_path(@tag) %> | <%= link_to 'Back', tags_path %><% end %>
+    <div class="divider"></div>
+  </section>
+  <% for item in @tag.list %>
+  <% if item.type == :photo %>
+  <%= image_tag item.image.url(:medium) %>
+  <% end %>
+  <% if item.type == :post %>
+  <article class="post"> 
+    <header>
+      <h2><%= link_to item.title, item %> </h2>
+      <% if signed_in? %>
+      <aside class="meta">
+        <p class="meta">
+          <%= link_to 'Edit', edit_post_path(item) %> 
+        </p>
+      </aside>
+      <% end %>
+    </header>
+
+    <div class="content">
+  	<%= markdown item.content %>
+    </div>
+  </article>
+  <% end %>
+  <% if item.type == :tag %>
+  <li><b><%= item.type %>: </b><%= item.name %></li>
+  <% end %>
+  <% end %> 
+
+  <%= javascript_include_tag "prettyprint_init" %>
+  <%= javascript_include_tag "prettify", :async => true %>
+</div>
