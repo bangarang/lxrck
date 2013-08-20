@@ -103,7 +103,6 @@ img {
 
 header.main {
 	.name a {
-		border: #22262E solid 5px;
 		text-align: center;
 		display: table;
 		margin: 5px auto;
@@ -172,6 +171,9 @@ section.description {
 	right: 0;
 }
 
+article.photo img {
+	border-radius: 2px;
+}
 
 /* For modern browsers */
 .clear:before,

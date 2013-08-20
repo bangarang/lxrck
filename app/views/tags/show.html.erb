@@ -3,7 +3,7 @@
   <section>
       <h1 class="title"><%= @tag.name %></h1>
     <% if @tag.description %>
-    <p><%= markdown truncate(@tag.description, length: 17) %></p>
+    <p><%= markdown @tag.description %></p>
     <% end %>
     <% if signed_in? %><%= link_to 'Edit', edit_tag_path(@tag) %> | <%= link_to 'Back', tags_path %><% end %>
     <div class="divider"></div>
