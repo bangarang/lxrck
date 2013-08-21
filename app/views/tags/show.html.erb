@@ -1,37 +1,53 @@
-<div class="goldtainer">
-  <p id="notice"><%= notice %></p>
-  <section>
-      <h1 class="title"><%= @tag.name %></h1>
-    <% if @tag.description %>
-    <p><%= markdown @tag.description %></p>
-    <% end %>
-    <% if signed_in? %><%= link_to 'Edit', edit_tag_path(@tag) %> | <%= link_to 'Back', tags_path %><% end %>
-    <div class="divider"></div>
-  </section>
-  <% for item in @tag.list %>
-  <% if item.type == :photo %>
-  <%= image_tag item.image.url(:medium) %>
-  <% end %>
-  <% if item.type == :post %>
-  <article class="post"> 
-    <header>
-      <h2><%= link_to item.title, item %> </h2>
-      <% if signed_in? %>
-      <aside class="meta">
-        <p class="meta">
-          <%= link_to 'Edit', edit_post_path(item) %> 
-        </p>
-      </aside>
-      <% end %>
-    </header>
 
-    <div class="content">
-  	<%= markdown item.content %>
-    </div>
+  <p id="notice"><%= notice %></p>
+  <article class="tagmain"<% if @tag.photo %> style="background-image: url(<%= @tag.photo.image.url(:medium) %>);"<% end %>> 
+
+    <header>
+      <div class="overlay"></div>
+      <div class="goldtainer">
+        <h1><%= @tag.name %></h1>
+        <aside class="meta">
+          <% if @tag.description %>
+          <div class="content">
+            <%= markdown @tag.description  %>
+          </div>
+          <% end %>
+          <% if signed_in? %>
+          <p class="meta">
+            <%= link_to 'Edit', edit_tag_path(@tag) %> | <%= link_to 'Back', tags_path %> | <%= link_to 'Destroy', @tag, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </p>
+          <% end %>
+        </aside>
+      </div>
+    </header>
   </article>
-  <% end %>
-  <% if item.type == :tag %>
-  <li><b><%= item.type %>: </b><%= item.name %></li>
-  <% end %>
+
+<div class="goldtainer">
+  <% for item in @tag.list.reverse %>
+    <% if item.type == :photo %>
+    <article class="photo">
+      <%= image_tag item.image.url(:medium) %>
+    </article>
+    <% end %>
+    <% if item.type == :post %>
+    <article class="post"> 
+      <header>
+        <h2><%= link_to item.title, item %> </h2>
+        <p><%= item.updated_at.strftime("%B %d around %I:%M %p") %> </p>
+        <% if signed_in? %>
+        <aside class="meta">
+          <p class="meta">
+            <%= link_to 'Edit', edit_post_path(item) %> 
+          </p>
+        </aside>
+        <% end %>
+      </header>
+
+      <div class="content">
+    	<%= markdown item.content %>
+      </div>
+    </article>
+    <% end %>
+
   <% end %> 
 </div>

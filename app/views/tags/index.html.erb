@@ -1,24 +1,39 @@
-<div class="goldtainer">
-  <%= link_to 'New Tag', new_tag_path unless !signed_in? %>
 
+<div class="togger clear">
+  <%= link_to 'New Tag', new_tag_path unless !signed_in? %>
+</div>
+<div class="goldtainer clear">
+  <% i = 0 %>
   <% @tags.each do |tag| %>
-  <article class="tag"> 
+  
+  <article class="tag"<% if tag.photo %> style="background-image: url(<%= tag.photo.image.url(:medium) %>);"<% end %>> 
+    <a href="<%= tag_path(tag) %>"> 
     <header>
-      <h2><%= link_to tag.name, tag %></h2>
-      <p><%= tag.updated_at.strftime("%B %d around %I:%M %p") %> </p>
-      <% if tag.description %>
-      <div class="content">
-        <%= markdown tag.description  %>
-      </div>
-      <% end %>
-      <% if signed_in? %>
+      <div class="overlay"></div>
+      <h2><%= tag.name %></h2>
+
+      
       <aside class="meta">
+        <% if tag.description %>
+        <div class="content">
+          <%= markdown tag.description  %>
+        </div>
+        <% end %>
+        <% if signed_in? %>
         <p class="meta">
           <%= link_to 'Edit', edit_tag_path(tag) %> | <%= link_to 'Back', tags_path %> | <%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %>
         </p>
+        <% end %>
       </aside>
-      <% end %>
+      
+
     </header>
+    </a>
   </article>
+    <% i = i +1 %>
+    <% if i % 4 == 0 %>
+      </div>
+      <div class="goldtainer clear">
+    <%end %>
   <% end %>
 </div>

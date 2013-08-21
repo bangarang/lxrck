@@ -12,7 +12,7 @@ class Tag < ActiveRecord::Base
   		tagged << t.taggable
   	end
 
-  	return tagged
+  	return tagged.reverse
   end
 
   def to_param
@@ -21,5 +21,15 @@ class Tag < ActiveRecord::Base
 
   def generate_slug
     self.slug = name.parameterize
+  end
+
+  def photo
+    for item in self.list 
+      if item.type == :photo 
+        photo = item
+      end
+      break 
+    end
+    return photo
   end
 end

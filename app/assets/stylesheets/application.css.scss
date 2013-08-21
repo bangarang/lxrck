@@ -32,7 +32,6 @@
 
 html, body {
 	width: 100%;
-	height:100%;
 	color:#22262E;
 	margin:0;
 	font-size: 20px;
@@ -48,6 +47,7 @@ kbd,  pre, samp,  tt {
 .goldtainer {
 	width:61.8%;
 	margin: auto;
+	padding: 0 15px;
 }
 
 article header {
@@ -134,6 +134,7 @@ nav.menu {
 	width: 150px;
 	background: white;
 	position: fixed;
+	z-index: 100;
 	ul li {
 		list-style: none;
 	}
@@ -171,9 +172,154 @@ section.description {
 	right: 0;
 }
 
+.togger {
+	text-align: center;
+	padding: 5px 15px;
+}
+
+// Articles
+
+article.tag {
+	-webkit-font-smoothing: subpixel-antialiased;
+	@include transition (all .1s ease-in-out);
+	width: 23%;
+	height: 200px;
+	background-size: cover;
+	background-position: center center;
+	margin-right: 2%;
+	border-radius: 2px;
+	float: left;
+	margin-bottom: 2%;
+	position: relative;
+	z-index:1;
+	overflow: hidden;
+	box-shadow: 0 0 1px black;
+	header {
+		height: 100%;
+		width: 100%;
+		h2 {
+			padding: 0 10px;
+			text-shadow: 0 0 5px black;
+			margin-top: 0;
+			position:relative;
+			z-index:1;
+		}
+		
+		.overlay {
+			@include transition (all .6s ease-out);
+			height:200%;
+			width: 100%;
+			background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(34,38,46,1)), to(rgba(34,38,46,0)));
+			background-image: -webkit-linear-gradient(top, rgba(34,38,46,1), rgba(34,38,46,0)); 
+			background-image:    -moz-linear-gradient(top, rgba(34,38,46,1), rgba(34,38,46,0));
+			background-image:     -ms-linear-gradient(top, rgba(34,38,46,1), rgba(34,38,46,0));
+			background-image:      -o-linear-gradient(top, rgba(34,38,46,1), rgba(34,38,46,0));
+			opacity: 1;
+			position:absolute;
+			top: -200px;
+		}
+	}
+	header:hover {
+	}
+
+	a {
+		border: none;
+		color: white;
+	}
+	aside {
+		@include transition (all .1s ease-in-out);
+		opacity: 0;
+		text-align: center;
+		position: relative;
+		z-index:1;
+	}
+}
+
+article.tag:hover {
+	header {
+		.overlay {
+			opacity: 1;
+			top: 0;
+		}
+	}
+	aside {
+		opacity: 1;
+	}
+}
+
+
+article.tag:nth-child(4n) {
+	margin-right: 0;
+}
+
+article.tag:last:before,
+article.tag:last:after {
+    content:"";
+    display:table;
+}
+
+article.tag:last:after {
+    clear:both;
+}
+
 article.photo img {
 	border-radius: 2px;
 }
+
+article.tagmain {
+	-webkit-font-smoothing: subpixel-antialiased;
+	@include transition (all .1s ease-in-out);
+	background-size: cover;
+	min-height: 200px;
+	background-position: center center;
+	border-radius: 2px;
+	position: relative;
+	z-index:1;
+	overflow: hidden;
+	box-shadow: 0 0 1px black;
+	color: white;
+	margin: 15px 0;
+	header {
+		height: 100%;
+		width: 100%;
+		h1 {
+			text-align: center;
+			text-shadow: 0 0 5px black;
+			margin-top: 0;
+			position:relative;
+			z-index:1;
+			padding: 15px;
+		}
+		
+		.overlay {
+			height:100%;
+			width: 100%;
+			background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(34,38,46,1)), to(rgba(34,38,46,0.5)));
+			background-image: -webkit-linear-gradient(top, rgba(34,38,46,1), rgba(34,38,46,0.5)); 
+			background-image:    -moz-linear-gradient(top, rgba(34,38,46,1), rgba(34,38,46,0.5));
+			background-image:     -ms-linear-gradient(top, rgba(34,38,46,1), rgba(34,38,46,0.5));
+			background-image:      -o-linear-gradient(top, rgba(34,38,46,1), rgba(34,38,46,0.5));
+			opacity: 1;
+			position:absolute;
+			min-height: 200px;
+		}
+	}
+	header:hover {
+	}
+
+	aside {
+		position: relative;
+		z-index:1;
+	}
+}
+
+article.photo {
+	img {
+		display: table;
+		margin: auto;
+	}
+}
+
 
 /* For modern browsers */
 .clear:before,
@@ -245,11 +391,6 @@ a.hire:hover {
 	font-size: 16px;
 	color: #999;
 	text-align: center;
-}
-
-
-
-body {
 }
 
 div.menubox {
