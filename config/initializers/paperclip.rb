@@ -4,10 +4,10 @@ Paperclip::Attachment.default_options.update({
   :fog_credentials => {
     :provider  				=> 'AWS',
     :region					=> 'us-west-2',
-	:aws_access_key_id 		=> ENV['AWS_ACCESS_KEY_ID'],
-	:aws_secret_access_key 	=> ENV['AWS_SECRET_ACCESS_KEY']
+	:aws_access_key_id 		=> 'AKIAIZUTKKQXQPSDMPPQ',
+	:aws_secret_access_key 	=> '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'
   },
-  :fog_directory => ENV['AWS_BUCKET'],
+  :fog_directory => 'assets.lxrck.com',
   :fog_public => true,
   :fog_host => 'http://assets.lxrck.com'
 })
