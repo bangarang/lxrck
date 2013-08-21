@@ -5,7 +5,6 @@
 <% if signed_in? %>
  <nav class="menu clear">
     <ul>
-      <li><%= link_to "Home", in_path, class: active_class?(in_path) %></li>
       <li><%= link_to "Tags", tags_path, class: active_class?(tags_path) %></li>
       <li><%= link_to "Photos", photos_path, class: active_class?(photos_path) %></li>
       <li><%= link_to "Posts", posts_path, class: active_class?(posts_path) %></li>

@@ -28,7 +28,6 @@ class Tag < ActiveRecord::Base
       if item.type == :photo 
         photo = item
       end
-      break 
     end
     return photo
   end
