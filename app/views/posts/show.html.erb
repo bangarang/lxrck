@@ -4,6 +4,7 @@
   <article class="post"> 
     <header>
       <h2><%= @post.title %> </h2>
+      <p class="updated"><%= @post.updated_at.strftime("%B<br/>%d").html_safe %> </p>
       <aside class="meta">
         <% if signed_in? %>
         <p class="meta">

@@ -3,24 +3,31 @@
   <%= link_to 'New Photo', new_photo_path unless !signed_in? %>
 
   <% @photos.each do |photo| %>
-  <article class="photo"> 
-    <div class="content">
-      <h2><%= link_to photo.name, photo %> </h2>
-      <aside class="meta">
-        <% if signed_in? %>
-        <p class="meta">
-          <%= link_to 'Edit', edit_photo_path(photo) %> | <%= link_to 'Back', photos_path %> | <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </p>
-        <% end %>
-        <% if photo.tags %>
-        <p class="tags">
-            <% for tag in photo.tags %>
-                <%= link_to tag.name, tag %>
+  <article class="photo">
+    <header>
+      <div class="overlay"></div>
+      <div class="float">
+        <div class="inner">
+          <h2><%= link_to photo.name, photo %> </h2>
+          <aside class="meta">
+            <% if photo.tags %>
+            <p class="tags">
+                <% for tag in photo.tags %>
+                    <%= link_to tag.name, tag %>
+                <% end %>
+            </p>
             <% end %>
+          </aside>
+        </div>
+      </div>
+    </header> 
+    <% if signed_in? %>
+        <p class="meta">
+          <%= link_to 'Edit', edit_photo_path(photo) %> | <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
         </p>
-        <% end %>
-      </aside>
-      <%= image_tag photo.image.url(:medium) %>
+      <% end %>
+    <div class="content">
+      <a href="<%= photo.image.url(:medium)%>"><%= image_tag photo.image.url(:medium) %></a>
     </div>
   </article>
   <% end %>

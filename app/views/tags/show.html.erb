@@ -1,5 +1,5 @@
 
-  <p id="notice"><%= notice %></p>
+  <% if notice %><p id="notice"><%= notice %></p><% end %>
   <article class="tagmain"> 
 
     <header>
@@ -22,7 +22,7 @@
   </article>
 
 <div class="goldtainer">
-  <% for item in @tag.list.reverse %>
+  <% for item in @tag.list %>
     <% if item.type == :photo %>
     <article class="photo">
       <%= image_tag item.image.url(:medium) %>
@@ -32,7 +32,7 @@
     <article class="post"> 
       <header>
         <h2><%= link_to item.title, item %> </h2>
-        <p><%= item.updated_at.strftime("%B %d around %I:%M %p") %> </p>
+        <p class="updated"><%= item.updated_at.strftime("%B %d around %I:%M %p") %> </p>
         <% if signed_in? %>
         <aside class="meta">
           <p class="meta">
@@ -43,7 +43,7 @@
       </header>
 
       <div class="content">
-    	<%= markdown item.content %>
+    	<%= markdown truncate( item.content, :length => 300) %>
       </div>
     </article>
     <% end %>

@@ -1,14 +1,18 @@
 <header class="main">
-	<h2 class="name"><a href="/about"><span>about </span>Alex Rock</a></h2>
-</header>
+	<h2 class="name">
+		<a href="/about">Alex Rock<span> About Me</span></a>
+	</h2>
+    <nav>
+	    <ul>
+	      <li><%= link_to "Home", tags_path, class: active_class?(tags_path) %></li>
+	      <li><%= link_to "Photos", photos_path, class: active_class?(photos_path) %></li>
+	      <li><%= link_to "Posts", posts_path, class: active_class?(posts_path) %></li>
+		  <% if signed_in? %>
+		  <li><%= link_to 'Sign out', kill_path, method: :delete %></li>
+		  <% else %>
+		  <li><%= link_to 'Login', born_path %></li>
+		  <% end %>
+	    </ul>
+   	</nav>
 
-<% if signed_in? %>
- <nav class="menu clear">
-    <ul>
-      <li><%= link_to "Tags", tags_path, class: active_class?(tags_path) %></li>
-      <li><%= link_to "Photos", photos_path, class: active_class?(photos_path) %></li>
-      <li><%= link_to "Posts", posts_path, class: active_class?(posts_path) %></li>
-	  <li><%= link_to 'Sign out', kill_path, method: :delete %></li>
-    </ul>
-  </nav>
-<% end %>
+</header>
