@@ -225,13 +225,28 @@ article.tag {
 	a {
 		border: none;
 		color: white;
+		font-weight: inherit;
 	}
 	aside {
 		@include transition (all .1s ease-in-out);
 		opacity: 0;
-		text-align: center;
+		padding: 0 10px;
 		position: relative;
 		z-index:1;
+	}
+	p.meta {
+		position: absolute;
+		bottom: 0;
+		opacity: 1;
+		background: rgba(255,255,255,0.5);
+		width: 100%;
+		margin: 0;
+		padding: 5px;
+		text-align: center;
+		color: #22262E;
+		a:hover {
+			color:#f27490;
+		}
 	}
 }
 
@@ -268,20 +283,14 @@ article.photo img {
 
 article.tagmain {
 	-webkit-font-smoothing: subpixel-antialiased;
-	@include transition (all .1s ease-in-out);
-	background-size: cover;
-	min-height: 200px;
-	background-position: center center;
+	background: #3a3b3c;
+	box-shadow: inset 0px 0px 50px black;
 	border-radius: 2px;
-	position: relative;
-	z-index:1;
-	overflow: hidden;
-	box-shadow: 0 0 1px black;
 	color: white;
-	margin: 15px 0;
 	header {
 		height: 100%;
 		width: 100%;
+		padding: 30px 0;
 		h1 {
 			text-align: center;
 			text-shadow: 0 0 5px black;
@@ -290,19 +299,7 @@ article.tagmain {
 			z-index:1;
 			padding: 15px;
 		}
-		
-		.overlay {
-			height:100%;
-			width: 100%;
-			background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(34,38,46,1)), to(rgba(34,38,46,0.5)));
-			background-image: -webkit-linear-gradient(top, rgba(34,38,46,1), rgba(34,38,46,0.5)); 
-			background-image:    -moz-linear-gradient(top, rgba(34,38,46,1), rgba(34,38,46,0.5));
-			background-image:     -ms-linear-gradient(top, rgba(34,38,46,1), rgba(34,38,46,0.5));
-			background-image:      -o-linear-gradient(top, rgba(34,38,46,1), rgba(34,38,46,0.5));
-			opacity: 1;
-			position:absolute;
-			min-height: 200px;
-		}
+
 	}
 	header:hover {
 	}
@@ -310,6 +307,20 @@ article.tagmain {
 	aside {
 		position: relative;
 		z-index:1;
+	}
+	p.meta {
+		position: absolute;
+		bottom: 0;
+		opacity: 1;
+		background: rgba(255,255,255,0.5);
+		width: 100%;
+		margin: 0;
+		padding: 5px;
+		text-align: center;
+		color: #22262E;
+		a:hover {
+			color:#f27490;
+		}
 	}
 }
 

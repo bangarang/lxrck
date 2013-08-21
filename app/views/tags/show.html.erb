@@ -1,9 +1,8 @@
 
   <p id="notice"><%= notice %></p>
-  <article class="tagmain"<% if @tag.photo %> style="background-image: url(<%= @tag.photo.image.url(:medium) %>);"<% end %>> 
+  <article class="tagmain"> 
 
     <header>
-      <div class="overlay"></div>
       <div class="goldtainer">
         <h1><%= @tag.name %></h1>
         <aside class="meta">
@@ -12,13 +11,13 @@
             <%= markdown @tag.description  %>
           </div>
           <% end %>
-          <% if signed_in? %>
-          <p class="meta">
-            <%= link_to 'Edit', edit_tag_path(@tag) %> | <%= link_to 'Back', tags_path %> | <%= link_to 'Destroy', @tag, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </p>
-          <% end %>
         </aside>
       </div>
+      <% if signed_in? %>
+        <p class="meta">
+          <%= link_to 'Edit', edit_tag_path(@tag) %> | <%= link_to 'Back', tags_path %> | <%= link_to 'Destroy', @tag, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+      <% end %>
     </header>
   </article>
 

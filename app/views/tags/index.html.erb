@@ -13,20 +13,19 @@
       <h2><%= tag.name %></h2>
 
       
-      <aside class="meta">
+      <aside>
         <% if tag.description %>
         <div class="content">
           <%= markdown tag.description  %>
         </div>
         <% end %>
-        <% if signed_in? %>
+      </aside>
+      
+      <% if signed_in? %>
         <p class="meta">
           <%= link_to 'Edit', edit_tag_path(tag) %> | <%= link_to 'Back', tags_path %> | <%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %>
         </p>
-        <% end %>
-      </aside>
-      
-
+      <% end %>
     </header>
     </a>
   </article>

@@ -5,7 +5,7 @@
   <article class="post"> 
     <header>
       <h2><%= link_to post.title, post %> </h2>
-      <aside class="meta">
+      <aside>
         <% if signed_in? %>
         <p class="meta">
           <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Back', posts_path %> | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
