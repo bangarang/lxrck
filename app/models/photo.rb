@@ -5,7 +5,7 @@ class Photo < ActiveRecord::Base
   has_many :tags, :through => :taggings
 
 
-  has_attached_file :image, :styles => { :medium => "1000x1000>", :thumb => "100x100>" }
+  has_attached_file :image, :styles => { :medium => "1000x1000>", :thumb => "250x250>" }
 
   def type
   	return :photo

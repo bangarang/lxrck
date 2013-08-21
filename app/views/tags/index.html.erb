@@ -3,10 +3,9 @@
   <%= link_to 'New Tag', new_tag_path unless !signed_in? %>
 </div>
 <div class="goldtainer clear">
-  <% i = 0 %>
   <% @tags.each do |tag| %>
   
-  <article class="tag"<% if tag.photo %> style="background-image: url(<%= tag.photo.image.url(:medium) %>);"<% end %>> 
+  <article class="tag"<% if tag.photo %> style="background-image: url(<%= tag.photo.image.url(:thumb) %>);"<% end %>> 
     <a href="<%= tag_path(tag) %>"> 
     <header>
       <div class="overlay"></div>
@@ -29,10 +28,5 @@
     </header>
     </a>
   </article>
-    <% i = i +1 %>
-    <% if i % 4 == 0 %>
-      </div>
-      <div class="goldtainer clear">
-    <%end %>
   <% end %>
 </div>

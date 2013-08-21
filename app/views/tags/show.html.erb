@@ -1,31 +1,55 @@
 
   <% if notice %><p id="notice"><%= notice %></p><% end %>
-  <article class="tagmain"> 
+<article class="tagmain"> 
 
-    <header>
-      <div class="goldtainer">
-        <h1><%= @tag.name %></h1>
-        <aside class="meta">
-          <% if @tag.description %>
-          <div class="content">
-            <%= markdown @tag.description  %>
-          </div>
-          <% end %>
-        </aside>
-      </div>
-      <% if signed_in? %>
-        <p class="meta">
-          <%= link_to 'Edit', edit_tag_path(@tag) %> | <%= link_to 'Back', tags_path %> | <%= link_to 'Destroy', @tag, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </p>
-      <% end %>
-    </header>
-  </article>
+  <header>
+    <div class="goldtainer">
+      <h1><%= @tag.name %></h1>
+      <aside class="meta">
+        <% if @tag.description %>
+        <div class="content">
+          <%= markdown @tag.description  %>
+        </div>
+        <% end %>
+      </aside>
+    </div>
+    <% if signed_in? %>
+      <p class="meta">
+        <%= link_to 'Edit', edit_tag_path(@tag) %> | <%= link_to 'Back', tags_path %> | <%= link_to 'Destroy', @tag, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </p>
+    <% end %>
+  </header>
+</article>
 
 <div class="goldtainer">
   <% for item in @tag.list %>
     <% if item.type == :photo %>
     <article class="photo">
-      <%= image_tag item.image.url(:medium) %>
+      <header>
+        <div class="overlay"></div>
+        <div class="float">
+          <div class="inner">
+            <h2><%= link_to item.name, item %> </h2>
+            <aside class="meta">
+              <% if item.tags %>
+              <p class="tags">
+                  <% for tag in item.tags %>
+                      <%= link_to tag.name, tag %>
+                  <% end %>
+              </p>
+              <% end %>
+            </aside>
+          </div>
+        </div>
+      </header> 
+      <% if signed_in? %>
+          <p class="meta">
+            <%= link_to 'Edit', edit_photo_path(item) %> | <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </p>
+        <% end %>
+      <div class="content">
+        <a href="<%= photo_path(item) %>"><%= image_tag item.image.url(:medium) %></a>
+      </div>
     </article>
     <% end %>
     <% if item.type == :post %>

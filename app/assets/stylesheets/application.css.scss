@@ -102,7 +102,7 @@ img {
 }
 
 header.main {
-	height: 50px;
+	min-height: 50px;
 	line-height: 50px;
 	.back {
 		float: left;
@@ -118,8 +118,6 @@ header.main {
 	}
 	
 	.name a {
-		background: white;
-
 		span { 
 			@include transition (all .2s ease-in-out);
 			color:transparent;
@@ -134,8 +132,12 @@ header.main {
 		}
 	}
 
+	.navicon {
+		display:none;
+	}
+
+
 	nav {
-		background: white;
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -163,6 +165,7 @@ header.main {
 
 
 footer.main {
+
 }
 
 nav.menu {
@@ -298,11 +301,6 @@ article.tag:hover {
 	}
 }
 
-
-article.tag:nth-child(4n) {
-	margin-right: 0;
-}
-
 article.tag:last:before,
 article.tag:last:after {
     content:"";
@@ -313,20 +311,16 @@ article.tag:last:after {
     clear:both;
 }
 
-article.photo img {
-	border-radius: 2px;
-}
-
 article.tagmain {
 	-webkit-font-smoothing: subpixel-antialiased;
 	border-radius: 2px;
 	header {
 		height: 100%;
 		width: 100%;
-		padding: 30px 0;
+		padding: 0;
 		h1 {
 			text-align: center;
-			margin-top: 0;
+			margin: 0;
 			position:relative;
 			z-index:1;
 			padding: 15px;
@@ -335,7 +329,9 @@ article.tagmain {
 	}
 	header:hover {
 	}
-
+	p {
+		margin: 0;
+	}
 	aside {
 		position: relative;
 		z-index:1;
@@ -353,13 +349,6 @@ article.tagmain {
 		a:hover {
 			color:#f27490;
 		}
-	}
-}
-
-article.photo {
-	img {
-		display: table;
-		margin: auto;
 	}
 }
 
@@ -444,6 +433,13 @@ article.photo {
 			color:#f27490;
 		}
 	}
+
+	img {
+		display: table;
+		margin: auto;
+		border-radius: 2px;
+		width: 100%;
+	}
 }
 
 article.photo:hover {
@@ -470,6 +466,11 @@ article.post {
 	}
 }
 
+
+article.photo, article.post {
+	border-top: #f3f3f3 solid thin;
+	border-bottom: #f3f3f3 solid thin;
+}
 
 /* For modern browsers */
 .clear:before,

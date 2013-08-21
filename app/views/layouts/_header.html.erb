@@ -2,8 +2,9 @@
 	<h2 class="name">
 		<a href="/about">Alex Rock<span> About Me</span></a>
 	</h2>
-    <nav>
-	    <ul>
+	<section class="navicontainer"><p class="navicon"></p></section>
+    <nav class="main">
+		 <ul>
 	      <li><%= link_to "Home", tags_path, class: active_class?(tags_path) %></li>
 	      <li><%= link_to "Photos", photos_path, class: active_class?(photos_path) %></li>
 	      <li><%= link_to "Posts", posts_path, class: active_class?(posts_path) %></li>
@@ -14,5 +15,4 @@
 		  <% end %>
 	    </ul>
    	</nav>
-
 </header>

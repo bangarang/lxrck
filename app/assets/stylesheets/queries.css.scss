@@ -1,12 +1,22 @@
 
-@media screen and (max-width: 768px) {
-
+@media screen and (min-width: 1437px) {
+	article.tag {
+		width: 18%;
+		margin-right: 1%;
+		margin-bottom: 1%;
+	}
+	article.tag:nth-child(5n) {
+		margin-right: 0;
+	}
 
 }
 
 @media screen and (max-width: 1437px) {
 	.goldtainer {
 		width: 870px;
+	}
+	article.tag:nth-child(4n) {
+		margin-right: 0;
 	}
 }
 
@@ -19,15 +29,6 @@
 	}
 	article.tag:nth-child(2n) {
 		margin-right: 0;
-	}
-	article.tag:nth-child(2n):before,
-	article.tag:nth-child(2n):after {
-	    content:"";
-	    display:table;
-	}
-
-	article.tag:nth-child(2n):after {
-	    clear:both;
 	}
 	nav.menu {
 		position: relative;
@@ -68,8 +69,16 @@
 		margin: 0 -15px;
 		padding:25px 15px;
 	}
+
 }
 
+@media screen and (min-width: 481px) {
+	header.main {
+		nav.main {
+			display: block !important;
+		}
+	}
+}
 @media screen and (max-width: 480px) {
 	.goldtainer {
 		width: auto;
@@ -99,6 +108,65 @@
 	article.tag:after {
 	    clear:both;
 	}
-
+	header.main {
+		min-height: 75px;
+		line-height: 75px;
+		.navicontainer{
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: 40px;
+			width: 45px;
+			padding: 10px;
+			cursor: pointer;
+			margin: 15px;
+			.navicon {
+				content: "";
+				width: 25px;
+				height: 4px;
+				background: #22262E;
+				box-shadow: 0 8px 0 0 #22262E, 0 16px 0 0 #22262E;
+				display: block;
+				margin: 0;
+			}
+		}
+		nav.main {
+			display: none;
+			position: relative;
+			min-height: 50px;
+			cursor: pointer;
+			margin: 55px 15px 0px;
+			text-align: center;
+			color: white;
+			line-height: 40px;
+			padding: 0;
+			ul {
+				
+				li {
+					width: 100%;
+					float: none;
+					background: #22262E;
+					a {
+						color: white;
+					}
+				}
+				li:hover {
+					width: 100%;
+					float: none;
+					background: #f27490;
+					a {
+						color: white;
+					}
+				}
+			}
+		}
+		.navicontainer:hover, .navicontainer.clicked {
+			background: #22262E;
+			.navicon {
+				background: white;
+				box-shadow: 0 8px 0 0 white, 0 16px 0 0 white;
+			}
+		}
+	}
 	
 }
