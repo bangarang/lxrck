@@ -1,11 +1,13 @@
 <div class="goldtainer">
   <h1 class="title">Posts</h1>
   <%= link_to 'New Post', new_post_path unless !signed_in? %>
+
   <% @posts.each do |post| %>
   <article class="post"> 
     <header>
       <h2><%= link_to post.title, post %> </h2>
-      <aside>
+      <p class="updated"><%= post.updated_at.strftime("%B %d around %I:%M %p") %> </p>
+      <aside class="meta">
         <% if signed_in? %>
         <p class="meta">
           <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Back', posts_path %> | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -20,11 +22,6 @@
         <% end %>
       </aside>
     </header>
-
-    <div class="content">
-      <%= markdown post.content %>
-    </div>
   </article>
-  <% end %>
-  <br />
+<% end %>
 </div>

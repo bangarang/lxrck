@@ -4,7 +4,7 @@
 
   <header>
     <div class="goldtainer">
-      <h1><%= @tag.name %></h1>
+      <h1 class="title"><%= @tag.name %></h1>
       <aside class="meta">
         <% if @tag.description %>
         <div class="content">
@@ -25,49 +25,52 @@
   <% for item in @tag.list %>
     <% if item.type == :photo %>
     <article class="photo">
+        <header>
+          <a href="<%= photo_path(item) %>"><div class="overlay"></div></a>
+          <div class="float">
+            <div class="inner">
+              <h2><%= link_to item.name, item %></h2>
+            </div>
+          </div>
+        </header> 
+        <% if signed_in? %>
+            <p class="meta">
+              <%= link_to 'Edit', edit_photo_path(item) %> | <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </p>
+          <% end %>
+        <div class="content">
+          <%= image_tag item.image.url(:medium) %>
+        </div>
+    </article>
+    <% end %>
+    <% if item.type == :post %>
+    <article class="post">
       <header>
-        <div class="overlay"></div>
+        <a href="<%= post_path(item) %>"><div class="overlay"></div></a>
         <div class="float">
           <div class="inner">
-            <h2><%= link_to item.name, item %> </h2>
             <aside class="meta">
+              <h2><%= link_to item.title, item %></h2>
+              <p class="updated"><%= item.updated_at.strftime("%B %d").html_safe %> 
               <% if item.tags %>
-              <p class="tags">
-                  <% for tag in item.tags %>
-                      <%= link_to tag.name, tag %>
-                  <% end %>
+               | 
+              <% for tag in item.tags %>
+                  <%= link_to tag.name, tag %>
+              <% end %>
               </p>
               <% end %>
             </aside>
           </div>
         </div>
+        </a>
       </header> 
       <% if signed_in? %>
           <p class="meta">
-            <%= link_to 'Edit', edit_photo_path(item) %> | <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Edit', edit_post_path(item) %> | <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
           </p>
         <% end %>
       <div class="content">
-        <a href="<%= photo_path(item) %>"><%= image_tag item.image.url(:medium) %></a>
-      </div>
-    </article>
-    <% end %>
-    <% if item.type == :post %>
-    <article class="post"> 
-      <header>
-        <h2><%= link_to item.title, item %> </h2>
-        <p class="updated"><%= item.updated_at.strftime("%B %d around %I:%M %p") %> </p>
-        <% if signed_in? %>
-        <aside class="meta">
-          <p class="meta">
-            <%= link_to 'Edit', edit_post_path(item) %> 
-          </p>
-        </aside>
-        <% end %>
-      </header>
-
-      <div class="content">
-    	<%= markdown truncate( item.content, :length => 300) %>
+        <%= image_tag item.image.url(:medium) %>
       </div>
     </article>
     <% end %>

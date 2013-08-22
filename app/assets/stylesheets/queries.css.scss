@@ -25,9 +25,12 @@
 		width: auto;
 	}
 	article.tag {
-		width: 49%;
+		width: 32%
 	}
-	article.tag:nth-child(2n) {
+	article.tag:nth-child(4n) {
+		margin-right: 2%;
+	}
+	article.tag:nth-child(3n) {
 		margin-right: 0;
 	}
 	nav.menu {
@@ -70,6 +73,21 @@
 		padding:25px 15px;
 	}
 
+}
+
+@media screen and (max-width: 768px) {
+	.goldtainer {
+		width: auto;
+	}
+	article.tag {
+		width: 49%
+	}
+	article.tag:nth-child(4n), article.tag:nth-child(3n) {
+		margin-right: 2%;
+	}
+	article.tag:nth-child(2n) {
+		margin-right: 0;
+	}
 }
 
 @media screen and (min-width: 481px) {

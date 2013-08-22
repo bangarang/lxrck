@@ -1,10 +1,13 @@
 class Post < ActiveRecord::Base
-  attr_accessible :content, :title, :slug, :tag_list
+  attr_accessible :content, :title, :image, :slug, :tag_list
 
   before_save :generate_slug
 
   has_many :taggings, :as => :taggable, :dependent => :destroy
   has_many :tags, :through => :taggings
+
+  has_attached_file :image, :styles => { :medium => "1000x1000>", :thumb => "300x300#" }
+
 
   def type
   	return :post

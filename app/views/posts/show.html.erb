@@ -1,26 +1,36 @@
 <div class="goldtainer">
   <p id="notice"><%= notice %></p>
 
-  <article class="post"> 
+<article class="post">
     <header>
-      <h2><%= @post.title %> </h2>
-      <p class="updated"><%= @post.updated_at.strftime("%B<br/>%d").html_safe %> </p>
-      <aside class="meta">
-        <% if signed_in? %>
-        <p class="meta">
-          <%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Back', posts_path %> | <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </p>
-        <% end %>
-        <% if @post.tags %>
-        <p class="tags">
-          	<% for tag in @post.tags %>
+      <div class="overlay"></div>
+      <div class="float">
+        <div class="inner">
+          <aside class="meta">
+            <h2><%= @post.title %></h2>
+            <p class="updated"><%= @post.updated_at.strftime("%B %d").html_safe %> 
+            <% if @post.tags %>
+             | 
+            <% for tag in @post.tags %>
                 <%= link_to tag.name, tag %>
-          	<% end %>
+            <% end %>
+            </p>
+            <% end %>
+          </aside>
+        </div>
+      </div>
+    </header> 
+    <% if signed_in? %>
+        <p class="meta">
+          <%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
         </p>
-        <% end %>
-      </aside>
-    </header>
+      <% end %>
+    <div class="content">
+      <%= image_tag @post.image.url(:medium) %>
+    </div>
+  </article>
 
+  <article class="post main"> 
     <div class="content">
       <%= markdown @post.content %>
     </div>
