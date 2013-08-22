@@ -1,5 +1,5 @@
 Paperclip::Attachment.default_options.update({
-  :path => ":class/:style/:filename",
+  :path => ":class/:attachment/:id/:style/:basename.:extension",
   :storage => :fog,
   :fog_credentials => {
     :provider  				=> 'AWS',
