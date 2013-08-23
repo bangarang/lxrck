@@ -3,25 +3,36 @@
   <%= link_to 'New Post', new_post_path unless !signed_in? %>
 
   <% @posts.each do |post| %>
-  <article class="post"> 
+
+  <article class="post">
     <header>
-      <h2><%= link_to post.title, post %> </h2>
-      <p class="updated"><%= post.updated_at.strftime("%B %d around %I:%M %p") %> </p>
-      <aside class="meta">
-        <% if signed_in? %>
-        <p class="meta">
-          <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Back', posts_path %> | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </p>
-        <% end %>
-        <% if post.tags %>
-        <p class="tags">
+      <div class="overlay"></div>
+      <div class="float">
+        <div class="inner">
+          <aside class="meta">
+            <h2><%= post.title %></h2>
+            <p class="updated"><%= post.updated_at.strftime("%B %d").html_safe %> 
+            <% if post.tags %>
+             | 
             <% for tag in post.tags %>
                 <%= link_to tag.name, tag %>
             <% end %>
+            </p>
+            <% end %>
+          </aside>
+        </div>
+      </div>
+    </header> 
+    <% if signed_in? %>
+        <p class="meta">
+          <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
         </p>
-        <% end %>
-      </aside>
-    </header>
+      <% end %>
+    <div class="content">
+      <%= image_tag post.image_url(:medium) %>
+    </div>
   </article>
+
+
 <% end %>
 </div>
