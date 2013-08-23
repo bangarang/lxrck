@@ -14,4 +14,4 @@
 /log/*.log
 /tmp
 
-/config/initializers/env.rb
+/config/initializers/1env.rb

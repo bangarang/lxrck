@@ -10,9 +10,8 @@ gem 'turbolinks'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'fog'
-gem 'carrierwave_direct'
-gem 'sidekiq'
-gem 'paperclip'
+# gem 'carrierwave_direct'
+# gem 'sidekiq'
 
 gem "redcarpet"
 
