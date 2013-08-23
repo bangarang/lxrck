@@ -12,6 +12,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'carrierwave_direct'
 gem 'sidekiq'
+gem 'paperclip'
 
 gem "redcarpet"
 
