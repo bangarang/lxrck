@@ -1,10 +1,10 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :name, :image, :tag_list
+  attr_accessible :name, :image, :tag_list, :remote_image_url
 
   has_many :taggings, :as => :taggable, :dependent => :destroy
   has_many :tags, :through => :taggings
 
-  has_attached_file :image, :styles => { :medium => "1000x1000>", :thumb => "300x300#" }
+  mount_uploader :image, ImageUploader
 
   def type
   	return :photo

@@ -17,6 +17,8 @@
   </div>
   <div class="field">
     <%= f.file_field :image %>
+    <%= f.label :remote_image_url, "or image URL" %>
+    <%= f.text_field :remote_image_url %>
   </div>
   <div class="field">
     <%= f.label :content %><br />

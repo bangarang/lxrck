@@ -24,11 +24,6 @@ class Tag < ActiveRecord::Base
   end
 
   def photo
-    for item in self.list 
-      if item.type == :photo 
-        photo = item
-      end
-    end
-    return photo
+    return self.list.first 
   end
 end

@@ -6,7 +6,7 @@
       <div class="float">
         <div class="inner">
           <aside class="meta">
-            <%= link_to "Download in High Resolution", @photo.image.url %>
+            <%= link_to "Download in High Resolution", @photo.image_url %>
           </aside>
         </div>
       </div>
@@ -17,7 +17,7 @@
         </p>
       <% end %>
     <div class="content">
-      <%= image_tag @photo.image.url(:medium) %>
+      <%= image_tag @photo.image_url(:medium) %>
     </div>
   </article>
   <% if @photo.tags %>

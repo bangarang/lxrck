@@ -37,4 +37,8 @@ Lxrck::Application.configure do
 
   config.serve_static_assets = true
   config.action_mailer.default_url_options = { :host => 'localhost' }
+
+  # CarrierWave.configure do |config|
+  #   config.asset_host = 'http://assets.lxrck.com'
+  # end
 end

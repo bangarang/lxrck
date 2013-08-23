@@ -6,8 +6,12 @@ gem 'unicorn'
 gem 'font-awesome-rails', "~> 3.1.1.3"
 gem 'clearance'
 gem 'turbolinks'
-gem "paperclip"
+
+gem 'rmagick'
+gem 'carrierwave'
 gem 'fog'
+gem 'carrierwave_direct'
+gem 'sidekiq'
 
 gem "redcarpet"
 
