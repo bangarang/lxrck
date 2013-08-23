@@ -1,8 +1,41 @@
-
+<!-- 
   <div class="video_container">
 	<video class="home_video" autoplay="true" loop="loop" >   
 		<source src="http://video.lxrck.com/reel.mp4" type="video/mp4" />        
 		<source src="http://video.lxrck.com/reel.webm" type="video/webm" />
 		<source src="http://video.lxrck.com/reel.ogv" type="video/ogg" />
 	</video>
-  </div>
+  </div> -->
+
+
+<div class="togger clear">
+  <%= link_to 'New Tag', new_tag_path unless !signed_in? %>
+</div>
+<div class="goldtainer clear">
+  <% @tags.each do |tag| %>
+  
+  <article class="tag"<% if tag.photo %> style="background-image: url(<%= tag.photo.image_url(:thumb) %>);"<% end %>> 
+    <a href="<%= tag_path(tag) %>"> 
+    <header>
+      <div class="overlay"></div>
+      <h2><%= tag.name %></h2>
+
+      
+      <aside>
+        <% if tag.description %>
+        <div class="content">
+          <%= markdown tag.description  %>
+        </div>
+        <% end %>
+      </aside>
+      
+      <% if signed_in? %>
+        <p class="meta">
+          <%= link_to 'Edit', edit_tag_path(tag) %> | <%= link_to 'Back', tags_path %> | <%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+      <% end %>
+    </header>
+    </a>
+  </article>
+  <% end %>
+</div>
