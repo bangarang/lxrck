@@ -66,9 +66,9 @@ Lxrck::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5]
 
 
-  CarrierWave.configure do |config|
-    config.asset_host = 'http://assets.lxrck.com'
-  end
+  # CarrierWave.configure do |config|
+  #   config.asset_host = 'http://assets.lxrck.com'
+  # end
   
   config.assets.precompile += %w( modernizr.js )
 
