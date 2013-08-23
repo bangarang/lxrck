@@ -6,11 +6,11 @@
 
   <article class="post">
     <header>
-      <div class="overlay"></div>
+      <a href="<%= post_path(post) %>"><div class="overlay"></div></a>
       <div class="float">
         <div class="inner">
           <aside class="meta">
-            <h2><%= post.title %></h2>
+            <h2><%= link_to post.title, post %></h2>
             <p class="updated"><%= post.updated_at.strftime("%B %d").html_safe %> 
             <% if post.tags %>
              | 

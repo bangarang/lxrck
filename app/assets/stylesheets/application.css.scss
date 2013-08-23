@@ -467,16 +467,17 @@ article.post.main {
 		text-align: center;
 		margin: 0;
 	}
-	p.tags {
-		a {
-			color: white;
-			border: none;
-			padding: 1px;
-			background: #22262E;
-		}
-		a:hover {
-			background:#f27490;
-		}
+	li {
+		margin: 5px 0;
+	}
+	a {
+		color: white;
+		border: none;
+		padding: 2px;
+		background: #22262E;
+	}
+	a:hover {
+		background:#f27490;
 	}
 }
 
