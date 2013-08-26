@@ -1,11 +1,10 @@
-
-  <% if notice %><p id="notice"><%= notice %></p><% end %>
+<% if notice %><p id="notice"><%= notice %></p><% end %>
 <article class="tagmain"> 
 
   <header>
     <div class="goldtainer">
       <h1 class="title"><%= @tag.name %></h1>
-      <% if @tag.description %>
+      <% unless @tag.description.blank? %>
       <aside class="meta">
         <div class="content">
           <%= markdown @tag.description  %>
@@ -51,7 +50,6 @@
           <div class="inner">
             <aside class="meta">
               <h2><%= link_to item.title, item %></h2>
-              <p class="updated"><%= item.updated_at.strftime("%B %d").html_safe %> 
               <% if item.tags %>
                | 
               <% for tag in item.tags %>

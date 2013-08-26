@@ -251,6 +251,7 @@ article.tag {
 			margin-top: 0;
 			position:relative;
 			z-index:1;
+			text-transform:uppercase;
 		}
 		
 		.overlay {
@@ -403,6 +404,7 @@ article.photo, article.post {
 			position:relative;
 			z-index:1;
 			text-align: center;
+			text-transform: uppercase;
 		}
 		
 		.overlay {
@@ -423,7 +425,7 @@ article.photo, article.post {
 	aside {
 		@include transition (all .1s ease-in-out);
 		opacity: 0;
-		display: none;
+		//display: none;
 		padding: 0 10px;
 		position: relative;
 		z-index:1;
