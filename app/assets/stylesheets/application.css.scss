@@ -38,7 +38,7 @@ html, body {
 	width: 100%;
 	color:#22262E;
 	margin:0;
-	font-size: 20px;
+	font-size: 18px;
 	margin: auto;
 }
 
@@ -231,7 +231,7 @@ section.description {
 article.tag {
 	-webkit-font-smoothing: subpixel-antialiased;
 	@include transition (all .1s ease-in-out);
-	width: 23%;
+	width: 23.5%;
 	height: 200px;
 	background-size: cover;
 	background-position: center center;
@@ -604,6 +604,7 @@ a.hire:hover {
 	font-size: 16px;
 	color: #999;
 	text-align: center;
+	font-weight: normal;
 }
 
 div.menubox {
@@ -645,7 +646,6 @@ div.menubox {
 
 input, textarea {
 			font-size: 24px;
-			font-family: "proxima-nova-extra-condensed",sans-serif;
 			width: 100%;
 			margin: 10px auto;
 			display: block;
@@ -664,7 +664,6 @@ div.actions input {
 	border: none;
 	color: white;
 	font-size: 24px;
-	font-family: "proxima-nova-extra-condensed",sans-serif;
 	@include transition (all 0.1s ease-in-out);
 	cursor: pointer;
 }

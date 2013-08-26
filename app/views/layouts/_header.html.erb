@@ -11,8 +11,6 @@
 	      <li><h5><%= link_to "Posts", posts_path, class: active_class?(posts_path) %></h5></li>
 		  <% if signed_in? %>
 		  <li><h5><%= link_to 'Sign out', kill_path, method: :delete %></h5></li>
-		  <% else %>
-		  <li><h5><%= link_to 'Login', born_path %></h5></li>
 		  <% end %>
 	    </ul>
    	</nav>

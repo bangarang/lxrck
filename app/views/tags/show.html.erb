@@ -50,13 +50,6 @@
           <div class="inner">
             <aside class="meta">
               <h2><%= link_to item.title, item %></h2>
-              <% if item.tags %>
-               | 
-              <% for tag in item.tags %>
-                  <%= link_to tag.name, tag %>
-              <% end %>
-              </p>
-              <% end %>
             </aside>
           </div>
         </div>
