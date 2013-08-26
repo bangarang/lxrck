@@ -68,10 +68,6 @@
 		width: 100%;
 	}
 
-	pre.prettyprint {
-		margin: 0 -15px;
-		padding:25px 15px;
-	}
 
 }
 
@@ -127,25 +123,29 @@
 	    clear:both;
 	}
 	header.main {
-		min-height: 75px;
-		line-height: 75px;
+		min-height: 50px;
+		line-height: 50px;
+		.name a {
+			span.A, span.R {
+				display:none;
+			}
+		}
+
+
 		.navicontainer{
 			position: absolute;
 			top: 0;
 			right: 0;
-			height: 40px;
-			width: 45px;
-			padding: 10px;
+			padding: 19px 15px ; 
 			cursor: pointer;
-			margin: 15px;
 			.navicon {
 				content: "";
-				width: 25px;
-				height: 4px;
-				background: #22262E;
-				box-shadow: 0 8px 0 0 #22262E, 0 16px 0 0 #22262E;
 				display: block;
 				margin: 0;
+				width: 25px;
+				border-top: #22262E solid 12.5px;
+				border-right: white solid 12.5px;
+				border-left: white solid 12.5px;
 			}
 		}
 		nav.main {
@@ -153,7 +153,7 @@
 			position: relative;
 			min-height: 50px;
 			cursor: pointer;
-			margin: 55px 15px 0px;
+			margin: 50px 0 0px;
 			text-align: center;
 			color: white;
 			line-height: 40px;
@@ -178,11 +178,25 @@
 				}
 			}
 		}
-		.navicontainer:hover, .navicontainer.clicked {
-			background: #22262E;
+		.navicontainer:hover {
 			.navicon {
-				background: white;
-				box-shadow: 0 8px 0 0 white, 0 16px 0 0 white;
+				border-top: #f27490 solid 12.5px;
+			}
+		}
+
+		.navicontainer.clicked:hover {
+			.navicon {
+				border-bottom: #f27490 solid 12.5px;
+			}
+		}
+
+		.navicontainer.clicked {
+			background: white;
+			.navicon {
+				border-top: none;
+				border-bottom: #22262E solid 12.5px;
+				border-right: white solid 12.5px;
+				border-left: white solid 12.5px;
 			}
 		}
 	}

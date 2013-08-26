@@ -45,9 +45,7 @@ html, body {
 a {
 	color:#22262E;
 }
-kbd,  pre, samp,  tt {
-	font-family: "source-code-pro", monospace;
-}
+
 .goldtainer {
 	width:61.8%;
 	margin: auto;
@@ -117,7 +115,7 @@ header.main {
 		padding: 0 15px;
 	}
 
-	h2.name {
+	.name {
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -126,15 +124,15 @@ header.main {
 	}
 	
 	.name a {
-		span { 
+		font-weight: 300;
+		span.about { 
 			@include transition (all .2s ease-in-out);
 			color:transparent;
-			font-weight: 300;
 			margin-left: -58px;
 		}
 	}
 	.name:hover {
-		span { 
+		span.about { 
 			color: #dedede;
 			margin-left: 0;
 		}
@@ -150,6 +148,9 @@ header.main {
 		right: 0;
 		top: 0;
 		padding: 0 15px;
+		h5 {
+			margin:0;
+		}
 		ul {
 			margin: 0;
 			padding: 0;
@@ -371,6 +372,24 @@ article.photo, article.post {
 	position: relative;
 	overflow: hidden;
 	margin: 15px 0;
+
+	p.tags {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		text-align: center;
+		display: none;
+		opacity: 0;
+		a:after {
+			content: ', ';
+		}
+		a:last-child:after {
+			content: ' ';
+		}
+		a:hover {
+			color:#f27490;
+		}
+	}
 	header {
 		height: 100%;
 		width: 100%;
@@ -404,20 +423,10 @@ article.photo, article.post {
 	aside {
 		@include transition (all .1s ease-in-out);
 		opacity: 0;
+		display: none;
 		padding: 0 10px;
 		position: relative;
 		z-index:1;
-		a:hover {
-			color:#f27490;
-		}
-	}
-	p.tags {
-		a:after {
-			content: ', ';
-		}
-		a:last-child:after {
-			content: ' ';
-		}
 		a:hover {
 			color:#f27490;
 		}

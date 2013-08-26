@@ -5,13 +5,13 @@
   <header>
     <div class="goldtainer">
       <h1 class="title"><%= @tag.name %></h1>
+      <% if @tag.description %>
       <aside class="meta">
-        <% if @tag.description %>
         <div class="content">
           <%= markdown @tag.description  %>
         </div>
-        <% end %>
       </aside>
+      <% end %>
     </div>
     <% if signed_in? %>
       <p class="meta">
