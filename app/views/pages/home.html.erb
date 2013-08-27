@@ -8,13 +8,14 @@
   </div> -->
 
 <div class="goldtainer clear">
-  <article class="post">
+  <article class="post home">
     <header>
+      <label><h5>Newest Post</h5></label>
       <a href="<%= post_path(@post) %>"><div class="overlay"></div></a>
       <div class="float">
         <div class="inner">
           <aside class="meta">
-            <h2><%= link_to @post.title, @post %></h2>
+            <h1><%= link_to @post.title, @post %></h1>
           </aside>
         </div>
       </div>
@@ -38,7 +39,9 @@
   <div class="divider"></div>
 </div>
 
-
+<div class="goldtainer clear">
+  <h3>Active Feeds</h3>
+</div>
 <div class="goldtainer clear">
   <% @tags.each do |tag| %>
   

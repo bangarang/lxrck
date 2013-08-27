@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130823133427) do
+ActiveRecord::Schema.define(:version => 20130827155528) do
 
   create_table "messages", :force => true do |t|
     t.text     "content"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20130823133427) do
     t.datetime "updated_at", :null => false
     t.string   "slug"
     t.string   "image"
+    t.boolean  "published"
   end
 
   create_table "tag_descriptions", :force => true do |t|
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20130823133427) do
     t.datetime "updated_at",  :null => false
     t.string   "slug"
     t.text     "description"
+    t.boolean  "active"
   end
 
   create_table "users", :force => true do |t|

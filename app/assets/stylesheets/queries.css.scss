@@ -76,10 +76,13 @@
 		width: auto;
 	}
 	article.tag {
-		width: 49%
+		width: 50%;
+		margin-right: 0;
+		margin-bottom: 0;
+		border-radius: 0;
 	}
 	article.tag:nth-child(4n), article.tag:nth-child(3n) {
-		margin-right: 2%;
+		margin-right: 0;
 	}
 	article.tag:nth-child(2n) {
 		margin-right: 0;
@@ -105,7 +108,7 @@
 		border-right: none;
 		.divider { display:block; }
 	}
-
+/*
 	article.tag {
 		width:100%;
 		margin-bottom: 15px;
@@ -122,6 +125,7 @@
 	article.tag:after {
 	    clear:both;
 	}
+	*/
 	header.main {
 		min-height: 50px;
 		line-height: 50px;

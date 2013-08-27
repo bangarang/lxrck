@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 
   before_filter :authorize, :except => :home
   def home
-  	@tags = Tag.all
+  	@tags = Tag.where( :active => true )
     @post = Post.last
     respond_to do |format|
       format.html # index.html.erb
@@ -13,4 +13,8 @@ class PagesController < ApplicationController
 
   def in
   end
+  
+  def styles
+  end
+
 end

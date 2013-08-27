@@ -1,13 +1,17 @@
-
+<% if signed_in? %>
 <div class="togger clear">
-  <%= link_to 'New Tag', new_tag_path unless !signed_in? %>
+  <%= link_to 'New Feed', new_tag_path %>
 </div>
+<% end %>
 <div class="goldtainer clear">
   <% @tags.each do |tag| %>
   
   <article class="tag"<% if tag.photo %> style="background-image: url(<%= tag.photo.image_url(:thumb) %>);"<% end %>> 
     <a href="<%= tag_path(tag) %>"> 
     <header>
+      <% if tag.active? %>
+      <label><h5>Active</h5></label>
+      <% end %>
       <div class="overlay"></div>
       <h2><%= tag.name %></h2>
       <aside>

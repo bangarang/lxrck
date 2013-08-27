@@ -245,8 +245,21 @@ article.tag {
 	header {
 		height: 100%;
 		width: 100%;
+		label {
+			position: absolute;
+			top:0;
+			right:0;
+			background: #A7A648;
+			color: white;
+			padding: 2px;
+			margin: 15px;
+			z-index: 1;
+			h5 {
+				margin:0;
+			}
+		}
 		h2 {
-			padding: 0 10px;
+			padding: 10px;
 			text-shadow: 0 0 5px black;
 			margin-top: 0;
 			position:relative;
@@ -268,9 +281,6 @@ article.tag {
 			top: -200px;
 		}
 	}
-	header:hover {
-	}
-
 	a {
 		border: none;
 		color: white;
@@ -373,7 +383,19 @@ article.photo, article.post {
 	position: relative;
 	overflow: hidden;
 	margin: 15px 0;
-
+	label {
+		position: absolute;
+		top:0;
+		right:0;
+		background: #A7A648;
+		color: white;
+		padding: 2px;
+		margin: 15px;
+		z-index: 1;
+		h5 {
+			margin:0;
+		}
+	}
 	p.tags {
 		position: absolute;
 		top: 0;
@@ -395,7 +417,8 @@ article.photo, article.post {
 		height: 100%;
 		width: 100%;
 		position: absolute;
-		h2 {
+
+		h2, h1 {
 			@include transition (all .1s ease-in-out);
 			opacity: 0;
 			padding: 0 10px;
@@ -494,7 +517,7 @@ article.post.main {
 
 article.post {
 	header {
-		h2, aside {
+		h1, h2, aside {
 			opacity: 1;
 		}
 		.overlay {
@@ -511,6 +534,10 @@ article.post:hover {
 			//top: 0;
 		}
 	}
+}
+
+article.post.home {
+	margin: 0 0 15px;
 }
 
 p.tags {
@@ -675,4 +702,6 @@ div.actions input:hover {
 @import "prettify";
 @import "links";
 @import "signin";
+@import "buttons";
+
 @import "queries";

@@ -1,6 +1,6 @@
 class Tag < ActiveRecord::Base
-  attr_accessible :name, :slug, :description
-  before_save :generate_slug
+  attr_accessible :name, :slug, :description, :active
+  before_save :generate_slug, :set_active
   
   has_many :taggings
   has_many :taggables, :through => :taggings
@@ -25,5 +25,13 @@ class Tag < ActiveRecord::Base
 
   def photo
     return self.list.first 
+  end
+
+  def acitve?
+    self.active 
+  end
+
+    def set_active
+    self.active ||= false
   end
 end
