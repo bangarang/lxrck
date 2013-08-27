@@ -87,6 +87,18 @@
 	article.tag:nth-child(2n) {
 		margin-right: 0;
 	}
+
+	article.photo, article.post {
+
+		header {
+			h2, h1 {
+				font-size: 2em;
+			}
+		}
+	}
+	.feeds {
+		padding:0;
+	}
 }
 
 @media screen and (min-width: 481px) {

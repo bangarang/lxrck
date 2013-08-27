@@ -3,7 +3,7 @@
   <%= link_to 'New Feed', new_tag_path %>
 </div>
 <% end %>
-<div class="goldtainer clear">
+<div class="goldtainer feeds clear">
   <% @tags.each do |tag| %>
   
   <article class="tag"<% if tag.photo %> style="background-image: url(<%= tag.photo.image_url(:thumb) %>);"<% end %>> 
