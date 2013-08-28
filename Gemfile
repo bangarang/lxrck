@@ -9,7 +9,7 @@ gem 'turbolinks'
 
 gem 'rmagick'
 gem 'carrierwave'
-gem 'fog', '~> 1.0.0'
+gem 'fog'
 # gem 'carrierwave_direct'
 # gem 'sidekiq'
 

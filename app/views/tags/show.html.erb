@@ -50,7 +50,7 @@
               </p>
             <% end %>
             <div class="content">
-              <%= image_tag pic.image_url(:gallery) %>
+              <%= image_tag pic.image_url(:medium) %>
             </div>
           </article>
         </section>
@@ -116,64 +116,66 @@
         </article>
         <% end %>
     </div>
-    <% if pics.length == 1 %> 
-        <section class="goldtainer gallery clear">
-          <% pic = pics.pop %>
-          <article class="photo">
-            <header>
-              <a href="<%= photo_path(pic) %>"><div class="overlay"></div></a>
-              <div class="float">
-                <div class="inner">
-                  <h2><%= link_to pic.name, pic %></h2>
-                </div>
-              </div>
-            </header> 
-            <% if signed_in? %>
-              <p class="meta">
-                <%= link_to 'Edit', edit_photo_path(pic) %> | <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
-              </p>
-            <% end %>
-            <div class="content">
-              <%= image_tag pic.image_url(:medium) %>
-            </div>
-          </article>
-        </section>
-      <% else %>
-
-        <% until pics.empty? %>
-
-
-          <% j = pics.length %>
-          <% a = 3 %>
-          <% if j % 2 == 0 then a = 2 end %>
-          <% if j % 3 == 0 then a = 3 end %>
-          <% if j % 4 == 0 then a = 4 end %>
-
-
-          <section class="goldtainer gallery<%= a %> clear">
-
-            <% for pic in pics.pop(a) %>
-            <article class="photo">
-              <header>
-                <a href="<%= photo_path(pic) %>"><div class="overlay"></div></a>
-                <div class="float">
-                  <div class="inner">
-                    <h2><%= link_to pic.name, pic %></h2>
-                  </div>
-                </div>
-              </header> 
-              <% if signed_in? %>
-                <p class="meta">
-                  <%= link_to 'Edit', edit_photo_path(pic) %> | <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
-                </p>
-              <% end %>
-              <div class="content">
-                <%= image_tag pic.image_url(:gallery) %>
-              </div>
-            </article>
-            <% end %>
-          </section>
-        <% end %>
-        <% end %>
-
   <% end %> 
+<% if pics.length > 0 %> 
+  <% if pics.length == 1 %> 
+    <section class="goldtainer gallery clear">
+      <% pic = pics.pop %>
+      <article class="photo">
+        <header>
+          <a href="<%= photo_path(pic) %>"><div class="overlay"></div></a>
+          <div class="float">
+            <div class="inner">
+              <h2><%= link_to pic.name, pic %></h2>
+            </div>
+          </div>
+        </header> 
+        <% if signed_in? %>
+          <p class="meta">
+            <%= link_to 'Edit', edit_photo_path(pic) %> | <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </p>
+        <% end %>
+        <div class="content">
+          <%= image_tag pic.image_url(:medium) %>
+        </div>
+      </article>
+    </section>
+  <% else %>
+
+    <% until pics.empty? %>
+
+
+      <% j = pics.length %>
+      <% a = 3 %>
+      <% if j % 2 == 0 then a = 2 end %>
+      <% if j % 3 == 0 then a = 3 end %>
+      <% if j % 4 == 0 then a = 4 end %>
+
+
+      <section class="goldtainer gallery<%= a %> clear">
+
+        <% for pic in pics.pop(a) %>
+        <article class="photo">
+          <header>
+            <a href="<%= photo_path(pic) %>"><div class="overlay"></div></a>
+            <div class="float">
+              <div class="inner">
+                <h2><%= link_to pic.name, pic %></h2>
+              </div>
+            </div>
+          </header> 
+          <% if signed_in? %>
+            <p class="meta">
+              <%= link_to 'Edit', edit_photo_path(pic) %> | <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </p>
+          <% end %>
+          <div class="content">
+            <%= image_tag pic.image_url(:gallery) %>
+          </div>
+        </article>
+        <% end %>
+      </section>
+    <% end %>
+
+  <% end %>
+<% end %>
