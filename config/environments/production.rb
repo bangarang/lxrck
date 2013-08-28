@@ -68,7 +68,6 @@ Lxrck::Application.configure do
 
   CarrierWave.configure do |config|
     config.asset_host = 'http://assets.lxrck.com'
-    config.cache_dir = "#{Rails.root}/tmp/uploads"
   end
   
   config.assets.precompile += %w( modernizr.js )
