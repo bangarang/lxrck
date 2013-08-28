@@ -99,6 +99,31 @@
 	.feeds {
 		padding:0;
 	}
+
+	section.gallery, section.gallery2, section.gallery3, section.gallery4 {
+		width:100%;
+		margin: auto;
+		padding: 0;
+		article.photo {
+			margin:0;
+			border-radius: 0;
+			img {
+				border-radius: 0;
+			}
+		}
+	}
+	section.gallery article.photo {
+		width: 100%;
+	}
+	section.gallery2 article.photo {
+		width: 50%;
+	}
+	section.gallery3 article.photo {
+		width: 100%;
+	}
+	section.gallery4 article.photo {
+		width: 50%;
+	}
 }
 
 @media screen and (min-width: 481px) {

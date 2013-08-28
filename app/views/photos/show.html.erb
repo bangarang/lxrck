@@ -21,6 +21,12 @@
       <%= image_tag @photo.image_url(:medium) %>
     </div>
   </article>
+  <% if signed_in? %>
+  <p class="tags">
+    Image URL: <%= @photo.image_path(:medium) %>
+  </p>
+  <% end %>
+
   <% if @photo.tags %>
   <p class="tags">
     <% for tag in @photo.tags %>

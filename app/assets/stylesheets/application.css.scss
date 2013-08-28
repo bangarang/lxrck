@@ -376,6 +376,57 @@ article.tagmain {
 	}
 }
 
+section.gallery {
+	width: 100%;
+	article.photo {
+		width: 49%;
+		margin: 2% auto;
+		float: none;
+	}
+
+	article.photo:nth-child(5n) {
+		margin-right: 0;
+	}
+}
+
+section.gallery2 {
+	article.photo {
+		width: 49%;
+		margin-right: 2%;
+		float: left;
+	}
+
+	article.photo:nth-child(2n) {
+		margin-right: 0;
+	}
+}
+
+section.gallery3 {
+	article.photo {
+		width: 32%;
+		margin-right: 2%;
+		float: left;
+	}
+
+	article.photo:nth-child(3n) {
+		margin-right: 0;
+	}
+}
+
+section.gallery4 {
+	article.photo {
+		width: 23.5%;
+		max-height: 15.7%;
+		margin-right: 2%;
+		float: left;
+	}
+
+	article.photo:nth-child(4n) {
+		margin-right: 0;
+	}
+}
+
+
 article.photo, article.post {
 	-webkit-font-smoothing: subpixel-antialiased;
 	@include transition (all .1s ease-in-out);
