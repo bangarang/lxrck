@@ -6,7 +6,7 @@ Lxrck::Application.routes.draw do
 	match 'styles' => 'pages#styles'
 
 	get '/login' => 'clearance/sessions#new', :as => 'born'
-	# get '/sign_up' => 'clearance/users#new', :as => 'sign_up'
+	get '/sign_up' => 'clearance/users#new', :as => 'sign_up'
 	delete '/logout' => 'clearance/sessions#destroy', :as => 'kill'
 	resources :tags
 
