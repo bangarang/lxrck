@@ -8,7 +8,7 @@ Lxrck::Application.routes.draw do
 	get '/login' => 'clearance/sessions#new', :as => 'born'
 	# get '/sign_up' => 'clearance/users#new', :as => 'sign_up'
 	delete '/logout' => 'clearance/sessions#destroy', :as => 'kill'
-	resources :tags, :path => :feeds
+	resources :tags
 
 
 	# root :controller => "tags", :action => "index"

@@ -27,10 +27,9 @@
 
     <% if item.type == :photo %>
       <% pics.push(item) %>
-    <% end %>
   
 
-    <% if item.type == :post %>
+    <% elsif item.type == :post %>
 
 
       <% if pics.length == 1 %> 
@@ -93,29 +92,88 @@
         <% end %>
       <% end %>
 
-<div class="goldtainer">
-    <article class="post">
-      <header>
-        <a href="<%= post_path(item) %>"><div class="overlay"></div></a>
-        <div class="float">
-          <div class="inner">
-            <aside class="meta">
-              <h2><%= link_to item.title, item %></h2>
-            </aside>
+    <div class="goldtainer">
+        <article class="post">
+          <header>
+            <a href="<%= post_path(item) %>"><div class="overlay"></div></a>
+            <div class="float">
+              <div class="inner">
+                <aside class="meta">
+                  <h2><%= link_to item.title, item %></h2>
+                </aside>
+              </div>
+            </div>
+            </a>
+          </header> 
+          <% if signed_in? %>
+              <p class="meta">
+                <%= link_to 'Edit', edit_post_path(item) %> | <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </p>
+            <% end %>
+          <div class="content">
+            <%= image_tag item.image_url(:medium) %>
           </div>
-        </div>
-        </a>
-      </header> 
-      <% if signed_in? %>
-          <p class="meta">
-            <%= link_to 'Edit', edit_post_path(item) %> | <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </p>
+        </article>
         <% end %>
-      <div class="content">
-        <%= image_tag item.image_url(:medium) %>
-      </div>
-    </article>
-    <% end %>
-</div>
+    </div>
+    <% if pics.length == 1 %> 
+        <section class="goldtainer gallery clear">
+          <% pic = pics.pop %>
+          <article class="photo">
+            <header>
+              <a href="<%= photo_path(pic) %>"><div class="overlay"></div></a>
+              <div class="float">
+                <div class="inner">
+                  <h2><%= link_to pic.name, pic %></h2>
+                </div>
+              </div>
+            </header> 
+            <% if signed_in? %>
+              <p class="meta">
+                <%= link_to 'Edit', edit_photo_path(pic) %> | <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </p>
+            <% end %>
+            <div class="content">
+              <%= image_tag pic.image_url(:gallery) %>
+            </div>
+          </article>
+        </section>
+      <% else %>
+
+        <% until pics.empty? %>
+
+
+          <% j = pics.length %>
+          <% a = 3 %>
+          <% if j % 2 == 0 then a = 2 end %>
+          <% if j % 3 == 0 then a = 3 end %>
+          <% if j % 4 == 0 then a = 4 end %>
+
+
+          <section class="goldtainer gallery<%= a %> clear">
+
+            <% for pic in pics.pop(a) %>
+            <article class="photo">
+              <header>
+                <a href="<%= photo_path(pic) %>"><div class="overlay"></div></a>
+                <div class="float">
+                  <div class="inner">
+                    <h2><%= link_to pic.name, pic %></h2>
+                  </div>
+                </div>
+              </header> 
+              <% if signed_in? %>
+                <p class="meta">
+                  <%= link_to 'Edit', edit_photo_path(pic) %> | <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </p>
+              <% end %>
+              <div class="content">
+                <%= image_tag pic.image_url(:gallery) %>
+              </div>
+            </article>
+            <% end %>
+          </section>
+        <% end %>
+        <% end %>
 
   <% end %> 

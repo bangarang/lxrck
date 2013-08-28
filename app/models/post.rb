@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
   attr_accessible :content, :title, :image, :slug, :tag_list, :remote_image_url, :published
 
-  before_save :generate_slug, :set_published
+  before_save :generate_slug
+  before_save :set_published
 
   has_many :taggings, :as => :taggable, :dependent => :destroy
   has_many :tags, :through => :taggings
@@ -19,7 +20,7 @@ class Post < ActiveRecord::Base
   
   def tag_list=(names)
     self.tags = names.split(",").map do |n|
-      Tag.where(name: n.strip).first_or_create!
+      Tag.where(name: n.strip, active: true).first_or_create!
     end
   end
 
