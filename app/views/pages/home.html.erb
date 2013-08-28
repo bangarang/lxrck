@@ -33,7 +33,7 @@
         </p>
       <% end %>
     <div class="content">
-      <%= image_tag @post.image_url(:medium) %>
+      <%= image_tag @post.image_url %>
     </div>
   </article>
   <div class="divider"></div>
@@ -45,7 +45,7 @@
 <div class="goldtainer feeds clear">
   <% @tags.each do |tag| %>
   
-  <article class="tag"<% if tag.photo %> style="background-image: url(<%= tag.photo.image_url(:thumb) %>);"<% end %>> 
+  <article class="tag"<% if tag.photo %> style="background-image: url(<%= tag.photo.image_url %>);"<% end %>> 
     <a href="<%= tag_path(tag) %>"> 
     <header>
       <div class="overlay"></div>
