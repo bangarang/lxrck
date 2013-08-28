@@ -7,5 +7,7 @@ CarrierWave.configure do |config|
     # :host                   => 'assets.lxrck.com',
     # :endpoint               => 'http://assets.lxrck.com'
   }
+  config.cache_dir = "#{Rails.root}/tmp/uploads"
+  config.s3_access_policy = :public_read   
   config.fog_directory = ENV['AWS_BUCKET']
 end
