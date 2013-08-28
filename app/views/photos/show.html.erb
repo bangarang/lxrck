@@ -23,7 +23,7 @@
   </article>
   <% if signed_in? %>
   <p class="tags">
-    Image URL: <%= @photo.image_path(:medium) %>
+    Image URL: <%= @photo.image_url(:medium) %>
   </p>
   <% end %>
 
