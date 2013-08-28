@@ -18,12 +18,12 @@
         </p>
       <% end %>
     <div class="content">
-      <%= image_tag @photo.image_url(:medium) %>
+      <%= image_tag @photo.image_url %>
     </div>
   </article>
   <% if signed_in? %>
   <p class="tags">
-    Image URL: <%= @photo.image_url(:medium) %>
+    Image URL: <%= @photo.image_url %>
   </p>
   <% end %>
 
