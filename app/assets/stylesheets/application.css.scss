@@ -121,8 +121,6 @@ header.main {
 	width: 100%;
 	padding: 0 15px;
 
-
-	//@include transition (all .6s ease-out);
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(34,38,46,0.7)), to(rgba(34,38,46,0)));
 	background-image: -webkit-linear-gradient(top, rgba(34,38,46,0.7), rgba(34,38,46,0)); 
 	background-image:    -moz-linear-gradient(top, rgba(34,38,46,0.7), rgba(34,38,46,0));
@@ -130,6 +128,7 @@ header.main {
 	background-image:      -o-linear-gradient(top, rgba(34,38,46,0.7), rgba(34,38,46,0));
 
 	padding-bottom: 50px;
+
 	a {
 		border: none;
 	}
@@ -191,13 +190,13 @@ header.main {
 		}
 
 		ul li a {
-			color: white;
+			color: #999;
 			font-weight: normal;
 			text-shadow: 0 0 5px black;
 		}
 
 		ul li a.active, ul li a:hover {
-			text-decoration: underline;
+			color: white;
 		}
 	}
 }
@@ -433,50 +432,50 @@ article.tagmain {
 
 section.gallery {
 	width: 100%;
-	article.photo {
+	article {
 		width: 49%;
 		margin: 2% auto;
 		float: none;
 	}
 
-	article.photo:nth-child(5n) {
+	article:nth-child(5n) {
 		margin-right: 0;
 	}
 }
 
 section.gallery2 {
-	article.photo {
+	article {
 		width: 49%;
 		margin-right: 2%;
 		float: left;
 	}
 
-	article.photo:nth-child(2n) {
+	article:nth-child(2n) {
 		margin-right: 0;
 	}
 }
 
 section.gallery3 {
-	article.photo {
+	article {
 		width: 32%;
 		margin-right: 2%;
 		float: left;
 	}
 
-	article.photo:nth-child(3n) {
+	article:nth-child(3n) {
 		margin-right: 0;
 	}
 }
 
 section.gallery4 {
-	article.photo {
+	article {
 		width: 23.5%;
 		max-height: 15.7%;
 		margin-right: 2%;
 		float: left;
 	}
 
-	article.photo:nth-child(4n) {
+	article:nth-child(4n) {
 		margin-right: 0;
 	}
 }

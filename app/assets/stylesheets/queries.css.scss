@@ -54,7 +54,7 @@
 		}
 
 		ul li a.active, ul li a:hover {
-			color: #22262E;
+			color: $dark;
 		}
 	}
 	nav.menu:after, nav.menu:before {
@@ -145,24 +145,6 @@
 		border-right: none;
 		.divider { display:block; }
 	}
-/*
-	article.tag {
-		width:100%;
-		margin-bottom: 15px;
-	}
-	article.tag {
-		margin-right: 0;
-	}
-	article.tag:before,
-	article.tag:after {
-	    content:"";
-	    display:table;
-	}
-
-	article.tag:after {
-	    clear:both;
-	}
-	*/
 	header.main {
 		min-height: 50px;
 		line-height: 50px;
@@ -198,22 +180,24 @@
 			text-align: center;
 			color: white;
 			line-height: 40px;
-			padding: 0;
+			padding: 0 15px;
 			width: 100%;
 			ul {
 				
 				li {
 					width: 100%;
 					float: none;
-					background: #22262E;
+					background: white;
 					a {
-						color: white;
+						color: $dark;
+						text-shadow: none;
+						text-decoration: none;
 					}
 				}
 				li:hover {
 					width: 100%;
 					float: none;
-					background: #f27490;
+					background: $pink;
 					a {
 						color: white;
 					}
@@ -222,7 +206,7 @@
 		}
 		.navicontainer:hover {
 			.navicon {
-				border-top: #f27490 solid 12.5px;
+				border-top: $pink solid 12.5px;
 			}
 		}
 
@@ -246,20 +230,20 @@
 
 		.navicontainer{
 			.navicon {
-				border-top: #22262E solid 12.5px;
+				border-top: $dark solid 12.5px;
 			}
 		}
 
 		.navicontainer.clicked:hover {
 			.navicon {
-				border-bottom: #22262E solid 12.5px;
+				border-bottom: $dark solid 12.5px;
 			}
 		}
 
 		.navicontainer.clicked {
 			.navicon {
 				border-top: none;
-				border-bottom: #22262E solid 12.5px;
+				border-bottom: $dark solid 12.5px;
 			}
 		}
 
