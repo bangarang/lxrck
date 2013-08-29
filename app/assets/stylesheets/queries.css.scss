@@ -137,6 +137,21 @@
 		width: auto;
 	}
 
+	section.gallery,section.gallery3, section.gallery2, section.gallery4 {
+		article {
+			width: 100%;
+		}
+		article.pic {
+			a h2 {
+				opacity: 1;
+				padding: 50px 15px;
+				text-align: right;
+			}
+			a:hover h2 {
+			}
+		}
+	}
+
 	section.description {
 		position: relative;
 		width: 100%;
