@@ -736,7 +736,7 @@ a.hire:hover {
 	font-weight: normal;
 }
 
-section.recentpost {
+section.top {
 	position:relative;
 	background-size: cover;
 	background-position: center center;
@@ -748,14 +748,13 @@ section.recentpost {
 		display: table-cell;
 		vertical-align: middle;
 		border:none;
+		h1 {
+			text-align: center;
+			text-shadow: 0 0 5px black;
+		}
 	}
 	a:hover {
 		color: $pink;
-	}
-
-	h1 {
-		text-align: center;
-		text-shadow: 0 0 5px black;
 	}
 	label {
 		position: absolute;
@@ -819,6 +818,20 @@ section.recentpost {
 		li:hover {
 			color:$pink;
 		}
+	}
+}
+
+section.top.post {
+	height: 50%;
+	header {
+		color: white;
+		display: table-cell;
+		vertical-align: middle;
+		border:none;
+		text-align: center;
+		text-shadow: 0 0 5px black;
+		text-transform: uppercase;
+
 	}
 }
 

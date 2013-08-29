@@ -189,7 +189,8 @@
 					float: none;
 					background: white;
 					a {
-						color: $dark;
+						display: block;
+						color: #999;
 						text-shadow: none;
 						text-decoration: none;
 					}
@@ -197,9 +198,8 @@
 				li:hover {
 					width: 100%;
 					float: none;
-					background: $pink;
 					a {
-						color: white;
+						color: $dark;
 					}
 				}
 			}
@@ -249,7 +249,7 @@
 
 		nav {
 			ul li a.active, ul li a:hover {
-				color: white;
+				color: $dark;
 			}
 		}
 

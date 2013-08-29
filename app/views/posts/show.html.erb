@@ -1,7 +1,7 @@
-<section class="recentpost"<% if @post.image %> style="background-image: url(<%= @post.image_url %>);"<% end %> >
-  <a href="<%= post_path(@post) %>">
-    <h1><%= @post.title %></h1>
-  </a>
+<section class="top post"<% if @post.image %> style="background-image: url(<%= @post.image_url %>);"<% end %> >
+    <header>
+      <h1><%= @post.title %></h1>
+    </header>
     <% unless @post.tags.blank? %>
     <ul class="tags">
       <% for tag in @post.tags %>
