@@ -34,25 +34,17 @@
 
 
       <% if pics.length == 1 %> 
-        <section class="goldtainer gallery clear">
+        <section class="gallery clear" >
           <% pic = pics.pop %>
-          <article class="photo">
-            <header>
-              <a href="<%= photo_path(pic) %>"><div class="overlay"></div></a>
-              <div class="float">
-                <div class="inner">
-                  <h2><%= link_to pic.name, pic %></h2>
-                </div>
-              </div>
-            </header> 
+          <article class="pic" <% if pic.image %> style="background-image: url(<%= pic.image_url %>);"<% end %>>
+              <a href="<%= photo_path(pic) %>">
+                <h2><%= pic.name %></h2>
+              </a>
             <% if signed_in? %>
               <p class="meta">
                 <%= link_to 'Edit', edit_photo_path(pic) %> | <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
               </p>
             <% end %>
-            <div class="content">
-              <%= image_tag pic.image_url %>
-            </div>
           </article>
         </section>
       <% else %>
@@ -67,27 +59,19 @@
           <% if j % 4 == 0 then a = 4 end %>
 
 
-          <section class="goldtainer gallery<%= a %> clear">
+          <section class="gallery<%= a %> clear">
 
             <% for pic in pics.pop(a) %>
-            <article class="photo">
-              <header>
-                <a href="<%= photo_path(pic) %>"><div class="overlay"></div></a>
-                <div class="float">
-                  <div class="inner">
-                    <h2><%= link_to pic.name, pic %></h2>
-                  </div>
-                </div>
-              </header> 
-              <% if signed_in? %>
-                <p class="meta">
-                  <%= link_to 'Edit', edit_photo_path(pic) %> | <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
-                </p>
-              <% end %>
-              <div class="content">
-                <%= image_tag pic.image_url %>
-              </div>
-            </article>
+            <article class="pic" <% if pic.image %> style="background-image: url(<%= pic.image_url %>);"<% end %>>
+              <a href="<%= photo_path(pic) %>">
+                <h2><%= pic.name %></h2>
+              </a>
+            <% if signed_in? %>
+              <p class="meta">
+                <%= link_to 'Edit', edit_photo_path(pic) %> | <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </p>
+            <% end %>
+          </article>
             <% end %>
           </section>
         <% end %>
@@ -122,23 +106,15 @@
   <% if pics.length == 1 %> 
     <section class="goldtainer gallery clear">
       <% pic = pics.pop %>
-      <article class="photo">
-        <header>
-          <a href="<%= photo_path(pic) %>"><div class="overlay"></div></a>
-          <div class="float">
-            <div class="inner">
-              <h2><%= link_to pic.name, pic %></h2>
-            </div>
-          </div>
-        </header> 
-        <% if signed_in? %>
-          <p class="meta">
-            <%= link_to 'Edit', edit_photo_path(pic) %> | <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </p>
-        <% end %>
-        <div class="content">
-          <%= image_tag pic.image_url %>
-        </div>
+      <article class="pic" <% if pic.image %> style="background-image: url(<%= pic.image_url %>);"<% end %>>
+        <a href="<%= photo_path(pic) %>">
+          <h2><%= pic.name %></h2>
+        </a>
+      <% if signed_in? %>
+        <p class="meta">
+          <%= link_to 'Edit', edit_photo_path(pic) %> | <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+      <% end %>
       </article>
     </section>
   <% else %>
@@ -156,24 +132,16 @@
       <section class="goldtainer gallery<%= a %> clear">
 
         <% for pic in pics.pop(a) %>
-        <article class="photo">
-          <header>
-            <a href="<%= photo_path(pic) %>"><div class="overlay"></div></a>
-            <div class="float">
-              <div class="inner">
-                <h2><%= link_to pic.name, pic %></h2>
-              </div>
-            </div>
-          </header> 
-          <% if signed_in? %>
-            <p class="meta">
-              <%= link_to 'Edit', edit_photo_path(pic) %> | <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </p>
-          <% end %>
-          <div class="content">
-            <%= image_tag pic.image_url %>
-          </div>
-        </article>
+      <article class="pic" <% if pic.image %> style="background-image: url(<%= pic.image_url %>);"<% end %>>
+        <a href="<%= photo_path(pic) %>">
+          <h2><%= pic.name %></h2>
+        </a>
+      <% if signed_in? %>
+        <p class="meta">
+          <%= link_to 'Edit', edit_photo_path(pic) %> | <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+      <% end %>
+      </article>
         <% end %>
       </section>
     <% end %>

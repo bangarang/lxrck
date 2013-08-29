@@ -2,8 +2,8 @@
 @media screen and (min-width: 1437px) {
 	article.tag {
 		width: 19.2%;
-		margin-right: 1%;
-		margin-bottom: 1%;
+		margin-right: 0;
+		margin-bottom: 0;
 	}
 	article.tag:nth-child(5n) {
 		margin-right: 0;
@@ -28,7 +28,7 @@
 		width: 32%
 	}
 	article.tag:nth-child(4n) {
-		margin-right: 2%;
+		margin-right: 0;
 	}
 	article.tag:nth-child(3n) {
 		margin-right: 0;
@@ -112,17 +112,16 @@
 			}
 		}
 	}
-	section.gallery article.photo {
-		width: 100%;
+	section.gallery,section.gallery3 {
+		article {
+			width: 100%;
+		}
 	}
-	section.gallery2 article.photo {
-		width: 50%;
-	}
-	section.gallery3 article.photo {
-		width: 100%;
-	}
-	section.gallery4 article.photo {
-		width: 50%;
+	section.gallery2, section.gallery4 {
+
+		 article {
+			width: 50%;
+		}
 	}
 }
 
