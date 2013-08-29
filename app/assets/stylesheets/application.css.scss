@@ -211,15 +211,24 @@ body.top header.main {
 
 	.name a {
 		color: inherit;
+		text-shadow: none;
 	}
 	.name:hover {
 		a {
 			color:$pink;
 		}
+		span.about { 
+			text-shadow: none;
+		}
 	}
 	nav {
+		ul li a {
+			color: #aaa;
+			text-shadow: none;
+		}
 		ul li a.active, ul li a:hover {
 			color: $dark;
+			text-decoration: none;
 		}
 	}
 }
@@ -599,13 +608,13 @@ article.post.main {
 		margin: 5px 0;
 	}
 	a {
-		color: white;
-		border: none;
-		padding: 2px;
-		background: $dark;
+		color: $dark;
+		border-bottom: $dark thin dotted;
+		font-weight: bold;
 	}
 	a:hover {
-		background:$pink;
+		color:$pink;
+		border-color:$pink;
 	}
 }
 

@@ -1,7 +1,6 @@
 <section class="recentpost"<% if @post.image %> style="background-image: url(<%= @post.image_url %>);"<% end %> >
   <a href="<%= post_path(@post) %>">
     <h1><%= @post.title %></h1>
-    <label><h5>Newest Post</h5></label>
   </a>
     <% unless @post.tags.blank? %>
     <ul class="tags">
