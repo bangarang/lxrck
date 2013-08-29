@@ -1,36 +1,25 @@
-<% provide(:body_class, "top") %>
+<section class="recentpost"<% if @post.image %> style="background-image: url(<%= @post.image_url %>);"<% end %> >
+  <a href="<%= post_path(@post) %>">
+    <h1><%= @post.title %></h1>
+    <label><h5>Newest Post</h5></label>
+  </a>
+    <% unless @post.tags.blank? %>
+    <ul class="tags">
+      <% for tag in @post.tags %>
+        <li><%= link_to "<h5>#{tag.name}</h5>".html_safe, tag %></li>
+      <% end %>
+    </ul>
+    <% end %>
+    <% if signed_in? %>
+      <ul class="meta">
+        <li><%= link_to 'Edit', edit_post_path(@post) %></li>
+        <li><%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+    <% end %>
+</section>
 
 <div class="goldtainer">
   <% if notice %><p id="notice"><%= notice %></p><% end %>
-
-<article class="post">
-    <header>
-      <div class="overlay"></div>
-      <div class="float">
-        <div class="inner">
-          <aside class="meta">
-            <h2><%= @post.title %></h2>
-            <p class="updated"><%= @post.updated_at.strftime("%B %d").html_safe %> 
-            <% if @post.tags %>
-             | 
-            <% for tag in @post.tags %>
-                <%= link_to tag.name, tag %>
-            <% end %>
-            </p>
-            <% end %>
-          </aside>
-        </div>
-      </div>
-    </header> 
-    <% if signed_in? %>
-        <p class="meta">
-          <%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </p>
-      <% end %>
-    <div class="content">
-      <%= image_tag @post.image_url %>
-    </div>
-  </article>
 
   <article class="post main"> 
     <div class="content">
