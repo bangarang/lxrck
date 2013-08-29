@@ -36,6 +36,7 @@ h1 {
 
 html, body {
 	width: 100%;
+	height: 100%;
 	color:#22262E;
 	margin:0;
 	font-size: 18px;
@@ -110,9 +111,25 @@ img {
 header.main {
 	min-height: 50px;
 	line-height: 50px;
-	.back {
-		float: left;
-		padding: 0 15px;
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	padding: 0 15px;
+
+
+	//@include transition (all .6s ease-out);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(34,38,46,0.3)), to(rgba(34,38,46,0)));
+	background-image: -webkit-linear-gradient(top, rgba(34,38,46,0.3), rgba(34,38,46,0)); 
+	background-image:    -moz-linear-gradient(top, rgba(34,38,46,0.3), rgba(34,38,46,0));
+	background-image:     -ms-linear-gradient(top, rgba(34,38,46,0.3), rgba(34,38,46,0));
+	background-image:      -o-linear-gradient(top, rgba(34,38,46,0.3), rgba(34,38,46,0));
+
+	padding-bottom: 50px;
+	a {
+		border: none;
+	}
+	.divider {
+		margin-top: 50px;
 	}
 
 	.name {
@@ -125,6 +142,7 @@ header.main {
 	
 	.name a {
 		font-weight: 300;
+		color: white;
 		span.about { 
 			@include transition (all .2s ease-in-out);
 			color:transparent;
@@ -166,6 +184,28 @@ header.main {
 			font-weight: normal;
 		}
 
+		ul li a.active, ul li a:hover {
+			color: white;
+		}
+	}
+}
+
+body.top header.main {
+	position: relative;
+	background-image: none;
+	.divider {
+		display: none;
+	}
+
+	.name a {
+		color: inherit;
+	}
+	.name:hover {
+		a {
+			color:#f27490;
+		}
+	}
+	nav {
 		ul li a.active, ul li a:hover {
 			color: #22262E;
 		}
@@ -239,21 +279,20 @@ article.tag {
 	border-radius: 2px;
 	float: left;
 	margin-bottom: 2%;
-	position: relative;
-	z-index:1;
+	position: relative;	
 	overflow: hidden;
 	header {
 		height: 100%;
 		width: 100%;
 		label {
 			position: absolute;
-			top:0;
+			bottom:0;
 			right:0;
 			background: #A7A648;
 			color: white;
 			padding: 2px;
 			margin: 15px;
-			z-index: 1;
+	
 			h5 {
 				margin:0;
 			}
@@ -263,7 +302,6 @@ article.tag {
 			text-shadow: 0 0 5px black;
 			margin-top: 0;
 			position:relative;
-			z-index:1;
 			text-transform:uppercase;
 		}
 		
@@ -291,7 +329,6 @@ article.tag {
 		opacity: 0;
 		padding: 0 10px;
 		position: relative;
-		z-index:1;
 	}
 	p.meta {
 		position: absolute;
@@ -342,10 +379,7 @@ article.tagmain {
 	p {
 		margin: 0;
 	}
-	aside {
-		position: relative;
-		z-index:1;
-	}
+
 	p.meta {
 		width: 100%;
 		margin: 0;
@@ -436,13 +470,12 @@ article.photo, article.post {
 	margin: 15px 0;
 	label {
 		position: absolute;
-		top:0;
+		bottom:0;
 		right:0;
 		background: #A7A648;
 		color: white;
 		padding: 2px;
 		margin: 15px;
-		z-index: 1;
 		h5 {
 			margin:0;
 		}
@@ -476,7 +509,6 @@ article.photo, article.post {
 			text-shadow: 0 0 5px black;
 			margin: 0;
 			position:relative;
-			z-index:1;
 			text-align: center;
 			text-transform: uppercase;
 		}
@@ -502,7 +534,6 @@ article.photo, article.post {
 		//display: none;
 		padding: 0 10px;
 		position: relative;
-		z-index:1;
 		a:hover {
 			color:#f27490;
 		}
@@ -683,6 +714,41 @@ a.hire:hover {
 	color: #999;
 	text-align: center;
 	font-weight: normal;
+}
+
+section.recentpost {
+	position:relative;
+	background-size: cover;
+	background-position: center center;
+	height: 70%;
+	width: 100%;
+	display: table;
+	a {
+		color: white;
+		display: table-cell;
+		vertical-align: middle;
+		border:none;
+	}
+	a:hover {
+		color: #f27490;
+	}
+
+	h1 {
+		text-align: center;
+	}
+	label {
+		position: absolute;
+		bottom:0;
+		right:0;
+		background: #A7A648;
+		color: white;
+		padding: 2px;
+		margin: 15px;
+
+		h5 {
+			margin:0;
+		}
+	}
 }
 
 div.menubox {

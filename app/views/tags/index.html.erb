@@ -1,3 +1,5 @@
+<% provide(:body_class, "top") %>
+
 <% if signed_in? %>
 <div class="togger clear">
   <%= link_to 'New Feed', new_tag_path %>
@@ -9,9 +11,6 @@
   <article class="tag"<% if tag.photo %> style="background-image: url(<%= tag.photo.image_url %>);"<% end %>> 
     <a href="<%= tag_path(tag) %>"> 
     <header>
-      <% if tag.active? %>
-      <label><h5>Active</h5></label>
-      <% end %>
       <div class="overlay"></div>
       <h2><%= tag.name %></h2>
       <aside>
@@ -21,6 +20,9 @@
         </div>
         <% end %>
       </aside>
+      <% if tag.active? %>
+      <label><h5>Active</h5></label>
+      <% end %>
       
       <% if signed_in? %>
         <p class="meta">

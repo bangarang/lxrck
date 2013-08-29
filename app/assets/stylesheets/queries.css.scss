@@ -184,14 +184,14 @@
 				display: block;
 				margin: 0;
 				width: 25px;
-				border-top: #22262E solid 12.5px;
-				border-right: white solid 12.5px;
-				border-left: white solid 12.5px;
+				border-top: white solid 12.5px;
+				border-right: transparent solid 12.5px;
+				border-left: transparent solid 12.5px;
 			}
 		}
 		nav.main {
 			display: none;
-			position: relative;
+			position: absolute;
 			min-height: 50px;
 			cursor: pointer;
 			margin: 50px 0 0px;
@@ -199,6 +199,7 @@
 			color: white;
 			line-height: 40px;
 			padding: 0;
+			width: 100%;
 			ul {
 				
 				li {
@@ -227,19 +228,49 @@
 
 		.navicontainer.clicked:hover {
 			.navicon {
-				border-bottom: #f27490 solid 12.5px;
+				border-bottom: white solid 12.5px;
 			}
 		}
 
 		.navicontainer.clicked {
-			background: white;
+			.navicon {
+				border-top: none;
+				border-bottom: white solid 12.5px;
+				border-right: transparent solid 12.5px;
+				border-left: transparent solid 12.5px;
+			}
+		}
+	}
+
+	body.top header.main {
+
+		.navicontainer{
+			.navicon {
+				border-top: #22262E solid 12.5px;
+			}
+		}
+
+		.navicontainer.clicked:hover {
+			.navicon {
+				border-bottom: #22262E solid 12.5px;
+			}
+		}
+
+		.navicontainer.clicked {
 			.navicon {
 				border-top: none;
 				border-bottom: #22262E solid 12.5px;
-				border-right: white solid 12.5px;
-				border-left: white solid 12.5px;
 			}
 		}
+
+		nav {
+			ul li a.active, ul li a:hover {
+				color: white;
+			}
+		}
+
+
+
 	}
 	
 }

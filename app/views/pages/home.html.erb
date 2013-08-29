@@ -7,20 +7,11 @@
 	</video>
   </div> -->
 
-<div class="goldtainer">
-  <article class="post home">
-    <header>
-      <label><h5>Newest Post</h5></label>
-      <a href="<%= post_path(@post) %>"><div class="overlay"></div></a>
-      <div class="float">
-        <div class="inner">
-          <aside class="meta">
-            <h1><%= link_to @post.title, @post %></h1>
-          </aside>
-        </div>
-      </div>
-    </header> 
-    <% if @post.tags %>
+<section class="recentpost"<% if @post.image %> style="background-image: url(<%= @post.image_url %>);"<% end %> >
+  <a href="<%= post_path(@post) %>">
+    <h1><%= @post.title %></h1>
+    <label><h5>Newest Post</h5></label>
+    <% unless @post.tags.blank? %>
     <p class="tags">
       <% for tag in @post.tags %>
         <%= link_to tag.name, tag %>
@@ -28,16 +19,12 @@
     </p>
     <% end %>
     <% if signed_in? %>
-        <p class="meta">
-          <%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </p>
-      <% end %>
-    <div class="content">
-      <%= image_tag @post.image_url %>
-    </div>
-  </article>
-  <div class="divider"></div>
-</div>
+      <p class="meta">
+        <%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </p>
+    <% end %>
+  </a>
+</section>
 
 <div class="goldtainer">
   <h3>Active Feeds</h3>
