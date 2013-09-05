@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 
   before_filter :authorize, :except => :home
   def home
-  	@tags = Tag.where( :active => true )
+  	@feeds = Feed.where( :active => true )
     @post = Post.last
     respond_to do |format|
       format.html # index.html.erb

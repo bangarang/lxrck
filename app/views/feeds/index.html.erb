@@ -2,32 +2,32 @@
 <h2 class="feedtitle">All Feeds</h2>
 <% if signed_in? %>
 <div class="togger clear">
-  <%= link_to 'New Feed', new_tag_path %>
+  <%= link_to 'New Feed', new_feed_path %>
 </div>
 <% end %>
 <div class="goldtainer clear">
 <% pics = [] %>
-  <% @tags.each do |tag| %>
-    <% pics.push(tag) %>
+  <% @feeds.each do |feed| %>
+    <% pics.push(feed) %>
   <% end %>
   <% if pics.length == 1 %> 
         <section class="gallery clear" >
-          <% tag = pics.pop %>
-            <article class="tag"<% if tag.photo %> style="background-image: url(<%= tag.photo.image_url %>);"<% end %>> 
-              <a href="<%= tag_path(tag) %>"> 
+          <% feed = pics.pop %>
+            <article class="tag"<% if feed.photo %> style="background-image: url(<%= feed.photo.image_url %>);"<% end %>> 
+              <a href="<%= feed_path(feed) %>"> 
               <header>
                 <div class="overlay"></div>
-                <h2><%= tag.name %></h2>
+                <h2><%= feed.name %></h2>
                 <aside>
-                  <% if tag.description %>
+                  <% if feed.description %>
                   <div class="content">
-                    <%= markdown tag.description  %>
+                    <%= markdown feed.description  %>
                   </div>
                   <% end %>
                 </aside>
                 <% if signed_in? %>
                   <p class="meta">
-                    <%= link_to 'Edit', edit_tag_path(tag) %> | <%= link_to 'Back', tags_path %> | <%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <%= link_to 'Edit', edit_feed_path(feed) %> | <%= link_to 'Back', feeds_path %> | <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %>
                   </p>
                 <% end %>
               </header>
@@ -42,27 +42,26 @@
           <% a = 3 %>
           <% if j % 2 == 0 then a = 2 end %>
           <% if j % 3 == 0 then a = 3 end %>
-          <% if j % 4 == 0 then a = 4 end %>
 
 
           <section class="gallery<%= a %> clear">
 
-            <% for tag in pics.pop(a) %>
-              <article class="tag"<% if tag.photo %> style="background-image: url(<%= tag.photo.image_url %>);"<% end %>> 
-                <a href="<%= tag_path(tag) %>"> 
+            <% for feed in pics.pop(a) %>
+              <article class="tag"<% if feed.photo %> style="background-image: url(<%= feed.photo.image_url %>);"<% end %>> 
+                <a href="<%= feed_path(feed) %>"> 
                 <header>
                   <div class="overlay"></div>
-                  <h2><%= tag.name %></h2>
+                  <h2><%= feed.name %></h2>
                   <aside>
-                    <% if tag.description %>
+                    <% if feed.description %>
                     <div class="content">
-                      <%= markdown tag.description  %>
+                      <%= markdown feed.description  %>
                     </div>
                     <% end %>
                   </aside>
                   <% if signed_in? %>
                     <p class="meta">
-                      <%= link_to 'Edit', edit_tag_path(tag) %> | <%= link_to 'Back', tags_path %> | <%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <%= link_to 'Edit', edit_feed_path(feed) %> | <%= link_to 'Back', feeds_path %> | <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %>
                     </p>
                   <% end %>
                 </header>

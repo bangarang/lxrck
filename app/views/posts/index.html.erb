@@ -18,10 +18,10 @@
           </div>
         </div>
       </header> 
-      <% if post.tags %>
+      <% if post.feeds %>
       <p class="tags">
-        <% for tag in post.tags %>
-          <%= link_to tag.name, tag %>
+        <% for feed in post.feeds %>
+          <%= link_to feed.name, feed %>
         <% end %>
       </p>
       <% end %>
@@ -48,10 +48,10 @@
           </div>
         </div>
       </header> 
-      <% if post.tags %>
+      <% if post.feeds %>
       <p class="tags">
-        <% for tag in post.tags %>
-          <%= link_to tag.name, tag %>
+        <% for feed in post.feeds %>
+          <%= link_to feed.name, feed %>
         <% end %>
       </p>
       <% end %>

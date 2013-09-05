@@ -1,8 +1,8 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :name, :image, :tag_list, :remote_image_url
+  attr_accessible :name, :image, :feed_list, :remote_image_url
 
-  has_many :taggings, :as => :taggable, :dependent => :destroy
-  has_many :tags, :through => :taggings
+  has_many :feedlings, :as => :feedable, :dependent => :destroy
+  has_many :feeds, :through => :feedlings
 
   mount_uploader :image, ImageUploader
 
@@ -10,13 +10,13 @@ class Photo < ActiveRecord::Base
   	return :photo
   end
 
-  def tag_list
-    tags.map(&:name).join(", ")
+  def feed_list
+    feeds.map(&:name).join(", ")
   end
   
-  def tag_list=(names)
-    self.tags = names.split(",").map do |n|
-      Tag.where(name: n.strip, active: true).first_or_create!
+  def feed_list=(names)
+    self.feeds = names.split(",").map do |n|
+      Feed.where(name: n.strip, active: true).first_or_create!
     end
   end
 end

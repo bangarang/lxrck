@@ -28,10 +28,10 @@
   </p>
   <% end %>
 
-  <% if @photo.tags %>
-  <p class="tags">
-    <% for tag in @photo.tags %>
-        <%= link_to tag.name, tag %>
+  <% if @photo.feeds %>
+  <p class="ftags">
+    <% for feed in @photo.feeds %>
+        <%= link_to feed.name, feed %>
     <% end %>
   </p>
   <% end %>

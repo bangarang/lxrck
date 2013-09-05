@@ -1,26 +1,23 @@
 class Post < ActiveRecord::Base
-  attr_accessible :content, :title, :image, :slug, :tag_list, :remote_image_url, :published
+  attr_accessible :content, :title, :slug, :feed_list, :remote_image_url, :published
 
   before_save :generate_slug
   before_save :set_published
 
-  has_many :taggings, :as => :taggable, :dependent => :destroy
-  has_many :tags, :through => :taggings
-
-  mount_uploader :image, ImageUploader
-
+  has_many :feedlings, :as => :feedable, :dependent => :destroy
+  has_many :feeds, :through => :feedlings
 
   def type
   	return :post
   end
 
-  def tag_list
-    tags.map(&:name).join(", ")
+  def feed_list
+    feeds.map(&:name).join(", ")
   end
   
-  def tag_list=(names)
-    self.tags = names.split(",").map do |n|
-      Tag.where(name: n.strip, active: true).first_or_create!
+  def feed_list=(names)
+    self.feeds = names.split(",").map do |n|
+      Feed.where(name: n.strip, active: true).first_or_create!
     end
   end
 

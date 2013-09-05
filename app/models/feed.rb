@@ -1,19 +1,17 @@
-class Tag < ActiveRecord::Base
+class Feed < ActiveRecord::Base
   attr_accessible :name, :slug, :description, :active
   before_save :generate_slug
   before_save :set_active
   
-  has_many :taggings
-  has_many :taggables, :through => :taggings
+  has_many :feedlings
+  has_many :feedables, :through => :feedlings
 
   def list 
-  	tagged = []
-
-  	for t in self.taggings
-  		tagged << t.taggable
+  	fed = []
+  	for t in self.feedlings
+  		fed << t.feedable
   	end
-
-  	return tagged.reverse
+  	return fed.reverse
   end
 
   def to_param
@@ -25,7 +23,15 @@ class Tag < ActiveRecord::Base
   end
 
   def photo
-    return self.list.first 
+    tmp = nil
+    self.list.each do |a| 
+      if a.type == :photo
+        tmp = a
+      elsif a.type == :post
+        nil
+      end
+    end
+    return tmp
   end
 
   def acitve?

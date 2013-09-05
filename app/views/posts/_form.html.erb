@@ -20,16 +20,11 @@
     <%= f.check_box :published %>
   </div>
   <div class="field">
-    <%= f.file_field :image %>
-    <%= f.label :remote_image_url, "or image URL" %>
-    <%= f.text_field :remote_image_url %>
-  </div>
-  <div class="field">
     <%= f.label :content %><br />
     <%= f.text_area :content %>
   </div>
   <div class="field">
-    Tags: <%= f.text_field :tag_list %>
+    Feeds: <%= f.text_field :feed_list %>
   </div>
   <div class="actions">
     <%= f.submit %>

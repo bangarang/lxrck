@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130827155528) do
+ActiveRecord::Schema.define(:version => 20130905044112) do
+
+  create_table "feedlings", :force => true do |t|
+    t.string   "feedable_type"
+    t.integer  "feedable_id"
+    t.integer  "feed_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "feeds", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "slug"
+    t.text     "description"
+    t.boolean  "active"
+  end
 
   create_table "messages", :force => true do |t|
     t.text     "content"
@@ -32,25 +49,21 @@ ActiveRecord::Schema.define(:version => 20130827155528) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "slug"
-    t.string   "image"
     t.boolean  "published"
   end
 
-  create_table "taggings", :force => true do |t|
+  create_table "tag_descriptions", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "taggables", :force => true do |t|
     t.string   "taggable_type"
     t.integer  "taggable_id"
     t.integer  "tag_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-  end
-
-  create_table "tags", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "slug"
-    t.text     "description"
-    t.boolean  "active"
   end
 
   create_table "users", :force => true do |t|
