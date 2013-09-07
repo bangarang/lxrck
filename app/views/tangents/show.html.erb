@@ -15,7 +15,7 @@
     </div>
     <% if signed_in? %>
       <p class="meta">
-        <%= link_to 'Edit', edit_feed_path(@tangent) %> | <%= link_to 'Back', feeds_path %> | <%= link_to 'Destroy', @tangent, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Edit', edit_tangent_path(@tangent) %> | <%= link_to 'Back', tangents_path %> | <%= link_to 'Destroy', @tangent, method: :delete, data: { confirm: 'Are you sure?' } %>
       </p>
     <% end %>
   </header>
