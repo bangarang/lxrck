@@ -13,10 +13,10 @@
             <div class="inner">
               <h2><%= link_to photo.name, photo %> </h2>
               <aside class="meta">
-                <% if photo.feeds %>
+                <% if photo.tangents %>
                 <p class="tags">
-                    <% for feed in photo.feeds %>
-                        <%= link_to feed.name, feed %>
+                    <% for tangent in photo.tangents %>
+                        <%= link_to tangent.name, tangent %>
                     <% end %>
                 </p>
                 <% end %>

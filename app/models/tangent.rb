@@ -1,17 +1,17 @@
-class Feed < ActiveRecord::Base
+class Tangent < ActiveRecord::Base
   attr_accessible :name, :slug, :description, :active
   before_save :generate_slug
   before_save :set_active
   
-  has_many :feedlings
-  has_many :feedables, :through => :feedlings
+  has_many :tangings
+  has_many :tangables, :through => :tangings
 
   def list 
-  	fed = []
-  	for t in self.feedlings
-  		fed << t.feedable
+  	tangents = []
+  	for t in self.tangings
+  		tangents << t.tangable
   	end
-  	return fed.reverse
+  	return tangents.reverse
   end
 
   def to_param
@@ -36,9 +36,5 @@ class Feed < ActiveRecord::Base
 
   def acitve?
     self.active 
-  end
-
-    def set_active
-    self.active ||= false
   end
 end

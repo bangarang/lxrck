@@ -5,67 +5,26 @@
   <%= link_to 'New Post', new_post_path unless !signed_in? %>
 
   <% @posts.each do |post| %>
-    <% if post.published? %>
+    <% if post.published? || signed_in? %>
     <article class="post">
-      <header>
-        <a href="<%= post_path(post) %>"><div class="overlay"></div></a>
-        <div class="float">
-          <div class="inner">
-            <aside class="meta">
-              <h2><%= link_to post.title, post %></h2>
-              <p class="updated"><%= post.updated_at.strftime("%B %d").html_safe %></p>
-            </aside>
-          </div>
-        </div>
-      </header> 
-      <% if post.feeds %>
+      <h2><%= post.name %></h2>
+      <p class="updated"><%= post.updated_at.strftime("%B %d").html_safe %></p>
+      <% if post.tangents %>
       <p class="tags">
-        <% for feed in post.feeds %>
-          <%= link_to feed.name, feed %>
+        <% for tangent in post.tangents %>
+          <%= link_to tangent.name, tangent %>
         <% end %>
       </p>
       <% end %>
       <% if signed_in? %>
-          <p class="meta">
+          <p>
             <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
           </p>
         <% end %>
       <div class="content">
-        <%= image_tag post.image_url %>
+        <%= markdown post.content %>
       </div>
     </article>
-
-    <% elsif signed_in? %>
-    <article class="post">
-      <header>
-        <a href="<%= post_path(post) %>"><div class="overlay"></div></a>
-        <div class="float">
-          <div class="inner">
-            <aside class="meta">
-              <h2><%= link_to post.title, post %></h2>
-              <p class="updated"><%= post.updated_at.strftime("%B %d").html_safe %></p>
-            </aside>
-          </div>
-        </div>
-      </header> 
-      <% if post.feeds %>
-      <p class="tags">
-        <% for feed in post.feeds %>
-          <%= link_to feed.name, feed %>
-        <% end %>
-      </p>
-      <% end %>
-      <% if signed_in? %>
-          <p class="meta">
-            <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </p>
-        <% end %>
-      <div class="content">
-        <%= image_tag post.image_url %>
-      </div>
-    </article>
-
-
     <% end %>
   <% end %>
 </div>

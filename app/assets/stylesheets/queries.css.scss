@@ -1,4 +1,4 @@
-
+	
 @media screen and (min-width: 1437px) {
 	article.tag {
 		width: 19.2%;
@@ -118,6 +118,11 @@
 			margin-right: 0;
 			margin-bottom: 0;
 		}
+
+
+		article:nth-child(2n) {
+			width: 100%;
+		}
 	}
 	section.gallery2, section.gallery4 {
 
@@ -139,6 +144,11 @@
 @media screen and (max-width: 480px) {
 	.goldtainer {
 		width: auto;
+	}
+	section.top {
+		.goldtainer{ 
+			padding:75px 15px;
+		}
 	}
 
 	section.gallery,section.gallery3, section.gallery2, section.gallery4 {

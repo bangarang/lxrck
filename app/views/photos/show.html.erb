@@ -28,10 +28,10 @@
   </p>
   <% end %>
 
-  <% if @photo.feeds %>
+  <% if @photo.tangents %>
   <p class="ftags">
-    <% for feed in @photo.feeds %>
-        <%= link_to feed.name, feed %>
+    <% for tangent in @photo.tangents %>
+        <%= link_to tangent.name, tangent %>
     <% end %>
   </p>
   <% end %>

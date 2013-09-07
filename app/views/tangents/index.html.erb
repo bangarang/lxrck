@@ -1,33 +1,33 @@
 <% provide(:body_class, "top") %>
-<h2 class="feedtitle">All Feeds</h2>
+<h2 class="tangenttitle">All tangents</h2>
 <% if signed_in? %>
 <div class="togger clear">
-  <%= link_to 'New Feed', new_feed_path %>
+  <%= link_to 'New tangent', new_tangent_path %>
 </div>
 <% end %>
 <div class="goldtainer clear">
 <% pics = [] %>
-  <% @feeds.each do |feed| %>
-    <% pics.push(feed) %>
+  <% @tangents.each do |tangent| %>
+    <% pics.push(tangent) %>
   <% end %>
   <% if pics.length == 1 %> 
         <section class="gallery clear" >
-          <% feed = pics.pop %>
-            <article class="tag"<% if feed.photo %> style="background-image: url(<%= feed.photo.image_url %>);"<% end %>> 
-              <a href="<%= feed_path(feed) %>"> 
+          <% tangent = pics.pop %>
+            <article class="tag"<% if tangent.photo %> style="background-image: url(<%= tangent.photo.image_url %>);"<% end %>> 
+              <a href="<%= tangent_path(tangent) %>"> 
               <header>
                 <div class="overlay"></div>
-                <h2><%= feed.name %></h2>
+                <h2><%= tangent.name %></h2>
                 <aside>
-                  <% if feed.description %>
+                  <% if tangent.description %>
                   <div class="content">
-                    <%= markdown feed.description  %>
+                    <%= markdown tangent.description  %>
                   </div>
                   <% end %>
                 </aside>
                 <% if signed_in? %>
                   <p class="meta">
-                    <%= link_to 'Edit', edit_feed_path(feed) %> | <%= link_to 'Back', feeds_path %> | <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <%= link_to 'Edit', edit_tangent_path(tangent) %> | <%= link_to 'Back', tangents_path %> | <%= link_to 'Destroy', tangent, method: :delete, data: { confirm: 'Are you sure?' } %>
                   </p>
                 <% end %>
               </header>
@@ -46,22 +46,22 @@
 
           <section class="gallery<%= a %> clear">
 
-            <% for feed in pics.pop(a) %>
-              <article class="tag"<% if feed.photo %> style="background-image: url(<%= feed.photo.image_url %>);"<% end %>> 
-                <a href="<%= feed_path(feed) %>"> 
+            <% for tangent in pics.pop(a) %>
+              <article class="tag"<% if tangent.photo %> style="background-image: url(<%= tangent.photo.image_url %>);"<% end %>> 
+                <a href="<%= tangent_path(tangent) %>"> 
                 <header>
                   <div class="overlay"></div>
-                  <h2><%= feed.name %></h2>
+                  <h2><%= tangent.name %></h2>
                   <aside>
-                    <% if feed.description %>
+                    <% if tangent.description %>
                     <div class="content">
-                      <%= markdown feed.description  %>
+                      <%= markdown tangent.description  %>
                     </div>
                     <% end %>
                   </aside>
                   <% if signed_in? %>
                     <p class="meta">
-                      <%= link_to 'Edit', edit_feed_path(feed) %> | <%= link_to 'Back', feeds_path %> | <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <%= link_to 'Edit', edit_tangent_path(tangent) %> | <%= link_to 'Back', tangents_path %> | <%= link_to 'Destroy', tangent, method: :delete, data: { confirm: 'Are you sure?' } %>
                     </p>
                   <% end %>
                 </header>
@@ -75,6 +75,6 @@
 
 <% if Rails.env.production? %>
   <%= javascript_tag do %>
-    mixpanel.track('Viewed Feed Index');
+    mixpanel.track('Viewed tangent Index');
   <% end %>
 <% end %>

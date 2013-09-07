@@ -1,22 +1,22 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :name, :image, :feed_list, :remote_image_url
-
-  has_many :feedlings, :as => :feedable, :dependent => :destroy
-  has_many :feeds, :through => :feedlings
+  attr_accessible :name, :image, :tangent_list, :remote_image_url
 
   mount_uploader :image, ImageUploader
+  
+  has_many :tangings, :as => :tangable, :dependent => :destroy
+  has_many :tangents, :through => :tangings
+
+  def tangent_list
+    tangents.map(&:name).join(", ")
+  end
+  
+  def tangent_list=(names)
+    self.tangents = names.split(",").map do |n|
+      Tanget.where(name: n.strip, active: true).first_or_create!
+    end
+  end
 
   def type
   	return :photo
-  end
-
-  def feed_list
-    feeds.map(&:name).join(", ")
-  end
-  
-  def feed_list=(names)
-    self.feeds = names.split(",").map do |n|
-      Feed.where(name: n.strip, active: true).first_or_create!
-    end
   end
 end

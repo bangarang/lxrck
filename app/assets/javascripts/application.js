@@ -10,4 +10,8 @@
           $('nav.main').toggle();
           return false;
         });
+        $('.video-link').click(function() {
+          $('.home-video').toggleClass("open");
+          return false;
+        });
       });

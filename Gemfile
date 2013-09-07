@@ -9,7 +9,7 @@ gem 'font-awesome-rails', "~> 3.1.1.3"
 gem 'clearance'
 gem 'turbolinks'
 
-gem 'rmagick'
+gem 'mini_magick'
 gem 'carrierwave'
 gem 'fog'
 # gem 'carrierwave_direct'

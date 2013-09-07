@@ -1,12 +1,13 @@
 Lxrck::Application.routes.draw do
+  	resources :points
 	root :to => 'pages#home'
 	match 'in' => 'pages#in'
 	match 'styles' => 'pages#styles'
 
 	get '/login' => 'clearance/sessions#new', :as => 'born'
-	get '/sign_up' => 'clearance/users#new', :as => 'sign_up'
+	# get '/sign_up' => 'clearance/users#new', :as => 'sign_up'
 	delete '/logout' => 'clearance/sessions#destroy', :as => 'kill'
-	resources :feeds 
+	resources :tangents
 	resources :photos
 	resources :posts
 

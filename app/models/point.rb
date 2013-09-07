@@ -1,8 +1,7 @@
-class Post < ActiveRecord::Base
+class Point < ActiveRecord::Base
   attr_accessible :content, :name, :slug, :tangent_list, :remote_image_url, :published
 
   before_save :generate_slug
-  
 
   has_many :tangings, :as => :tangable, :dependent => :destroy
   has_many :tangents, :through => :tangings
@@ -18,7 +17,7 @@ class Post < ActiveRecord::Base
   end
 
   def type
-    return :post
+    return :point
   end
 
   def to_param

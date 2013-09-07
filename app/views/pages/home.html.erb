@@ -1,30 +1,24 @@
-<!-- 
-  <div class="video_container">
-	<video class="home_video" autoplay="true" loop="loop" >   
-		<source src="http://video.lxrck.com/reel.mp4" type="video/mp4" />        
+<!--   <div class="video_container">
+	<video class="home_video" poster="http://video.lxrck.com/reel.png" autoplay loop>          
 		<source src="http://video.lxrck.com/reel.webm" type="video/webm" />
+    <source src="http://video.lxrck.com/reel.mp4" type="video/mp4" /> 
 		<source src="http://video.lxrck.com/reel.ogv" type="video/ogg" />
 	</video>
   </div> -->
 
-<section class="top" >
-  <a href="<%= post_path(@post) %>">
-    <h1><%= @post.title %></h1>
-    <label><h5>Newest Post</h5></label>
-  </a>
-    <% unless @post.feeds.blank? %>
-    <ul class="tags">
-      <% for tag in @post.feeds %>
-        <li><%= link_to "<h5>#{tag.name}</h5>".html_safe, tag %></li>
-      <% end %>
-    </ul>
-    <% end %>
-    <% if signed_in? %>
-      <ul class="meta">
-        <li><%= link_to 'Edit', edit_post_path(@post) %></li>
-        <li><%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-      </ul>
-    <% end %>
+<section class="top" <% if @photo %> style="background-image: url(<%= @photo.image_url %>);"<% end %>>
+
+  <div class="goldtainer">
+    <div class="home-video">
+      <div class="fluid-width-video-wrapper" >
+        <iframe src="http://www.youtube.com/embed/jMP0OiMSM9Q?rel=0" frameborder="0" allowfullscreen="" id="fitvid927153"></iframe></div>
+    </div>
+    <div class="tagline">
+      <h1>Hi, I'm Alex Rock</h1>
+      <a class="video-link" href="#">Check out my Résumé</a>
+    </div>
+  </div>
+
 </section>
 
 <section class="sayhi">
@@ -47,8 +41,8 @@
       <% if pics.length == 1 %> 
         <section class="gallery clear" >
           <% feed = pics.pop %>
-            <article class="tag"<% if feed.photo %> style="background-image: url(<%= feed.photo.image_url %>);"<% end %>> 
-              <a href="<%= feed_path(feed) %>"> 
+            <article class="tag"<% if feed.photo %> style="background-image: url(<%= feed.photo.image_url(:thumb) %>);"<% end %>> 
+              <a href="<%= tangent_path(feed) %>"> 
               <header>
                 <div class="overlay"></div>
                 <h2><%= feed.name %></h2>
@@ -61,7 +55,7 @@
                 </aside>
                 <% if signed_in? %>
                   <p class="meta">
-                    <%= link_to 'Edit', edit_feed_path(feed) %> | <%= link_to 'Back', feeds_path %> | <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <%= link_to 'Edit', edit_tangent_path(feed) %> | <%= link_to 'Back', tangents_path %> | <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %>
                   </p>
                 <% end %>
               </header>
@@ -82,8 +76,8 @@
           <section class="gallery<%= a %> clear">
 
             <% for feed in pics.pop(a) %>
-              <article class="tag"<% if feed.photo %> style="background-image: url(<%= feed.photo.image_url %>);"<% end %>> 
-                <a href="<%= feed_path(feed) %>"> 
+              <article class="tag"<% if feed.photo %> style="background-image: url(<%= feed.photo.image_url(:thumb) %>);"<% end %>> 
+                <a href="<%= tangent_path(feed) %>"> 
                 <header>
                   <div class="overlay"></div>
                   <h2><%= feed.name %></h2>
@@ -96,7 +90,7 @@
                   </aside>
                   <% if signed_in? %>
                     <p class="meta">
-                      <%= link_to 'Edit', edit_feed_path(feed) %> | <%= link_to 'Back', feeds_path %> | <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <%= link_to 'Edit', edit_tangent_path(feed) %> | <%= link_to 'Back', tangents_path %> | <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %>
                     </p>
                   <% end %>
                 </header>
