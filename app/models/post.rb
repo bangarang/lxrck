@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
   
   def tangent_list=(names)
     self.tangents = names.split(",").map do |n|
-      Tanget.where(name: n.strip, active: true).first_or_create!
+      Tangent.where(name: n.strip, active: true).first_or_create!
     end
   end
 
