@@ -7,11 +7,11 @@ class Tangent < ActiveRecord::Base
   has_many :tangables, :through => :tangings
 
   def list 
-  	t = []
+  	tmp = []
   	for t in self.tangings
-  		t << t.tangable
+  		tmp << t.tangable
   	end
-  	return t.reverse
+  	return tmp.reverse
   end
 
   def to_param
