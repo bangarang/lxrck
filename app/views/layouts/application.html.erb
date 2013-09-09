@@ -1,25 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head prefix="<% unless @point.name.blank? %>og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#<% else %>og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#<% end %>">
     <title><%= full_title(yield(:title)) %></title>
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0" />
 	<script type="text/javascript" src="//use.typekit.net/ycx4epw.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<link rel="shortcut icon" href="<%= avatar_url() %>" />
-
-	<meta property="fb:app_id" content="147064738818824" /> 
-	<% unless @point.name.blank? %>
-	<meta property="og:type"   content="article" /> 
-	<meta property="og:url"    content="<%= point_url(@point) %>" /> 
-	<meta property="og:title"  content="<%= @point.name %>" /> 
-	<meta property="og:image"  content="<%= @point.image_url(:thumb) %>" />
-	<% else %>
-	<meta property="og:type"   content="website" /> 
-	<meta property="og:url"    content="http://lxrck.com" /> 
-	<meta property="og:title"  content="Alex Rock's Escapade" /> 
-	<meta property="og:image"  content="<%= avatar_url() %>" /> 
-
-	<% end %>
 
 	<%= stylesheet_link_tag    "application", :media => "all" %>
 	<% if content_for?(:stylesheet) %> 
