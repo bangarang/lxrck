@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head prefix="<% if @point %>og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#<% else %>og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#<% end %>">
+  <head prefix="<% unless @point.name.blank? %>og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#<% else %>og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#<% end %>">
     <title><%= full_title(yield(:title)) %></title>
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0" />
 	<script type="text/javascript" src="//use.typekit.net/ycx4epw.js"></script>
@@ -8,7 +8,7 @@
 	<link rel="shortcut icon" href="<%= avatar_url() %>" />
 
 	<meta property="fb:app_id" content="147064738818824" /> 
-	<% if @point %>
+	<% unless @point.name.blank? %>
 	<meta property="og:type"   content="article" /> 
 	<meta property="og:url"    content="<%= point_url(@point) %>" /> 
 	<meta property="og:title"  content="<%= @point.name %>" /> 

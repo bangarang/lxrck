@@ -1,14 +1,16 @@
 <% provide(:body_class, "top") %>
 <% provide(:title, "Points") %>
 <div class="goldtainer">
-  <h1 class="pointtitle">Points</h1>
+  <h1 class="feedtitle title">Points</h1>
   <%= link_to 'New Point', new_point_path unless !signed_in? %>
 
   <% @points.each do |point| %>
     <% if point.published? || signed_in? %>
     <article class="point clear">
-      <div class="image"<% if point.image %> style="background-image: url(<%= point.image_url(:thumb) %>);"<% end %> >
-        <h4><%= point.updated_at.strftime("%b<br />%d").html_safe %></h4>
+      <div class="image" >
+        <h4 <% if point.image %> style="background-image: url(<%= point.image_url(:thumb) %>);"<% end %>>
+          <%= link_to point.updated_at.strftime("%b<br />%d").html_safe, point %>
+        </h4>
       </div>
       <div class="summary">
         <h2><%= link_to point.name, point %></h2>
@@ -25,6 +27,7 @@
             <%= link_to 'Edit', edit_point_path(point) %> | <%= link_to 'Destroy', point, method: :delete, data: { confirm: 'Are you sure?' } %>
           </p>
         <% end %>
+        <%= link_to "Read More", point %>
       </div>
     </article>
     <% end %>
