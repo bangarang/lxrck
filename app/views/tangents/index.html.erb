@@ -1,5 +1,6 @@
 <% provide(:body_class, "top") %>
-<h2 class="tangenttitle">All tangents</h2>
+<% provide(:title, "Tangents") %>
+<h2 class="tangenttitle">Tangents</h2>
 <% if signed_in? %>
 <div class="togger clear">
   <%= link_to 'New tangent', new_tangent_path %>
@@ -44,7 +45,7 @@
           <% if j % 3 == 0 then a = 3 end %>
 
 
-          <section class="gallery<%= a %> clear">
+          <section class="goltainer gallery<%= a %> clear">
 
             <% for tangent in pics.pop(a) %>
               <article class="tag"<% if tangent.photo %> style="background-image: url(<%= tangent.photo.image_url %>);"<% end %>> 

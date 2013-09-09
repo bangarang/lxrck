@@ -1,4 +1,5 @@
 <% provide(:body_class, "top tangent") %>
+<% provide(:title, @tangent.name) %>
 <% if notice %><p id="notice"><%= notice %></p><% end %>
 
 <article class="tagmain"> 
@@ -29,11 +30,9 @@
     <% end %>
     <% if item.type == :post && item.published? %>
       <% if pics.length > 0 %> 
-        <div class="entry">
-          <div class="goldtainer">
         <% until pics.empty? %>
           <% if pics.length == 1 %> 
-            <section class="gallery clear" >
+            <section class="goldtainer gallery clear" >
               <% pic = pics.pop %>
               <article class="pic" <% if pic.image %> style="background-image: url(<%= pic.image_url(:thumb) %>);"<% end %>>
                 <a href="<%= photo_path(pic) %>">
@@ -52,7 +51,7 @@
           <% a = 3 %>
           <% if j % 2 == 0 then a = 2 end %>
           <% if j % 3 == 0 then a = 3 end %>
-            <section class="gallery<%= a %> clear">
+            <section class="goldtainer gallery<%= a %> clear">
               <% for pic in pics.pop(a) %>
               <article class="pic" <% if pic.image %> style="background-image: url(<%= pic.image_url(:thumb) %>);"<% end %>>
                 <a href="<%= photo_path(pic) %>">
@@ -71,29 +70,25 @@
         </div>
         <% end %>
       <% end %>
-    <div class="entry">
-      <div class="goldtainer">
         <article class="post main">
-          <% if signed_in? %>
-            <p class="meta">
-              <%= link_to 'Edit', edit_post_path(item) %> | <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </p>
-          <% end %>
-          <div class="content">
-            <%= markdown item.content %>
+          <div class="goldtainer">
+            <% if signed_in? %>
+              <p class="meta">
+                <%= link_to 'Edit', edit_post_path(item) %> | <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </p>
+            <% end %>
+            <div class="content">
+              <%= markdown item.content %>
+            </div>
           </div>
         </article>
         <% end %>
-      </div>
-    </div>
   <% end %> 
 
       <% if pics.length > 0 %> 
-        <div class="entry">
-          <div class="goldtainer">
         <% until pics.empty? %>
           <% if pics.length == 1 %> 
-            <section class="gallery clear" >
+            <section class="goldtainer gallery clear" >
               <% pic = pics.pop %>
               <article class="pic" <% if pic.image %> style="background-image: url(<%= pic.image_url(:thumb) %>);"<% end %>>
                 <a href="<%= photo_path(pic) %>">
@@ -112,13 +107,13 @@
           <% a = 3 %>
           <% if j % 2 == 0 then a = 2 end %>
           <% if j % 3 == 0 then a = 3 end %>
-            <section class="gallery<%= a %> clear">
+            <section class="goldtainer gallery<%= a %> clear">
               <% for pic in pics.pop(a) %>
               <article class="pic" <% if pic.image %> style="background-image: url(<%= pic.image_url(:thumb) %>);"<% end %>>
                 <a href="<%= photo_path(pic) %>">
                   <h2><%= pic.name %></h2>
                 </a>
-                <% if signed_in? %>
+                <% if 1==2 %>
                 <p class="meta">
                   <%= link_to 'Edit', edit_photo_path(pic) %> | <%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
                 </p>
@@ -129,8 +124,6 @@
             <% end %>
 
         <% end %>
-          </div>
-        </div>
   <% end %>
 
 <% if Rails.env.production? %>

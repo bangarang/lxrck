@@ -1,6 +1,10 @@
-<h1>Editing point</h1>
+<% provide(:body_class, "top") %>
+<% provide(:title, @point.name) %>
+<div class="goldtainer">
+	<h1>Editing Point</h1>
 
-<%= render 'form' %>
+	<%= render 'form' %>
 
-<%= link_to 'Show', @point %> |
-<%= link_to 'Back', points_path %>
+	<%= link_to 'Show', @point %> |
+	<%= link_to 'Back', points_path %>
+</div>

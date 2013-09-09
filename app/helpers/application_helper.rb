@@ -20,4 +20,14 @@ module ApplicationHelper
 	  paths.each { |path| active ||= current_page?(path) }
 	  active ? 'active' : nil
 	end
+
+	def full_title(page_title)
+	    base_title = "A Rock's Escapade."
+	    if page_title.empty?
+	      base_title
+	    else
+	      "#{page_title} | #{base_title}"
+	    end
+	  end
+
 end

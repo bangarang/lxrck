@@ -1,5 +1,6 @@
 class Point < ActiveRecord::Base
-  attr_accessible :content, :name, :slug, :tangent_list, :remote_image_url, :published
+  attr_accessible :content, :name, :slug, :tangent_list, :remote_image_url, :image, :published, :tldr
+  mount_uploader :image, ImageUploader
 
   before_save :generate_slug
 

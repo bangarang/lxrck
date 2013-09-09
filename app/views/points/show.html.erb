@@ -1,20 +1,35 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @point.name) %>
+<section class="top post"  <% if @point.image %> style="background-image: url(<%= @point.image_url %>);"<% end %>>
+    <header>
+      <h1><%= @point.name %></h1>
+    </header>
+    <% unless @point.tangents.blank? %>
+    <ul class="tags">
+      <% for tangent in @point.tangents %>
+        <li><%= link_to "<h5>#{tangent.name}</h5>".html_safe, tangent %></li>
+      <% end %>
+    </ul>
+    <% end %>
+    <% if signed_in? %>
+      <ul class="meta">
+        <li><%= link_to 'Edit', edit_point_path(@point) %></li>
+        <li><%= link_to 'Destroy', @point, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+    <% end %>
+</section>
 
-<p>
-  <b>Name:</b>
-  <%= @point.name %>
-</p>
+<div class="goldtainer">
+  <% if notice %><p id="notice"><%= notice %></p><% end %>
 
-<p>
-  <b>Content:</b>
-  <%= @point.content %>
-</p>
+  <article class="post main"> 
+    <div class="content">
+      <%= markdown @point.content %>
+    </div>
+  </article>
+</div>
 
-<p>
-  <b>Published:</b>
-  <%= @point.published %>
-</p>
-
-
-<%= link_to 'Edit', edit_point_path(@point) %> |
-<%= link_to 'Back', points_path %>
+<% if Rails.env.production? %>
+  <%= javascript_tag do %>
+    mixpanel.track('Viewed <%= @point.name %>');
+  <% end %>
+<% end %>

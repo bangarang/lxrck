@@ -1,16 +1,19 @@
 <header class="main">
 	<h2 class="name">
-		<a href="/feeds/about">A<span class="A">lex </span>R<span class="R">ock<span class="about"> About</span></span></a>
+		<a href="/tangents/about">A<span class="A">lex </span>R<span class="R">ock<span class="about"> About</span></span></a>
 	</h2>
 	<section class="navicontainer"><p class="navicon"></p></section>
     <nav class="main">
 		<ul>
 	      <li><h5 data-no-turbolink><%= link_to "Home", root_path, class: active_class?(root_path) %></h5></li>
-	      <li><h5><%= link_to "Feeds", tangents_path, class: active_class?(tangents_path) %></h5></li>
+	      <li><h5><%= link_to "Points", points_path, class: active_class?(points_path) %></h5></li>
+	      <li><h5><%= link_to "Tangents", tangents_path, class: active_class?(tangents_path) %></h5></li>
 	      <% if signed_in? %>
 	      <li><h5><%= link_to "Photos", photos_path, class: active_class?(photos_path) %></h5></li>
 	      <li><h5><%= link_to "Posts", posts_path, class: active_class?(posts_path) %></h5></li>
-		  <li><h5><%= link_to 'Sign out', kill_path, method: :delete %></h5></li>
+		  <li><h5><%= link_to 'Logout', kill_path, method: :delete %></h5></li>
+		  <% else %>
+		  <li><h5><%= link_to 'Login', born_path, class: active_class?(born_path) %></h5></li>
 		  <% end %>
 	    </ul>
    	</nav>

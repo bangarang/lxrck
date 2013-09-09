@@ -1,7 +1,6 @@
 class Tangent < ActiveRecord::Base
   attr_accessible :name, :slug, :description, :active
   before_save :generate_slug
-  before_save :set_active
   
   has_many :tangings
   has_many :tangables, :through => :tangings

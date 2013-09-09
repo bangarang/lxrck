@@ -1076,6 +1076,77 @@ body.tangent:before {
 	right: 50%;
 }
 */
+
+article.point {
+	padding: 50px 0;
+	border-bottom: $light solid thin;
+	
+	div.image {
+		width: 38.2%;
+		
+		float: left;
+		h4 {
+			margin: 0 auto;
+			display: table;
+			background-size: cover;
+			background-position: center center;
+			height: 150px;
+			width: 150px;			
+			background-color: $light;
+			border-radius: 50%;
+			a {
+				display: table-cell;
+				vertical-align: middle;
+				text-align: center;
+				color: white;
+				border: none;
+			}
+		}
+	}
+	div.summary {
+		width: 61.8%;
+		float: right;
+		h2 {
+			margin-top:0;
+		}
+	}
+}
+
+.tangenttitle {
+	text-align: center;
+}
+
+.pointtitle {
+	position: relative;
+	text-align: center;
+}
+/*
+.pointtitle:before {
+	content: " ";
+	height: 20px;
+	width: 20px;
+	background: #eee;
+	border-radius: 50%;
+	position: absolute;
+	top: -50%;
+	left: 49%;
+}
+.pointtitle:after {
+	content: " ";
+	height: 20px;
+	width: 20px;
+	background: #eee;
+	border-radius: 50%;
+	position: absolute;
+	bottom: -50%;
+	left: 49%;
+}
+*/
+
+.tagline {
+	text-shadow: 0 0 5px black;
+}
+
 @import "prettify";
 @import "links";
 @import "signin";
