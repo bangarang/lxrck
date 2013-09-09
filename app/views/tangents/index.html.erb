@@ -14,7 +14,7 @@
   <% if pics.length == 1 %> 
         <section class="gallery clear" >
           <% tangent = pics.pop %>
-            <article class="tag"<% if tangent.photo %> style="background-image: url(<%= tangent.photo.image_url %>);"<% end %>> 
+            <article class="tag lazy"<% if tangent.photo %> data-original="<%= tangent.photo.image_url(:thumb) %>" style="background-image: url(assets/blank.png);"<% end %>> 
               <a href="<%= tangent_path(tangent) %>"> 
               <header>
                 <div class="overlay"></div>
@@ -48,7 +48,7 @@
           <section class="goltainer gallery<%= a %> clear">
 
             <% for tangent in pics.pop(a) %>
-              <article class="tag"<% if tangent.photo %> style="background-image: url(<%= tangent.photo.image_url %>);"<% end %>> 
+              <article class="tag lazy"<% if tangent.photo %> data-original="<%= tangent.photo.image_url(:thumb) %>" style="background-image: url(assets/blank.png);"<% end %>> 
                 <a href="<%= tangent_path(tangent) %>"> 
                 <header>
                   <div class="overlay"></div>

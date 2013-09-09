@@ -295,12 +295,10 @@ section.description {
 
 article.tag {
 	-webkit-font-smoothing: subpixel-antialiased;
-	@include transition (all .1s ease-in-out);
 	width: 23.5%;
 	height: 200px;
 	background-size: cover;
 	background-position: center center;
-	//border-radius: 2px;
 	float: left;
 	position: relative;	
 	overflow: hidden;

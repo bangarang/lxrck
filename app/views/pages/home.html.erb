@@ -6,7 +6,7 @@
 	</video>
   </div> -->
 
-<section class="top" <% if @photo %> style="background-image: url(<%= @photo.image_url %>);"<% end %>>
+<section class="top lazy" <% if @photo %> data-original="<%= @photo.image_url %>" style="background-image: url(/assets/blank.png);"<% end %>>
 
   <div class="goldtainer">
 <!--     <div class="home-video">
@@ -38,7 +38,7 @@
     <% if point.published? || signed_in? %>
     <article class="point clear">
       <div class="image" >
-        <h4 <% if point.image %> style="background-image: url(<%= point.image_url(:thumb) %>);"<% end %>>
+        <h4 class="lazy"<% if point.image %> data-original="<%= point.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>>
           <%= link_to point.updated_at.strftime("%b<br />%d").html_safe, point %>
         </h4>
       </div>
@@ -76,7 +76,7 @@
       <% if pics.length == 1 %> 
         <section class="gallery clear" >
           <% feed = pics.pop %>
-            <article class="tag"<% if feed.photo %> style="background-image: url(<%= feed.photo.image_url(:thumb) %>);"<% end %>> 
+            <article class="tag lazy"<% if feed.photo %> data-original="<%= feed.photo.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>> 
               <a href="<%= tangent_path(feed) %>"> 
               <header>
                 <div class="overlay"></div>
@@ -111,7 +111,7 @@
           <section class="gallery<%= a %> clear">
 
             <% for feed in pics.pop(a) %>
-              <article class="tag"<% if feed.photo %> style="background-image: url(<%= feed.photo.image_url(:thumb) %>);"<% end %>> 
+              <article class="tag lazy"<% if feed.photo %> data-original="<%= feed.photo.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>> 
                 <a href="<%= tangent_path(feed) %>"> 
                 <header>
                   <div class="overlay"></div>

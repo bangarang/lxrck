@@ -3,6 +3,7 @@
 //= require turbolinks
 //= require prettify
 //= require prettyprint_init
+//= require lazyload
 
     $(document).ready(function(){
         $('.navicontainer').click(function() {
@@ -14,4 +15,8 @@
           $('.home-video').toggleClass("open");
           return false;
         });
+        $(".lazy").lazyload({
+              effect : "fadeIn"
+          });
       });
+
