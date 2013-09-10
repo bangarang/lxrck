@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   before_filter :authorize, :except => :home
-  
+
   def home
   	@tangents = Tangent.where( :active => true )
     @points = Point.where( :published => true ).limit(5)

@@ -194,8 +194,13 @@
 	header.main {
 		min-height: 50px;
 		line-height: 50px;
-		.name a {
-			span.A, span.R {
+		.name {
+			a {
+				span.A, span.R {
+					display:none;
+				}
+			}
+			span.about a {
 				display:none;
 			}
 		}

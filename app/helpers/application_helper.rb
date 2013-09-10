@@ -22,12 +22,28 @@ module ApplicationHelper
 	end
 
 	def full_title(page_title)
-	    base_title = "A Rock's Escapade."
+	    base_title = "Alex Rock's Escapade."
 	    if page_title.empty?
 	      base_title
 	    else
 	      "#{page_title} | #{base_title}"
 	    end
-	  end
+	end
 
+  	def standard
+  		provide(:head, 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#')
+  		provide(:type, 'website')
+  		provide(:url,  request.original_url)
+  		provide(:ogtitle, :title )
+  	end
+
+	def meta(item)
+		if item.type == :point
+			provide(:head, 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"')
+	  		provide(:type, 'article')
+	  		provide(:url,  point_path(item))
+	  		provide(:ogtitle, item.name )
+	  		provide(:image, item.image_url)
+	  	end
+  	end
 end

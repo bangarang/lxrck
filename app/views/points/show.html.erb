@@ -1,4 +1,5 @@
 <% provide(:title, @point.name) %>
+<% meta(@point) %>
 <section class="top post"  <% if @point.image %> style="background-image: url(<%= @point.image_url %>);"<% end %>>
     <header>
       <h1><%= @point.name %></h1>

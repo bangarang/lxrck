@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
+  <head prefix="<%= yield(:head) %>">
     <title><%= full_title(yield(:title)) %></title>
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0" />
 	<script type="text/javascript" src="//use.typekit.net/ycx4epw.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<link rel="shortcut icon" href="<%= avatar_url() %>" />
+
+  	<meta property="fb:app_id" content="147064738818824" /> 
+  	<meta property="og:type"   content="<%= yield(:type) %>" /> 
+  	<meta property="og:url"    content="<%= yield(:url) %>" /> 
+  	<meta property="og:title"  content="<%= yield(:ogtitle) %>" /> 
+  	<meta property="og:image"  content="<%= yield(:image) %>" />
+
+
 
 	<%= stylesheet_link_tag    "application", :media => "all" %>
 	<% if content_for?(:stylesheet) %> 
