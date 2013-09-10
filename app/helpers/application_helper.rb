@@ -44,7 +44,8 @@ module ApplicationHelper
 	  		provide(:type, 'article')
 	  		provide(:url,  point_url(item))
 	  		provide(:ogtitle, item.name )
-	  		provide(:image, item.image_url)
+	  		provide(:description, item.tldr)
+	  		provide(:image, item.image_url(:thumb))
 	  	end
   	end
 end

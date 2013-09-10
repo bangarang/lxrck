@@ -8,10 +8,11 @@
 	<link rel="shortcut icon" href="<%= avatar_url(200) %>" />
 
   	<meta property="fb:app_id" content="147064738818824" /> 
-  	<meta property="og:type"   content="<%= yield(:type) %>" /> 
-  	<meta property="og:url"    content="<%= yield(:url) %>" /> 
-  	<meta property="og:title"  content="<%= yield(:ogtitle) %>" /> 
-  	<meta property="og:image"  content="<%= yield(:image) %>" />
+  	<% if content_for?(:type) %><meta property="og:type"   content="<%= yield(:type) %>" /> <% end %>
+  	<% if content_for?(:url) %><meta property="og:url"    content="<%= yield(:url) %>" /> <% end %>
+  	<% if content_for?(:ogtitle) %><meta property="og:title"  content="<%= yield(:ogtitle) %>" /> <% end %>
+  	<% if content_for?(:description) %><meta property="og:description"  content="<%= yield(:description) %>" /><% end %>
+  	<% if content_for?(:image) %><meta property="og:image"  content="<%= yield(:image) %>" /><% end %>
 
 
 
