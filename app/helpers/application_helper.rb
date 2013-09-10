@@ -1,9 +1,9 @@
 module ApplicationHelper
 
-	def avatar_url()
+	def avatar_url(size)
 		me = "me@alexjrock.com"
 	    gravatar_id = Digest::MD5.hexdigest(me)
-	    "http://gravatar.com/avatar/#{gravatar_id}?s=200.png"
+	    "http://gravatar.com/avatar/#{gravatar_id}?s=#{size}.png"
 	end
 	
 	def markdown(text)
@@ -35,6 +35,7 @@ module ApplicationHelper
   		provide(:type, 'website')
   		provide(:url,  request.original_url)
   		provide(:ogtitle, :title )
+  		provide(:image, avatar_url(300))
   	end
 
 	def meta(item)
