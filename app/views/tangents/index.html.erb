@@ -15,24 +15,12 @@
         <section class="gallery clear" >
           <% tangent = pics.pop %>
             <article class="tag lazy"<% if tangent.photo %> data-original="<%= tangent.photo.image_url(:thumb) %>" style="background-image: url(assets/blank.png);"<% end %>> 
-              <a href="<%= tangent_path(tangent) %>"> 
-              <header>
-                <div class="overlay"></div>
-                <h2><%= tangent.name %></h2>
-                <aside>
-                  <% if tangent.description %>
-                  <div class="content">
-                    <%= markdown tangent.description  %>
-                  </div>
-                  <% end %>
-                </aside>
-                <% if signed_in? %>
-                  <p class="meta">
-                    <%= link_to 'Edit', edit_tangent_path(tangent) %> | <%= link_to 'Back', tangents_path %> | <%= link_to 'Destroy', tangent, method: :delete, data: { confirm: 'Are you sure?' } %>
-                  </p>
-                <% end %>
-              </header>
-              </a>
+                <header>
+                  <a href="<%= tangent_path(tangent) %>"> 
+                    <div class="overlay"></div>
+                    <h2><%= tangent.name %></h2>
+                  </a>
+                </header>
             </article>
         <% else %>
 
@@ -49,24 +37,14 @@
 
             <% for tangent in pics.pop(a) %>
               <article class="tag lazy"<% if tangent.photo %> data-original="<%= tangent.photo.image_url(:thumb) %>" style="background-image: url(assets/blank.png);"<% end %>> 
-                <a href="<%= tangent_path(tangent) %>"> 
+                
                 <header>
-                  <div class="overlay"></div>
-                  <h2><%= tangent.name %></h2>
-                  <aside>
-                    <% if tangent.description %>
-                    <div class="content">
-                      <%= markdown tangent.description  %>
-                    </div>
-                    <% end %>
-                  </aside>
-                  <% if signed_in? %>
-                    <p class="meta">
-                      <%= link_to 'Edit', edit_tangent_path(tangent) %> | <%= link_to 'Back', tangents_path %> | <%= link_to 'Destroy', tangent, method: :delete, data: { confirm: 'Are you sure?' } %>
-                    </p>
-                  <% end %>
+                  <a href="<%= tangent_path(tangent) %>"> 
+                    <div class="overlay"></div>
+                    <h2><%= tangent.name %></h2>
+                  </a>
                 </header>
-                </a>
+                
               </article>
             <% end %>
           </section>

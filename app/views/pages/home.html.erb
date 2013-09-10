@@ -6,7 +6,7 @@
 	</video>
   </div> -->
 
-<section class="top lazy" <% if @photo %> data-original="<%= @photo.image_url %>" style="background-image: url(/assets/blank.png);"<% end %>>
+<section class="top lazy" <% if @photo %> data-original="<%= @photo.image_url  %>" style="background-image: url(/assets/blank.png);"<% end %>>
 
   <div class="goldtainer">
 <!--     <div class="home-video">
@@ -68,33 +68,21 @@
 <div class="goldtainer clear">
   <h1 class="feedtitle title">Tangents</h1>
 <% pics = [] %>
-  <% @feeds.each do |feed| %>
-    <% pics.push(feed) %>
+  <% @tangents.each do |tangent| %>
+    <% pics.push(tangent) %>
   <% end %>
 
 
       <% if pics.length == 1 %> 
         <section class="gallery clear" >
-          <% feed = pics.pop %>
-            <article class="tag lazy"<% if feed.photo %> data-original="<%= feed.photo.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>> 
-              <a href="<%= tangent_path(feed) %>"> 
+          <% tangent = pics.pop %>
+            <article class="tag lazy"<% if tangent.photo %> data-original="<%= tangent.photo.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>> 
               <header>
-                <div class="overlay"></div>
-                <h2><%= feed.name %></h2>
-                <aside>
-                  <% if feed.description %>
-                  <div class="content">
-                    <%= markdown feed.description  %>
-                  </div>
-                  <% end %>
-                </aside>
-                <% if signed_in? %>
-                  <p class="meta">
-                    <%= link_to 'Edit', edit_tangent_path(feed) %> | <%= link_to 'Back', tangents_path %> | <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %>
-                  </p>
-                <% end %>
+                <a href="<%= tangent_path(tangent) %>"> 
+                  <div class="overlay"></div>
+                  <h2><%= tangent.name %></h2>
+                </a>
               </header>
-              </a>
             </article>
         <% else %>
 
@@ -110,26 +98,14 @@
 
           <section class="gallery<%= a %> clear">
 
-            <% for feed in pics.pop(a) %>
-              <article class="tag lazy"<% if feed.photo %> data-original="<%= feed.photo.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>> 
-                <a href="<%= tangent_path(feed) %>"> 
-                <header>
+            <% for tangent in pics.pop(a) %>
+              <article class="tag lazy"<% if tangent.photo %> data-original="<%= tangent.photo.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>> 
+              <header>
+                <a href="<%= tangent_path(tangent) %>"> 
                   <div class="overlay"></div>
-                  <h2><%= feed.name %></h2>
-                  <aside>
-                    <% if feed.description %>
-                    <div class="content">
-                      <%= markdown feed.description  %>
-                    </div>
-                    <% end %>
-                  </aside>
-                  <% if signed_in? %>
-                    <p class="meta">
-                      <%= link_to 'Edit', edit_tangent_path(feed) %> | <%= link_to 'Back', tangents_path %> | <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %>
-                    </p>
-                  <% end %>
-                </header>
+                  <h2><%= tangent.name %></h2>
                 </a>
+              </header>
               </article>
             <% end %>
           </section>

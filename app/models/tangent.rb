@@ -23,10 +23,10 @@ class Tangent < ActiveRecord::Base
 
   def photo
     tmp = nil
-    self.list.each do |a| 
-      if a.type == :photo
-        tmp = a
-      elsif a.type == :post
+    self.tangings.each do |a| 
+      if a.tangable.type == :photo
+        tmp = a.tangable
+      elsif a.tangable.type == :post
         nil
       end
     end

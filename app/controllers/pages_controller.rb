@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 
   before_filter :authorize, :except => :home
   def home
-  	@feeds = Tangent.where( :active => true )
+  	@tangents = Tangent.where( :active => true )
     @points = Point.limit(5)
     @photo = Photo.last
     respond_to do |format|
