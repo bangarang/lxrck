@@ -1,9 +1,10 @@
 class PagesController < ApplicationController
 
   before_filter :authorize, :except => :home
+  
   def home
   	@tangents = Tangent.where( :active => true )
-    @points = Point.limit(5)
+    @points = Point.where( :published => true ).limit(5)
     @photo = Photo.last
     respond_to do |format|
       format.html # index.html.erb

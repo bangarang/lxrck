@@ -1,0 +1,28 @@
+<% if pics.length > 0 %> 
+  <% until pics.empty? %>
+    <% if pics.length == 1 %> 
+      <section class="goldtainer gallery clear" >
+        <% pic = pics.shift %>
+        <article class="pic lazy" <% if pic.image %> data-original="<%= pic.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>>
+          <a href="<%= photo_path(pic) %>">
+            <h2><%= pic.name %></h2>
+          </a>
+        </article>
+      </section>
+    <% else %>
+      <% j = pics.length %>
+      <% a = 3 %>
+      <% if j % 2 == 0 then a = 2 end %>
+      <% if j % 3 == 0 then a = 3 end %>
+      <section class="goldtainer gallery<%= a %> clear">
+        <% for pic in pics.shift(a) %>
+        <article class="pic lazy" <% if pic.image %> data-original="<%= pic.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>>
+          <a href="<%= photo_path(pic) %>">
+            <h2><%= pic.name %></h2>
+          </a>
+        </article>
+        <% end %>
+      </section>
+    <% end %>
+  <% end %>
+<% end %>

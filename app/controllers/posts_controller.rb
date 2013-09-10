@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_filter :find_post, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize, :except => [:index, :show]
   # GET /posts
   # GET /posts.json
   def index

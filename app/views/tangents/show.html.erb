@@ -27,109 +27,42 @@
   <% for item in @tangent.list %>
     <% if item.type == :photo %>
       <% pics.push(item) %>
-    <% end %>
-    <% if item.type == :post && item.published? %>
-      <% if pics.length > 0 %> 
-        <% until pics.empty? %>
-          <% if pics.length == 1 %> 
-            <section class="goldtainer gallery clear" >
-              <% pic = pics.shift %>
-              <article class="pic lazy" <% if pic.image %> data-original="<%= pic.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>>
-                <a href="<%= photo_path(pic) %>">
-                  <h2><%= pic.name %></h2>
-                </a>
-                <% if signed_in? %>
+    <% else %>
+      <%= render 'pics', :pics => pics %>
+      <% if item.type == :post && item.published? %>
+          <article class="post main">
+            <div class="goldtainer">
+              <% if signed_in? %>
                 <ul class="meta">
-                  <li><%= link_to 'Edit', edit_photo_path(pic) %></li>
-                  <li><%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                  <li><%= link_to 'Edit', edit_post_path(item) %></li>
+                  <li><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></li>
                 </ul>
-                <% end %>
-              </article>
-            </section>
-          <% else %>
-
-          <% j = pics.length %>
-          <% a = 3 %>
-          <% if j % 2 == 0 then a = 2 end %>
-          <% if j % 3 == 0 then a = 3 end %>
-            <section class="goldtainer gallery<%= a %> clear">
-              <% for pic in pics.pop(a) %>
-              <article class="pic lazy" <% if pic.image %> data-original="<%= pic.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>>
-                <a href="<%= photo_path(pic) %>">
-                  <h2><%= pic.name %></h2>
-                </a>
-                <% if signed_in? %>
-                <ul class="meta">
-                  <li><%= link_to 'Edit', edit_photo_path(pic) %></li>
-                  <li><%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-                </ul>
-                <% end %>
-              </article>
               <% end %>
-            </section>
-            <% end %>
-          </div>
-        </div>
-        <% end %>
-      <% end %>
-        <article class="post main">
-          <div class="goldtainer">
-            <% if signed_in? %>
-              <ul class="meta">
-                <li><%= link_to 'Edit', edit_post_path(item) %></li>
-                <li><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-              </ul>
-            <% end %>
-            <div class="content">
-              <%= markdown item.content %>
+              <div class="content">
+                <%= markdown item.content %>
+              </div>
             </div>
+          </article>
+      <% end %>
+      <% if item.type == :point && item.published? %>
+      <div class="goldtainer">
+        <article class="point clear">
+          <div class="image" >
+            <h4 class="lazy"<% if item.image %> data-original="<%= item.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>>
+              <%= link_to item.updated_at.strftime("%b<br />%d").html_safe, item %>
+            </h4>
+          </div>
+          <div class="summary">
+            <h2><%= link_to item.name, item %></h2>
+            <%= markdown item.tldr %>
+            <%= link_to "Read More", item %>
           </div>
         </article>
-        <% end %>
+      <div class="goldtainer">
+      <% end %>
+    <% end %>
   <% end %> 
-
-      <% if pics.length > 0 %> 
-        <% until pics.empty? %>
-          <% if pics.length == 1 %> 
-            <section class="goldtainer gallery clear" >
-              <% pic = pics.pop %>
-              <article class="pic lazy" <% if pic.image %> data-original="<%= pic.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>>
-                <a href="<%= photo_path(pic) %>">
-                  <h2><%= pic.name %></h2>
-                </a>
-                <% if signed_in? %>
-                <ul class="meta">
-                  <li><%= link_to 'Edit', edit_photo_path(pic) %></li>
-                  <li><%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-                </ul>
-                <% end %>
-              </article>
-            </section>
-          <% else %>
-
-          <% j = pics.length %>
-          <% a = 3 %>
-          <% if j % 2 == 0 then a = 2 end %>
-          <% if j % 3 == 0 then a = 3 end %>
-            <section class="goldtainer gallery<%= a %> clear">
-              <% for pic in pics.pop(a) %>
-              <article class="pic lazy" <% if pic.image %> data-original="<%= pic.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>>
-                <a href="<%= photo_path(pic) %>">
-                  <h2><%= pic.name %></h2>
-                </a>
-                <% if 1==2 %>
-                <ul class="meta">
-                  <li><%= link_to 'Edit', edit_photo_path(pic) %></li>
-                  <li><%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-                </ul>
-                <% end %>
-              </article>
-              <% end %>
-            </section>
-            <% end %>
-
-        <% end %>
-  <% end %>
+  <%= render 'pics', :pics => pics %>
 
 <% if Rails.env.production? %>
   <%= javascript_tag do %>

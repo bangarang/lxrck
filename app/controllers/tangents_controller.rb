@@ -1,5 +1,6 @@
 class TangentsController < ApplicationController
   before_filter :find_tangent, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize, :except => [:index, :show]
 
   def index
     @tangents = Tangent.all
