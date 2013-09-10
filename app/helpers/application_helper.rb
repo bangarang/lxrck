@@ -36,7 +36,7 @@ module ApplicationHelper
   		provide(:url,  request.original_url)
   		provide(:ogtitle, "Alex Rock's Escapade." )
   		provide(:description, "Points to make and Tangents to take.")
-  		provide(:image, avatar_url(300))
+  		provide(:image, avatar_url(500))
   	end
 
 	def meta(item)
