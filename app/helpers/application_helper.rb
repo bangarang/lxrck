@@ -42,7 +42,7 @@ module ApplicationHelper
 		if item.type == :point
 			provide(:head, 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"')
 	  		provide(:type, 'article')
-	  		provide(:url,  point_path(item))
+	  		provide(:url,  point_url(item))
 	  		provide(:ogtitle, item.name )
 	  		provide(:image, item.image_url)
 	  	end
