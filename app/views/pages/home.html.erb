@@ -64,9 +64,9 @@
   <% end %>
 </div>
 <% end %>
-
-<div class="goldtainer clear">
+<div class="goldtainer">
   <h1 class="feedtitle title">Tangents</h1>
+</div>
 <% pics = [] %>
   <% @tangents.each do |tangent| %>
     <% pics.push(tangent) %>
@@ -74,7 +74,7 @@
 
 
       <% if pics.length == 1 %> 
-        <section class="gallery clear" >
+        <section class="goldtainer gallery clear" >
           <% tangent = pics.pop %>
             <article class="tag lazy"<% if tangent.photo %> data-original="<%= tangent.photo.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>> 
               <header>
@@ -96,7 +96,7 @@
          
 
 
-          <section class="gallery<%= a %> clear">
+          <section class="goldtainer gallery<%= a %> clear">
 
             <% for tangent in pics.pop(a) %>
               <article class="tag lazy"<% if tangent.photo %> data-original="<%= tangent.photo.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>> 
@@ -111,7 +111,6 @@
           </section>
         <% end %>
   <% end %>
-</div>
 <% if Rails.env.production? %>
   <%= javascript_tag do %>
     mixpanel.track('Viewed Home Page');

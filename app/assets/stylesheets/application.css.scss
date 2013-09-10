@@ -145,11 +145,14 @@ header.main {
 		padding: 0 15px;
 	}
 	
-	.name a {
-		font-weight: 300;
-		color: white;
-		text-shadow: 0 0 5px black;
-		span.about { 
+	.name {
+		a.ar {
+			font-weight: 300;
+			color: white;
+			text-shadow: 0 0 5px black;
+		}
+		span.about a { 
+			font-weight: 300;
 			@include transition (all .2s ease-in-out);
 			text-shadow: none;
 			color:transparent;
@@ -157,14 +160,14 @@ header.main {
 		}
 	}
 	.name:hover {
-		a {
-			color: $pink;
-		}
-		span.about { 
+		span.about a { 
 			text-shadow: 0 0 5px black;
 			color: #dedede;
 			margin-left: 0;
 		}
+	}
+	.name a:hover, .name span.about a:hover  {
+		color: $pink;
 	}
 
 	.navicon {
@@ -209,17 +212,28 @@ body.top header.main {
 		display: none;
 	}
 
-	.name a {
-		color: inherit;
-		text-shadow: none;
-	}
-	.name:hover {
-		a {
-			color:$pink;
-		}
-		span.about { 
+	.name {
+		a.ar {
+			font-weight: 300;
+			color: $dark;
 			text-shadow: none;
 		}
+		span.about a { 
+			font-weight: 300;
+			@include transition (all .2s ease-in-out);
+			text-shadow: none;
+			color:transparent;
+			margin-left: -58px;
+		}
+	}
+	.name:hover {
+		span.about a { 
+			color: $dark;
+			margin-left: 0;
+		}
+	}
+	.name a:hover, .name span.about a:hover  {
+		color: $pink;
 	}
 	nav {
 		ul li a {
