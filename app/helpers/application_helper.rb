@@ -34,7 +34,8 @@ module ApplicationHelper
   		provide(:head, 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#')
   		provide(:type, 'website')
   		provide(:url,  request.original_url)
-  		provide(:ogtitle, :title )
+  		provide(:ogtitle, "Alex Rock's Escapade." )
+  		provide(:description, "Points to make and Tangents to take.")
   		provide(:image, avatar_url(300))
   	end
 
