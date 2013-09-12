@@ -5,7 +5,7 @@ class PointsController < ApplicationController
   # GET /points
   # GET /points.json
   def index
-    @points = Point.all
+    @points = Point.all.reverse
 
     respond_to do |format|
       format.html # index.html.erb

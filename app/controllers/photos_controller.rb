@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
   before_filter :authorize, :except => [:index, :show]
 
   def index
-    @photos = Photo.all
+    @photos = Photo.all.reverse
 
     respond_to do |format|
       format.html # index.html.erb

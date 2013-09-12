@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def home
   	@tangents = Tangent.where( :active => true )
-    @points = Point.where( :published => true ).limit(5)
+    @points = Point.find( :all, :conditions => { :published => true },:order => "created_at DESC", :limit => 5)
     @photo = Photo.last
     respond_to do |format|
       format.html # index.html.erb
