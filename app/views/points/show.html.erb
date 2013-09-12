@@ -1,15 +1,15 @@
 <% provide(:title, @point.name) %>
 <% meta(@point) %>
-<section class="top post"  <% if @point.image %> style="background-image: url(<%= @point.image_url %>);"<% end %>>
+<section class="pointtop"  <% if @point.image %> style="background-image: url(<%= @point.image_url %>);"<% end %>>
+    <% unless @point.tangents.blank? %>
     <header>
       <h1><%= @point.name %></h1>
     </header>
-    <% unless @point.tangents.blank? %>
-    <ul class="tags">
+    <!-- <ul class="tags">
       <% for tangent in @point.tangents %>
         <li><%= link_to "<h5>#{tangent.name}</h5>".html_safe, tangent %></li>
       <% end %>
-    </ul>
+    </ul> -->
     <% end %>
     <% if signed_in? %>
       <ul class="meta">
@@ -18,15 +18,20 @@
       </ul>
     <% end %>
 </section>
-
 <div class="goldtainer">
   <% if notice %><p id="notice"><%= notice %></p><% end %>
 
-  <article class="post main"> 
+  <section class="point"> 
+    <header>
+      <div class="circle">
+        <h3><%= @point.updated_at.strftime("%b<br />%d").html_safe %></h3>
+      </div>
+      
+    </header>
     <div class="content">
       <%= markdown @point.content %>
     </div>
-  </article>
+  </section>
 </div>
 
 <% if Rails.env.production? %>

@@ -7,6 +7,9 @@
 @import "grid-settings";
 @import "neat";
 
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 400;
+}
 
 $pink: #f27490;
 $dark: #22262E;
@@ -57,6 +60,8 @@ a {
 	width:61.8%;
 	margin: auto;
 	padding: 0 15px;
+	position: relative;
+	z-index: 1;
 }
 
 article header {
@@ -391,6 +396,7 @@ article.tag {
 	}
 }
 
+
 article.tag:hover {
 	header {
 		.overlay {
@@ -641,32 +647,6 @@ article.pic {
 	}
 }
 
-article.post.main {
-	h2 { 
-		text-align: center;
-	}
-	p.updated {
-		color: $light;
-		text-align: center;
-		margin: 0;
-	}
-	li {
-		margin: 5px 0;
-	}
-	a {
-		color: $dark;
-		border-bottom: $dark thin dotted;
-		font-weight: bold;
-	}
-	a:hover {
-		color:$pink;
-		border-color:$pink;
-	}
-	p {
-		line-height: 1.5em;
-	}
-}
-
 article.post {
 	header {
 		h1, h2, aside {
@@ -787,6 +767,7 @@ a.hire:hover {
 }
 
 section.top {
+	-webkit-font-smoothing: subpixel-antialiased;
 	position:relative;
 	background-size: cover;
 	background-position: center center;
@@ -811,6 +792,7 @@ section.top {
 		h1 {
 			color: white;
 			text-align: center;
+			font-weight: 300;
 		}
 		a {
 			display: block;
@@ -923,19 +905,6 @@ section.top {
 	}
 }
 
-section.top.post {
-	height: 50%;
-	header {
-		color: white;
-		display: table-cell;
-		vertical-align: middle;
-		border:none;
-		text-align: center;
-		text-shadow: 0 0 5px black;
-		text-transform: uppercase;
-
-	}
-}
 
 section.sayhi {
 	background: $dark;
@@ -1102,15 +1071,71 @@ body.tangent:before {
 }
 */
 
+section.pointtop {
+	height: 50%;
+	position: relative;
+	margin-bottom: -50px;
+	background-size: cover;
+	background-position: center center;
+	display: table;
+	width: 100%;
+	font-weight: 400;
+	header {
+		color: white;
+		display: table-cell;
+		vertical-align: middle;
+		border:none;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+
+	ul.tags {
+		position: absolute;
+		bottom:0;
+		left: 0;
+		margin: 15px;
+		padding: 0;
+		a {
+			background: $pink;
+			color: white;
+			padding: 2px;
+			margin: 1px;
+			display: block;
+			border: none;
+		}
+		a:hover {
+			background: $dark;
+		}
+		li {
+			float:left;
+			list-style: none;
+			margin:2px;
+		}
+		li a h5 {
+			margin: 0;
+		}
+		li a h5:after {
+			content: ', ';
+		}
+		li:last-child a h5:after {
+			content: ' ';
+		}
+		li:hover {
+			color:$pink;
+		}
+	}
+}
+
 article.point {
 	padding: 50px 0;
-	border-bottom: $light solid thin;
-	
+	border-bottom: #eee solid thin;
+
 	div.image {
 		width: 38.2%;
-		
 		float: left;
 		h4 {
+			@include transition (all .2s ease-in-out);
 			margin: 0 auto;
 			display: table;
 			background-size: cover;
@@ -1128,12 +1153,72 @@ article.point {
 			}
 		}
 	}
+	div.image:hover {
+		h4 {
+			background-image: none !important;
+			background-color: $pink;
+		}
+
+	}
+
 	div.summary {
 		width: 61.8%;
 		float: right;
 		h2 {
 			margin-top:0;
 		}
+	}
+}
+
+
+
+section.point {
+	border-bottom: $light solid thin;
+	header {
+		.circle {
+			height: 100px;
+			width: 100px;
+			border-radius: 50%;
+			margin: auto;
+			background-color: $pink;
+			display: table;
+			border: 5px white solid;
+			position: relative;
+			z-index: 1;
+
+			h3 {
+				display: table-cell;
+				vertical-align: middle;
+				text-align: center;
+				color: white;
+			}
+		}
+		h1 {
+			text-align: center;
+		}
+	}
+		h2 { 
+		text-align: center;
+	}
+	p.updated {
+		color: $light;
+		text-align: center;
+		margin: 0;
+	}
+	li {
+		margin: 5px 0;
+	}
+	a {
+		color: $dark;
+		border-bottom: $dark thin dotted;
+		font-weight: bold;
+	}
+	a:hover {
+		color:$pink;
+		border-color:$pink;
+	}
+	p {
+		line-height: 1.5em;
 	}
 }
 
@@ -1169,7 +1254,17 @@ article.point {
 */
 
 .tagline {
-	text-shadow: 0 0 5px black;
+	//text-shadow: 0 0 5px black;
+}
+.top {
+	.downarrow {
+		-webkit-transform: rotate(-90deg);
+		-moz-transform: rotate(-90deg);
+		-ms-transform: rotate(-90deg);
+		-o-transform: rotate(-90deg);
+		filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+		font-weight: 300;
+	}
 }
 
 @import "prettify";

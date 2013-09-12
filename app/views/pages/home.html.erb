@@ -35,18 +35,6 @@
       <div class="summary">
         <h2><%= link_to point.name, point %></h2>
         <%= markdown point.tldr %>
-        <% if point.tangents %>
-        <p class="tags">
-          <% for tangent in point.tangents %>
-            <%= link_to tangent.name, tangent %>
-          <% end %>
-        </p>
-        <% end %>
-        <% if signed_in? %>
-          <p>
-            <%= link_to 'Edit', edit_point_path(point) %> | <%= link_to 'Destroy', point, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </p>
-        <% end %>
         <%= link_to "Read More", point %>
       </div>
     </article>
