@@ -1,16 +1,11 @@
 <% provide(:title, @point.name) %>
 <% meta(@point) %>
 <section class="pointtop"  <% if @point.image %> style="background-image: url(<%= @point.image_url %>);"<% end %>>
-    <% unless @point.tangents.blank? %>
+    
     <header>
       <h1><%= @point.name %></h1>
     </header>
-    <!-- <ul class="tags">
-      <% for tangent in @point.tangents %>
-        <li><%= link_to "<h5>#{tangent.name}</h5>".html_safe, tangent %></li>
-      <% end %>
-    </ul> -->
-    <% end %>
+    
     <% if signed_in? %>
       <ul class="meta">
         <li><%= link_to 'Edit', edit_point_path(@point) %></li>
