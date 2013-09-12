@@ -1,7 +1,7 @@
 <% provide(:body_class, "top") %>
 <% provide(:title, "Points") %>
 <div class="goldtainer">
-  <h1 class="feedtitle title">Points</h1>
+  <h1 class="pointtitle">Points</h1>
   <%= link_to 'New Point', new_point_path unless !signed_in? %>
 
   <% @points.each do |point| %>

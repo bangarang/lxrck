@@ -1,41 +1,10 @@
 <% provide(:body_class, "top") %>
 <div class="goldtainer">
-  <h1 class="title">Photos</h1>
+  <h1 class="phototitle">Photos</h1>
   <%= link_to 'New Photo', new_photo_path unless !signed_in? %>
 </div>
-<% @photos.each do |photo| %>
-<section class="photo">
-  <div class="goldtainer">
-    <article class="photo">
-        <header>
-          <div class="overlay"></div>
-          <div class="float">
-            <div class="inner">
-              <h2><%= link_to photo.name, photo %> </h2>
-              <aside class="meta">
-                <% if photo.tangents %>
-                <p class="tags">
-                    <% for tangent in photo.tangents %>
-                        <%= link_to tangent.name, tangent %>
-                    <% end %>
-                </p>
-                <% end %>
-              </aside>
-            </div>
-          </div>
-        </header> 
-        <% if signed_in? %>
-            <p class="meta">
-              <%= link_to 'Edit', edit_photo_path(photo) %> | <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </p>
-          <% end %>
-        <div class="content">
-          <a href="<%= photo.image_url%>"><%= image_tag photo.image_url %></a>
-        </div>
-    </article>
-  </div>
-</section>
-<% end %>
+
+<%= render 'tangents/pics', :pics => @photos %>
 
 <% if Rails.env.production? %>
   <%= javascript_tag do %>

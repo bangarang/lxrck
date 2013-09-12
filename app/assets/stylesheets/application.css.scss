@@ -1250,28 +1250,36 @@ section.point {
 }
 
 .pointtitle {
-	position: relative;
 	text-align: center;
+	text-transform: uppercase;
+	display: table;
+	margin: 50px auto;
+	padding: 15px 30px;
+	position: relative;
+
+	border-top: $dark 2px dotted;
+	border-bottom: $dark 2px dotted;
 }
+
 /*
 .pointtitle:before {
 	content: " ";
-	height: 20px;
-	width: 20px;
-	background: #eee;
+	height: 10px;
+	width: 10px;
+	background: $dark;
 	border-radius: 50%;
 	position: absolute;
-	top: -50%;
+	top: 0;
 	left: 49%;
 }
 .pointtitle:after {
 	content: " ";
-	height: 20px;
-	width: 20px;
-	background: #eee;
+	height: 10px;
+	width: 10px;
+	background: $dark;
 	border-radius: 50%;
 	position: absolute;
-	bottom: -50%;
+	bottom: 0;
 	left: 49%;
 }
 */
