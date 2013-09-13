@@ -515,6 +515,20 @@ article.photo, article.post {
 	position: relative;
 	overflow: hidden;
 	margin: 15px 0;
+
+	a {
+		color: $dark;
+		border-bottom: $dark thin dotted;
+		font-weight: bold;
+	}
+	a:hover {
+		color:$pink;
+		border-color:$pink;
+	}
+	p {
+		line-height: 1.5em;
+	}
+
 	label {
 		position: absolute;
 		bottom:0;
@@ -568,12 +582,6 @@ article.photo, article.post {
 			opacity: 0;
 			position:absolute;
 		}
-	}
-
-	a {
-		border: none;
-		color: white;
-		font-weight: inherit;
 	}
 	aside {
 		@include transition (all .1s ease-in-out);
@@ -923,20 +931,17 @@ section.top {
 }
 
 
-section.sayhi {
-	background: $dark;
+
+h3.sayhi {
+	margin:0;
+	color: white;
+	text-transform: uppercase;
 	text-align: center;
-	max-height: 30%;
-	h3 {
-		margin:0;
-		color: white;
-		text-transform: uppercase;
-	}
 	a {
+		background: rgba(34,38,46,0.3);
 		margin: 30px auto;
 		color: white;
 		border: white solid 5px;
-		border-radius: 2px;
 		display: inline-block;
 		text-align: center;
 		padding: 20px 100px;
