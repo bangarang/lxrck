@@ -1,0 +1,22 @@
+<% provide(:body_class, "top") %>
+<% provide(:title, @item.name) %>
+<div class="goldtainer">
+
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <b>Name:</b>
+	  <%= @item.name %>
+	</p>
+
+	<% @item.properties.each do |name, value| %>
+	  <p>
+	    <b><%= name %>:</b>
+	    <%= value %>
+	  </p>
+	<% end %>
+
+
+	<%= link_to 'Edit', edit_item_path(@item) %> |
+	<%= link_to 'Back', items_path %>
+</div>

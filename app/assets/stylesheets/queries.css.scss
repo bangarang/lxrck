@@ -135,8 +135,13 @@
 		}
 	}
 
-	article.point {
+	article.point, article.item {
 		div.image {
+			width: 100%;
+			float: none;
+			margin: auto;
+		}
+		img.photo {
 			width: 100%;
 			float: none;
 			margin: auto;

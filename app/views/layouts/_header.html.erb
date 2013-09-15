@@ -11,6 +11,8 @@
 	      <% if signed_in? %>
 	      <li><h5><%= link_to "Photos", photos_path, class: active_class?(photos_path) %></h5></li>
 	      <li><h5><%= link_to "Posts", posts_path, class: active_class?(posts_path) %></h5></li>
+	      <li><h5><%= link_to "Items", items_path, class: active_class?(items_path) %></h5></li>
+	      <li><h5><%= link_to "Item Types", item_types_path, class: active_class?(item_types_path) %></h5></li>
 		  <li><h5><%= link_to 'Logout', kill_path, method: :delete %></h5></li>
 		  <% else %>
 		  <li><h5><%= link_to 'Login', born_path, class: active_class?(born_path) %></h5></li>

@@ -1,4 +1,10 @@
 Lxrck::Application.routes.draw do
+  resources :item_types
+
+
+  resources :items
+
+
   	resources :points
 	root :to => 'pages#home'
 	match 'in' => 'pages#in'

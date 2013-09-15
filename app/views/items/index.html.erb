@@ -1,0 +1,32 @@
+<% provide(:body_class, "top") %>
+<div class="goldtainer">
+
+  <h1>Listing items</h1>
+
+  <%= form_tag new_item_path, method: :get do %>
+    <%= select_tag :item_type_id, options_from_collection_for_select(ItemType.all, :id, :name) %>
+    <%= submit_tag "New Item", name: nil %>
+    <%= link_to "New Item Type", new_item_type_path %>
+  <% end %>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= item.name %></td>
+      <td><%= item.item_type.name %></td>
+      <td><%= link_to 'Show', item %></td>
+      <td><%= link_to 'Edit', edit_item_path(item) %></td>
+      <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
+
+</div>

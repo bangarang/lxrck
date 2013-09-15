@@ -1,0 +1,10 @@
+<% provide(:body_class, "top") %>
+<% provide(:title, "Edit #{@item_type.name}") %>
+<div class="goldtainer">
+	<h1>Editing Item Type</h1>
+
+	<%= link_to 'Show', @item_type %> |
+	<%= link_to 'Back', item_types_path %>
+
+	<%= render 'form' %>
+</div>

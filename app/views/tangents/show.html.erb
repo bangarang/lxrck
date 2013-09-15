@@ -61,6 +61,25 @@
         </article>
       </div>
       <% end %>
+      <% if item.type == :item %>
+      <div class="goldtainer">
+        <article class="item clear">
+          <% if item.image %>
+          <img class="photo lazy" data-original="<%= item.image_url(:thumb) %>" src="/assets/blank.png" />
+          <% end %>
+          <div class="summary">
+            <h2><%= item.name %></h2>
+
+            <% item.properties.each do |name, value| %>
+              <p>
+                <b><%= name %>:</b>
+                <%= value %>
+              </p>
+            <% end %>
+          </div>
+        </article>
+      </div>
+      <% end %>
     <% end %>
   <% end %> 
   <%= render 'pics', :pics => pics %>

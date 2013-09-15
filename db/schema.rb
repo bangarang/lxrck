@@ -11,7 +11,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130908164033) do
+ActiveRecord::Schema.define(:version => 20130915183453) do
+
+  create_table "item_fields", :force => true do |t|
+    t.string   "name"
+    t.string   "field_type"
+    t.boolean  "required"
+    t.integer  "item_type_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "item_fields", ["item_type_id"], :name => "index_item_fields_on_item_type_id"
+
+  create_table "item_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "items", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "item_type_id"
+    t.text     "properties"
+    t.string   "image"
+  end
 
   create_table "messages", :force => true do |t|
     t.text     "content"

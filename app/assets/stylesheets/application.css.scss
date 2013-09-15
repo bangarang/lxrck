@@ -989,6 +989,7 @@ div.menubox {
 	}
 }
 
+/*
 input, textarea {
 			font-size: 24px;
 			width: 100%;
@@ -998,6 +999,16 @@ input, textarea {
 			line-height: 50px;
 			border-radius: 2px;
 		}
+*/
+
+div.field, fieldset {
+	font-size: 24px;
+	width: 100%;
+	margin: 10px auto;
+	display: block;
+	border: #222 solid 5px;
+	line-height: 50px;
+}
 
 div.actions input {
 	background: $dark;
@@ -1149,7 +1160,7 @@ section.pointtop {
 	}
 }
 
-article.point {
+article.point, article.item {
 	padding: 50px 0;
 	border-bottom: #eee solid thin;
 
@@ -1175,6 +1186,10 @@ article.point {
 			}
 		}
 	}
+	img.photo {
+		width: 38.2%;
+		float: left;
+	}
 	div.image:hover {
 		h4 {
 			background-image: none !important;
@@ -1186,6 +1201,7 @@ article.point {
 	div.summary {
 		width: 61.8%;
 		float: right;
+		padding: 0 15px;
 		h2 {
 			margin-top:0;
 		}
