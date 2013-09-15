@@ -465,6 +465,7 @@ section.gallery {
 	article {
 		width: 100%;
 		float: none;
+		height: 600px;
 	}
 
 	article:nth-child(5n) {
@@ -477,6 +478,7 @@ section.gallery2 {
 		width: 50%;
 		float: left;
 		border: white solid 2px;
+		height: 300px;
 	}
 
 	article:nth-child(2n) {
@@ -489,6 +491,7 @@ section.gallery3 {
 		width: 33%;
 		float: left;
 		border: white solid 2px;
+		height: 200px;
 	}
 
 	article:nth-child(2n) {
@@ -640,14 +643,22 @@ article.pic {
 	background-size: cover;
 	background-position: center center;
 	margin: 0;
-	a h2 {
-		@include transition (all .1s ease-in-out);
-		color: white;
-		text-align: center;
-		opacity: 0;
-		padding: 150px 0;
-		text-shadow: 0 0 5px black;
-		margin: 0;
+	a {	
+		display: table;
+		height: 100%;
+		width: 100%;
+		border: none;
+		h2 {
+			@include transition (all .1s ease-in-out);
+			color: white;
+			text-align: center;
+			opacity: 0;
+			text-shadow: 0 0 5px black;
+			margin: 0;
+			display: table-cell;
+			vertical-align: middle;
+			width: 100%;
+		}
 	}
 	a:hover h2 {
 		opacity: 1;
