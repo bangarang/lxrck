@@ -4,39 +4,28 @@
 <% if notice %><p id="notice"><%= notice %></p><% end %>
 <div class="goldtainer">	
   <h2 class="title"><%= @photo.name %> </h2>
+</div>
   <article class="photo">
-    <header>
-      <div class="overlay"></div>
-      <div class="float">
-        <div class="inner">
-          <aside class="meta">
-            <%= link_to "Download in High Resolution", @photo.image_url %>
-          </aside>
-        </div>
-      </div>
-    </header> 
-    <% if signed_in? %>
-        <p class="meta">
-          <%= link_to 'Edit', edit_photo_path(@photo) %> | <%= link_to 'Destroy', @photo, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </p>
-      <% end %>
-    <div class="content">
-      <%= image_tag @photo.image_url %>
-    </div>
+    <%= image_tag @photo.image_url %>
   </article>
-  <% if signed_in? %>
-  <p class="tags">
-    Image URL: <%= @photo.image_url %>
-  </p>
-  <% end %>
-
-  <% if @photo.tangents %>
-  <p class="ftags">
-    <% for tangent in @photo.tangents %>
-        <%= link_to tangent.name, tangent %>
-    <% end %>
-  </p>
-  <% end %>
+  <div class="goldtainer">
+    <%= link_to "Download in High Resolution", @photo.image_url, :class => "center" %>
+    <% if signed_in? %>
+      <p class="tags">
+        Image URL: <%= @photo.image_url %>
+      </p>
+      <p class="center">
+        <%= link_to 'Edit', edit_photo_path(@photo) %> | <%= link_to 'Destroy', @photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </p>
+      <% end %>
+      <% if @photo.tangents %>
+      <p class="tags">
+        <% for tangent in @photo.tangents %>
+            <%= link_to tangent.name, tangent %>
+        <% end %>
+      </p>
+      <% end %>
+    </div>
 </div>
 
 <% if Rails.env.production? %>
