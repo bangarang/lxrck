@@ -7,7 +7,6 @@
   <%= link_to 'New tangent', new_tangent_path %>
 </div>
 <% end %>
-<div class="goldtainer clear">
 <% pics = [] %>
   <% @tangents.each do |tangent| %>
     <% pics.push(tangent) %>
@@ -51,7 +50,6 @@
           </section>
         <% end %>
   <% end %>
-</div>
 
 <% if Rails.env.production? %>
   <%= javascript_tag do %>
