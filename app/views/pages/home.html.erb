@@ -47,7 +47,7 @@
 
       <% if pics.length == 1 %> 
         <section class="goldtainer gallery clear" >
-          <% tangent = pics.pop %>
+          <% tangent = pics.shift %>
             <article class="tag lazy"<% if tangent.photo %> data-original="<%= tangent.photo.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>> 
               <header>
                 <a href="<%= tangent_path(tangent) %>"> 

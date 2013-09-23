@@ -1,22 +1,11 @@
 	
-@media screen and (min-width: 1437px) {
-	article.tag {
-		width: 19.2%;
-		margin-right: 0;
-		margin-bottom: 0;
-	}
-	article.tag:nth-child(5n) {
-		margin-right: 0;
-	}
-
+@for $i from 1 through 1063 {
+  @media screen and (min-width: 1437px + $i) { body { zoom: 1 + (0.0005 * $i); } }
 }
 
 @media screen and (max-width: 1437px) {
 	.goldtainer {
 		width: 870px;
-	}
-	article.tag:nth-child(4n) {
-		margin-right: 0;
 	}
 }
 
