@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head prefix="<%= yield(:head) %>">
-    <title><%= full_title(yield(:title)) %></title>
+    <title><%= full_title(yield(:title)).html_safe %></title>
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0" />
 	<script type="text/javascript" src="//use.typekit.net/ycx4epw.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>

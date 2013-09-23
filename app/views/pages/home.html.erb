@@ -15,7 +15,7 @@
 
 <% unless @points.blank? %>
 <div class="goldtainer">
-  <h1 class="feedtitle title">Points</h1>
+  <h1 class="feedtitle title"><%= link_to "Points", points_path %></h1>
   <%= link_to 'New Point', new_point_path unless !signed_in? %>
 
   <% @points.each do |point| %>
@@ -37,7 +37,7 @@
 </div>
 <% end %>
 <div class="goldtainer">
-  <h1 class="feedtitle title">Tangents</h1>
+  <h1 class="feedtitle title"><%= link_to "Tangents", tangents_path %></h1>
 </div>
 <% pics = [] %>
   <% @tangents.each do |tangent| %>
@@ -70,7 +70,7 @@
 
           <section class="goldtainer gallery<%= a %> clear">
 
-            <% for tangent in pics.pop(a) %>
+            <% for tangent in pics.shift(a) %>
               <article class="tag lazy"<% if tangent.photo %> data-original="<%= tangent.photo.image_url(:thumb) %>" style="background-image: url(/assets/blank.png);"<% end %>> 
               <header>
                 <a href="<%= tangent_path(tangent) %>"> 
@@ -85,6 +85,6 @@
   <% end %>
 <% if Rails.env.production? %>
   <%= javascript_tag do %>
-    mixpanel.track('Viewed Home Page');
+    mixpanel.track('Home Page');
   <% end %>
 <% end %>

@@ -86,6 +86,6 @@
 
 <% if Rails.env.production? %>
   <%= javascript_tag do %>
-    mixpanel.track('Viewed <%= @tangent.name %>');
+    mixpanel.track('<%= @tangent.name %>');
   <% end %>
 <% end %>
