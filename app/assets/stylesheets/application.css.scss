@@ -1126,6 +1126,7 @@ section.pointtop {
 	margin-bottom: -50px;
 	background-size: cover;
 	background-position: center center;
+	background-color: $dark;
 	display: table;
 	width: 100%;
 	font-weight: 400;
@@ -1336,5 +1337,5 @@ section.point {
 @import "links";
 @import "signin";
 @import "buttons";
-
+@import "headings";
 @import "queries";
