@@ -35,9 +35,6 @@ $light: #eee;
     content:attr(data-icon);
 }
 
-h1 { 
-	font-size: 3em;
-}
 
 /* Don't show shadows when selecting text */
 ::-moz-selection { background: $pink; color: #fff; text-shadow: none; }
@@ -279,6 +276,9 @@ nav.menu {
 	text-align: center;
 	text-transform: uppercase;
 	padding: 40px;
+	h1 {
+		font-size: 3em;
+	}
 	a {
 		font-weight: 400;
 	}
@@ -1250,9 +1250,6 @@ section.point {
 		h1 {
 			text-align: center;
 		}
-	}
-		h2 { 
-		text-align: center;
 	}
 	p.updated {
 		color: $light;
