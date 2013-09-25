@@ -276,9 +276,7 @@ nav.menu {
 	text-align: center;
 	text-transform: uppercase;
 	padding: 40px;
-	h1 {
-		font-size: 3em;
-	}
+	font-size: 3em;
 	a {
 		font-weight: 400;
 	}
@@ -834,6 +832,7 @@ section.top {
 			color: white;
 			text-align: center;
 			font-weight: 300;
+			font-size: 3em;
 		}
 		a {
 			display: block;
@@ -1137,6 +1136,9 @@ section.pointtop {
 		border:none;
 		text-transform: uppercase;
 		text-align: center;
+		h1 {
+			font-size: 3em;
+		}
 	}
 
 
@@ -1235,17 +1237,16 @@ section.point {
 			width: 100px;
 			border-radius: 50%;
 			margin: auto;
-			background-color: $pink;
+			background-color: white;
 			display: table;
-			border: 5px white solid;
 			position: relative;
 			z-index: 1;
-
+			box-shadow: 0 0 4px $dark;
 			h3 {
 				display: table-cell;
 				vertical-align: middle;
 				text-align: center;
-				color: white;
+				color: $dark;
 			}
 		}
 		h1 {
